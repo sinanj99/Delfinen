@@ -15,7 +15,7 @@ public class Delfinen {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("de der racister de kommer fra alle sider");
+        System.out.println("din far");
     }
     
 }
