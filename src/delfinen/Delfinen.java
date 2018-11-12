@@ -17,6 +17,7 @@ public class Delfinen {
     public static void main(String[] args) {
         System.out.println("sne");
         System.out.println("harakrishna");
+        System.out.println("OB");
     }
     
 }
