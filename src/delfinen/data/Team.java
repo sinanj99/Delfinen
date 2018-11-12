@@ -15,6 +15,10 @@ public class Team {
     private ArrayList<Member> members;
     private Coach coach;
 
+//    public Team(ArrayList<Member> members, Coach coach) {
+//        this.members = members;
+//        this.coach = coach;
+//    }
             
     public ArrayList<Member> getMembers() {
         return members;

@@ -17,13 +17,13 @@ import java.time.LocalDate;
  */
 public class Controller 
 {
-    public void createMember(boolean active, LocalDate birthYear, Discipline discipline, Coach coach)
+    public void createMember(String firstName, String lastName, boolean active, LocalDate birthDate, Discipline discipline, Team team)
     {
-        Member member = new Member(active, birthYear, discipline, coach);
+        Member member = new Member(firstName, lastName, active, birthDate, discipline, team);
     }
-    public void editMember(boolean active, LocalDate birthYear, Discipline discipline, Coach coach)
+    public void editMember(String firstName, String lastName, boolean active, LocalDate birthDate, Discipline discipline, Team team)
     {
-        createMember(active, birthYear, discipline, coach);
+        createMember(firstName, lastName, active, birthDate, discipline, team);
     }
     
     public void addMember(Member member)

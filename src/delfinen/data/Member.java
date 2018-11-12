@@ -17,17 +17,18 @@ public class Member {
     private boolean active;
     private String firstName;
     private String lastName;
-    private LocalDate birthYear;
+    private LocalDate birthDate;
     private Discipline discipline;
     private Team team;
     private Coach coach;
     private int id;
 
-    public Member(boolean active, LocalDate birthYear, Discipline discipline, Coach coach) {
+    public Member(String firstName, String lastName, boolean active, LocalDate birthDate, Discipline discipline, Team team) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.active = active;
-        this.birthYear = birthYear;
+        this.birthDate = birthDate;
         this.discipline = discipline;
         this.team = team;
-        this.coach = coach;
     }
 }
