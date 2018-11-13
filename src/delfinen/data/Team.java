@@ -14,11 +14,11 @@ import java.util.ArrayList;
 public class Team {
     private ArrayList<Member> members;
     private Coach coach;
+    private String teamName;
 
-//    public Team(ArrayList<Member> members, Coach coach) {
-//        this.members = members;
-//        this.coach = coach;
-//    }
+    public Team(String teamName) {
+        this.teamName = teamName;
+    }
             
     public ArrayList<Member> getMembers() {
         return members;

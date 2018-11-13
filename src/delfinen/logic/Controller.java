@@ -19,16 +19,15 @@ public class Controller
 {
     public void createMember(String firstName, String lastName, boolean active, LocalDate birthDate, Discipline discipline, Team team)
     {
-        Member member = new Member(firstName, lastName, active, birthDate, discipline, team);
+        new Member(firstName, lastName, active, birthDate, discipline, team);
     }
     public void editMember(String firstName, String lastName, boolean active, LocalDate birthDate, Discipline discipline, Team team)
     {
         createMember(firstName, lastName, active, birthDate, discipline, team);
     }
     
-    public void addMember(Member member)
+    public void addMember(Member member, Team team)
     {
-        Team team = new Team();
         team.getMembers().add(member);
     }
 }
