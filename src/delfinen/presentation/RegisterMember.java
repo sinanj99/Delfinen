@@ -276,7 +276,7 @@ public class RegisterMember extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Vælg venligst din aktivitetsform");
         }
         
-        //ctrl.createMember(firstName, lastName, active, ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()), discipline, team);
+        ctrl.createMember(firstName, lastName, active, ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()), discipline, team);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void yearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBoxActionPerformed

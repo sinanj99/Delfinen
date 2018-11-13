@@ -21,7 +21,7 @@ public class Member {
     private Discipline discipline;
     private Team team;
     private Coach coach;
-    private int id;
+    private static int id;
 
     public Member(String firstName, String lastName, boolean active, LocalDate birthDate, Discipline discipline, Team team) {
         this.firstName = firstName;
@@ -30,5 +30,6 @@ public class Member {
         this.birthDate = birthDate;
         this.discipline = discipline;
         this.team = team;
+        this.id++;
     }
 }
