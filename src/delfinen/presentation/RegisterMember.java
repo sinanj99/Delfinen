@@ -5,6 +5,7 @@
  */
 package delfinen.presentation;
 
+import delfinen.data.ComboYear;
 import delfinen.logic.Controller;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -67,6 +68,11 @@ public class RegisterMember extends javax.swing.JFrame {
         });
 
         monthBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        monthBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                monthBoxActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Registrer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -75,6 +81,15 @@ public class RegisterMember extends javax.swing.JFrame {
             }
         });
 
+        int yearLen =  2018-2000;
+        int yearPos = 0;
+        String[] years = new String[yearLen];
+
+        for(int i = 1; i < yearLen+1; i++){
+            years[yearPos] = Integer.toString(i);
+            yearPos++;
+        }
+        yearBox.setModel(new javax.swing.DefaultComboBoxModel<>(years));
         yearBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 yearBoxActionPerformed(evt);
@@ -99,7 +114,7 @@ public class RegisterMember extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 43, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
@@ -154,14 +169,14 @@ public class RegisterMember extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void yearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBoxActionPerformed
+       
         
-//        {
-//        ArrayList<String> years_tmp = new ArrayList<String>();
-//        for (int years = 1980; years <= Calendar.getInstance().get(Calendar.YEAR); years++) {
-//            years_tmp.add(years + "");
-//
-//        
+        
     }//GEN-LAST:event_yearBoxActionPerformed
+
+    private void monthBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_monthBoxActionPerformed
 
     /**
      * @param args the command line arguments
