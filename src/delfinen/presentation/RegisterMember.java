@@ -5,6 +5,9 @@
  */
 package delfinen.presentation;
 
+import delfinen.data.Team;
+import delfinen.filehandler.formandFile;
+import static delfinen.filehandler.formandFile.printMember;
 import delfinen.logic.Controller;
 import java.time.LocalDate;
 import java.time.Period;
@@ -36,6 +39,8 @@ public class RegisterMember extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         firstName = new javax.swing.JTextField();
@@ -54,6 +59,8 @@ public class RegisterMember extends javax.swing.JFrame {
         jRadioButton6 = new javax.swing.JRadioButton();
         jRadioButton7 = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
+        motionist = new javax.swing.JRadioButton();
+        konkurrence = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,15 +138,25 @@ public class RegisterMember extends javax.swing.JFrame {
 
         jLabel5.setText("Disciplin");
 
+        buttonGroup3.add(jRadioButton3);
         jRadioButton3.setText("jRadioButton3");
 
+        buttonGroup3.add(jRadioButton4);
         jRadioButton4.setText("jRadioButton3");
 
+        buttonGroup3.add(jRadioButton6);
         jRadioButton6.setText("jRadioButton3");
 
+        buttonGroup3.add(jRadioButton7);
         jRadioButton7.setText("jRadioButton3");
 
         jLabel6.setText("Hold");
+
+        buttonGroup2.add(motionist);
+        motionist.setText("Motionist");
+
+        buttonGroup2.add(konkurrence);
+        konkurrence.setText("Konkurrence");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,13 +192,20 @@ public class RegisterMember extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(passiv))))
-                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton4)
-                            .addComponent(jRadioButton7)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton6)
-                            .addComponent(jLabel5)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButton4)
+                                    .addComponent(jRadioButton7)
+                                    .addComponent(jRadioButton3)
+                                    .addComponent(jRadioButton6)
+                                    .addComponent(jLabel5)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(konkurrence)
+                                    .addComponent(motionist)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(Aktivitetsform)
@@ -223,9 +247,13 @@ public class RegisterMember extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Aktivitetsform, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addComponent(aktiv)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(aktiv)
+                    .addComponent(motionist))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passiv)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passiv)
+                    .addComponent(konkurrence))
                 .addGap(17, 17, 17)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18))
@@ -245,30 +273,33 @@ public class RegisterMember extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         Controller ctrl = new Controller();
+        formandFile ff = new formandFile();
         
         String firstName = this.firstName.getText();
         String lastName = this.lastName.getText();
         
-        boolean active = false;
+        boolean active = this.aktiv.isSelected();
+        boolean passive = this.passiv.isSelected();
+        String activity = null;
+        
+        boolean competitive = this.konkurrence.isSelected();
+        boolean motionist = this.motionist.isSelected();
+        Team team = null;
         
         int day = Integer.parseInt((String) dayBox.getSelectedItem()); 
         int month = Integer.parseInt((String) monthBox.getSelectedItem());
         int year = Integer.parseInt((String) yearBox.getSelectedItem());
         
-        
-        boolean aktiv = this.aktiv.isSelected();
-        boolean passiv = this.passiv.isSelected();
-        
         try {
 
-            if (aktiv) {
-                active = true;
+            if(active) {
+                activity = "active";
             }
-            if (passiv) {
-                active = false;
+            if(passive) {
+                activity = "passive";
             }
 
-            if (!aktiv && !passiv) {
+            if (!active && !passive) {
                 throw new Exception("Activity not chosen");
             }
 
@@ -276,7 +307,47 @@ public class RegisterMember extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Vælg venligst din aktivitetsform");
         }
         
-        ctrl.createMember(firstName, lastName, active, ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()), discipline, team);
+        try {
+
+            if(competitive) {
+                team = new Team("Konkurrence");
+                ctrl.createCompetetiveMember(firstName, lastName, active, LocalDate.of(year,month,day), discipline, team);
+            }
+            if(motionist) {
+                team = new Team("Motionist");
+            }
+
+            if (!competitive && !motionist) {
+                throw new Exception("Hensigt not chosen");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Vælg venligst din hensigt");
+        }
+        
+         try {
+
+            if(competitive) {
+                team = new Team("Konkurrence");
+                ff.printMember(ctrl.createCompetetiveMember(firstName, lastName, active, LocalDate.of(year,month,day), discipline, team));
+            }
+            if(motionist) {
+                team = new Team("Motionist");
+            }
+
+            if (!competitive && !motionist) {
+                throw new Exception("Hensigt not chosen");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Vælg venligst din hensigt");
+        }
+        if(!competitive)
+        {
+        ff.printMember(ctrl.createMember(firstName, lastName, activity, LocalDate.of(year, month, day), discipline, team));
+        }
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void yearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBoxActionPerformed
@@ -351,6 +422,8 @@ public class RegisterMember extends javax.swing.JFrame {
     private javax.swing.JLabel Aktivitetsform;
     private javax.swing.JRadioButton aktiv;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JComboBox<String> dayBox;
     private javax.swing.JTextField firstName;
     private javax.swing.JButton jButton1;
@@ -363,8 +436,10 @@ public class RegisterMember extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JRadioButton konkurrence;
     private javax.swing.JTextField lastName;
     private javax.swing.JComboBox<String> monthBox;
+    private javax.swing.JRadioButton motionist;
     private javax.swing.JRadioButton passiv;
     private javax.swing.JComboBox<String> yearBox;
     // End of variables declaration//GEN-END:variables
