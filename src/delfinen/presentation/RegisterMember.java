@@ -30,6 +30,7 @@ public class RegisterMember extends javax.swing.JFrame {
      * Creates new form GUIDelfinen2
      */
     public RegisterMember() {
+        
         initComponents();
     }
 
@@ -275,7 +276,7 @@ public class RegisterMember extends javax.swing.JFrame {
     }//GEN-LAST:event_dayBoxActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        int userId = PresidentFile.getLatestId();
         Controller ctrl = new Controller();
         PresidentFile ff = new PresidentFile();
         
@@ -347,13 +348,12 @@ public class RegisterMember extends javax.swing.JFrame {
          try {
              
             if(competitive) {
-                competitiveMember = ctrl.createCompetitiveMember(firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
+                competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
                 team = new TeamType("Konkurrence");
                 ctrl.addMember(competitiveMember, team);
-                PresidentFile.printCompetitiveMember(ctrl.createCompetitiveMember(firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
             }
             if(motionist) {
-                member = ctrl.createMember(firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
+                member = ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
                 team = new TeamType("Motionist");
                 ctrl.addMember(member, team);
             }
@@ -372,11 +372,11 @@ public class RegisterMember extends javax.swing.JFrame {
          
         try {
             if(motionist){
-                PresidentFile.printMember(ctrl.createMember(firstName, lastName, activity, LocalDate.of(year, month, day), dis, team));
+                PresidentFile.printMember(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, team));
             }
             
             if(competitive){
-                PresidentFile.printCompetitiveMember(ctrl.createCompetitiveMember(firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
+                PresidentFile.printCompetitiveMember(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
             }
         } catch (IOException e) {
           

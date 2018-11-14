@@ -27,11 +27,6 @@ public class TeamType {
     public Coach getCoach() {
         return coach;
     }
-
-    @Override
-    public String toString() {
-        return "TeamType{" + "teamName=" + teamName + '}';
-    }
     
     
 }

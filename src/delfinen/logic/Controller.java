@@ -18,21 +18,21 @@ import java.time.LocalDate;
  */
 public class Controller 
 {
-    public Member createMember(String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, TeamType team)
+    public Member createMember(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, TeamType team)
     {
-        return new Member(firstName, lastName, activity, birthDate, discipline, team);
+        return new Member(id, firstName, lastName, activity, birthDate, discipline, team);
     }
-    public void editMember(String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, TeamType team)
+    public void editMember(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, TeamType team)
     {
-        createMember(firstName, lastName, activity, birthDate, discipline, team);
+        createMember(id, firstName, lastName, activity, birthDate, discipline, team);
     }
     
     public void addMember(Member member, TeamType team)
     {
         team.getMembers().add(member);
     }
-    public CompetitiveMember createCompetitiveMember(String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, TeamType team)
+    public CompetitiveMember createCompetitiveMember(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, TeamType team)
     {
-        return new CompetitiveMember(firstName, lastName, activity, birthDate, discipline, team);
+        return new CompetitiveMember(id, firstName, lastName, activity, birthDate, discipline, team);
     }
 }
