@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.Character.LINE_SEPARATOR;
 
 /**
  *
@@ -21,7 +22,7 @@ public class PresidentFile
 {
     public static void printMember(Member member) throws IOException
     {
-        File orderFile = new File("/Users/orale/Desktop/textDoc-kopi.txt");
+        File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\Person.txt");
         FileWriter fileWriter = new FileWriter(orderFile,true);
         BufferedWriter buffer = new BufferedWriter(fileWriter);
         PrintWriter printWriter = new PrintWriter(buffer);
@@ -37,11 +38,12 @@ public class PresidentFile
         }
         //printWriter.print("                                                                                     " + "Fornavn: " + firstName + " Efternavn: " + lastName + " Alder: " + ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) + " Disciplin: " + dis);
         printWriter.print(member);
+        printWriter.print(LINE_SEPARATOR);
         printWriter.close();
     }
     public static void printCompetitiveMember(CompetitiveMember member) throws IOException
     {
-        File orderFile = new File("/Users/orale/Desktop/textDoc-kopi.txt");
+        File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\Person.txt");
         FileWriter fileWriter = new FileWriter(orderFile,true);
         BufferedWriter buffer = new BufferedWriter(fileWriter);
         PrintWriter printWriter = new PrintWriter(buffer);
@@ -57,6 +59,7 @@ public class PresidentFile
         }
         //printWriter.print("                                                                                     " + "Fornavn: " + firstName + " Efternavn: " + lastName + " Alder: " + ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) + " Disciplin: " + dis);
         printWriter.print(member);
+        printWriter.print(LINE_SEPARATOR);
         printWriter.close();
     }
 }

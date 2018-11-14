@@ -32,4 +32,11 @@ public class Member {
         this.team = team;
         this.id++;
     }
+
+    @Override
+    public String toString() {
+        return "Member{" + "activity=" + activity + ", firstName=" + firstName + ", lastName=" + lastName + ", birthDate=" + birthDate + ", discipline=" + discipline + ", team=" + team + ", coach=" + coach + '}';
+    }
+    
+    
 }

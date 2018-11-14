@@ -345,7 +345,7 @@ public class RegisterMember extends javax.swing.JFrame {
         }
          
          try {
-
+             
             if(competitive) {
                 competitiveMember = ctrl.createCompetitiveMember(firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
                 team = new TeamType("Konkurrence");
@@ -358,20 +358,26 @@ public class RegisterMember extends javax.swing.JFrame {
                 ctrl.addMember(member, team);
             }
 
+            
+        } catch (Exception e) {
+        }
+         
+        try{
             if (!competitive && !motionist) {
-                throw new Exception("Team type not chosen");
+               throw new Exception("Team type not chosen");
             }
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Vælg venligst din holdtype");
         }
          
         try {
-        if(!competitive)
-        {
-        PresidentFile.printMember(ctrl.createMember(firstName, lastName, activity, LocalDate.of(year, month, day), dis, team));
-        }
-        
+            if(motionist){
+                PresidentFile.printMember(ctrl.createMember(firstName, lastName, activity, LocalDate.of(year, month, day), dis, team));
+            }
+            
+            if(competitive){
+                PresidentFile.printCompetitiveMember(ctrl.createCompetitiveMember(firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
+            }
         } catch (IOException e) {
           
         }
