@@ -27,10 +27,15 @@ public class Controller
         createMember(id, firstName, lastName, activity, birthDate, discipline, team);
     }
     
-    public void addMember(Member member, TeamType team)
+    public void addCompetitiveMember(CompetitiveMember member, TeamType team)
     {
-        team.getMembers().add(member);
+        team.getCompetitiveMembers().add(member);
     }
+    public void addMotionistMember(Member member, TeamType team)
+    {
+        team.getMotionistMembers().add(member);
+    }
+    
     public CompetitiveMember createCompetitiveMember(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, TeamType team)
     {
         return new CompetitiveMember(id, firstName, lastName, activity, birthDate, discipline, team);

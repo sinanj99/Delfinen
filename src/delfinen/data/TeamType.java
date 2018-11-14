@@ -12,16 +12,24 @@ import java.util.ArrayList;
  * @author sinanjasar
  */
 public class TeamType {
-    private ArrayList<Member> members;
+    private ArrayList<Member> competitiveMembers;
+    private ArrayList<Member> motionistMembers;
     private Coach coach;
     private String teamName;
 
     public TeamType(String teamName) {
         this.teamName = teamName;
     }
+
+    public String getTeamName() {
+        return teamName;
+    }
             
-    public ArrayList<Member> getMembers() {
-        return members;
+    public ArrayList<Member> getMotionistMembers() {
+        return motionistMembers;
+    }
+    public ArrayList<Member> getCompetitiveMembers() {
+        return competitiveMembers;
     }
 
     public Coach getCoach() {

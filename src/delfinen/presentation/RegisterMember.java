@@ -155,7 +155,7 @@ public class RegisterMember extends javax.swing.JFrame {
         buttonGroup3.add(Butterfly);
         Butterfly.setText("Butterfly");
 
-        jLabel6.setText("Hold");
+        jLabel6.setText("Holdtype");
 
         buttonGroup2.add(motionist);
         motionist.setText("Motionist");
@@ -167,10 +167,6 @@ public class RegisterMember extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(32, 32, 32))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -196,7 +192,10 @@ public class RegisterMember extends javax.swing.JFrame {
                                         .addComponent(monthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(passiv))))
+                                    .addComponent(passiv)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addComponent(Aktivitetsform)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(50, 50, 50)
@@ -205,18 +204,19 @@ public class RegisterMember extends javax.swing.JFrame {
                                     .addComponent(Butterfly)
                                     .addComponent(Crawl)
                                     .addComponent(Brystsvømning)
-                                    .addComponent(jLabel5)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(konkurrence)
-                                    .addComponent(motionist)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(Aktivitetsform)
-                        .addGap(153, 153, 153)
-                        .addComponent(jLabel6)))
-                .addContainerGap(121, Short.MAX_VALUE))
+                                    .addComponent(motionist))
+                                .addGap(18, 18, 18)))
+                        .addGap(0, 115, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,9 +232,9 @@ public class RegisterMember extends javax.swing.JFrame {
                     .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Crawl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(Brystsvømning))
+                    .addComponent(Brystsvømning, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -247,21 +247,21 @@ public class RegisterMember extends javax.swing.JFrame {
                         .addComponent(Butterfly)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Rygcrawl)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Aktivitetsform, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Aktivitetsform))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(aktiv)
                     .addComponent(motionist))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passiv)
                     .addComponent(konkurrence))
-                .addGap(17, 17, 17)
+                .addGap(4, 4, 4)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -302,7 +302,8 @@ public class RegisterMember extends javax.swing.JFrame {
         int day = Integer.parseInt((String) dayBox.getSelectedItem()); 
         int month = Integer.parseInt((String) monthBox.getSelectedItem());
         int year = Integer.parseInt((String) yearBox.getSelectedItem());
-        
+        TeamType competitiveTeam = new TeamType("Competitive");
+        TeamType motionistTeam = new TeamType("Motionist");
         try {
 
             if(active) {
@@ -349,13 +350,13 @@ public class RegisterMember extends javax.swing.JFrame {
              
             if(competitive) {
                 competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
-                team = new TeamType("Konkurrence");
-                ctrl.addMember(competitiveMember, team);
+                ctrl.addCompetitiveMember(competitiveMember, competitiveTeam);
+                PresidentFile.printCompetitiveTeamMembers(competitiveTeam.getCompetitiveMembers());
             }
             if(motionist) {
                 member = ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
-                team = new TeamType("Motionist");
-                ctrl.addMember(member, team);
+                ctrl.addMotionistMember(member, motionistTeam);
+                PresidentFile.printMotionistTeamMembers(motionistTeam.getMotionistMembers());
             }
 
             
@@ -373,10 +374,13 @@ public class RegisterMember extends javax.swing.JFrame {
         try {
             if(motionist){
                 PresidentFile.printMember(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, team));
+                PresidentFile.printMotionistTeamMembers(motionistTeam.getMotionistMembers());
+                System.out.println(motionistTeam.getMotionistMembers());
             }
             
             if(competitive){
                 PresidentFile.printCompetitiveMember(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
+                PresidentFile.printCompetitiveTeamMembers(competitiveTeam.getCompetitiveMembers());
             }
         } catch (IOException e) {
           
