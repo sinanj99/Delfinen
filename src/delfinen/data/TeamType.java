@@ -11,12 +11,12 @@ import java.util.ArrayList;
  *
  * @author sinanjasar
  */
-public class Team {
+public class TeamType {
     private ArrayList<Member> members;
     private Coach coach;
     private String teamName;
 
-    public Team(String teamName) {
+    public TeamType(String teamName) {
         this.teamName = teamName;
     }
             

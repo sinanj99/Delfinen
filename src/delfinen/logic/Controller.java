@@ -6,9 +6,10 @@
 package delfinen.logic;
 
 import delfinen.data.Coach;
+import delfinen.data.CompetitiveMember;
 import delfinen.data.Discipline;
 import delfinen.data.Member;
-import delfinen.data.Team;
+import delfinen.data.TeamType;
 import java.time.LocalDate;
 
 /**
@@ -17,17 +18,21 @@ import java.time.LocalDate;
  */
 public class Controller 
 {
-    public void createMember(String firstName, String lastName, boolean active, LocalDate birthDate, Discipline discipline, Team team)
+    public Member createMember(String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, TeamType team)
     {
-        new Member(firstName, lastName, active, birthDate, discipline, team);
+        return new Member(firstName, lastName, activity, birthDate, discipline, team);
     }
-    public void editMember(String firstName, String lastName, boolean active, LocalDate birthDate, Discipline discipline, Team team)
+    public void editMember(String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, TeamType team)
     {
-        createMember(firstName, lastName, active, birthDate, discipline, team);
+        createMember(firstName, lastName, activity, birthDate, discipline, team);
     }
     
-    public void addMember(Member member, Team team)
+    public void addMember(Member member, TeamType team)
     {
         team.getMembers().add(member);
+    }
+    public CompetitiveMember createCompetitiveMember(String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, TeamType team)
+    {
+        return new CompetitiveMember(firstName, lastName, activity, birthDate, discipline, team);
     }
 }

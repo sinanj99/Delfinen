@@ -14,19 +14,19 @@ import java.util.ArrayList;
  */
 public class Member {
 
-    private boolean active;
+    private String activity;
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
     private Discipline discipline;
-    private Team team;
+    private TeamType team;
     private Coach coach;
     private static int id;
 
-    public Member(String firstName, String lastName, boolean active, LocalDate birthDate, Discipline discipline, Team team) {
+    public Member(String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, TeamType team) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.active = active;
+        this.activity = activity;
         this.birthDate = birthDate;
         this.discipline = discipline;
         this.team = team;

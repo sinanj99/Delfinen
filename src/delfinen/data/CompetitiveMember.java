@@ -15,8 +15,8 @@ import java.util.ArrayList;
 public class CompetitiveMember extends Member
 {
     
-    public CompetitiveMember(String firstName, String lastName, boolean active, LocalDate birthDate, Discipline discipline, Team team) {
-        super(firstName, lastName, active, birthDate, discipline, team);
+    public CompetitiveMember(String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, TeamType team) {
+        super(firstName, lastName, activity, birthDate, discipline, team);
     }
     
 }

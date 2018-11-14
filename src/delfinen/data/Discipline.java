@@ -9,7 +9,10 @@ package delfinen.data;
  *
  * @author sinanjasar
  */
-public class Discipline 
+public enum Discipline 
 {
-    
+    CRAWL,
+    BRYST,
+    BUTTERFLY,
+    RYGCRAWL
 }

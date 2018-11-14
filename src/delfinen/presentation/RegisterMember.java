@@ -349,7 +349,7 @@ public class RegisterMember extends javax.swing.JFrame {
             if(competitive) {
                 competitiveMember = ctrl.createCompetitiveMember(firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
                 team = new TeamType("Konkurrence");
-                ctrl.addMember(member, team);
+                ctrl.addMember(competitiveMember, team);
                 PresidentFile.printCompetitiveMember(ctrl.createCompetitiveMember(firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
             }
             if(motionist) {

@@ -5,6 +5,7 @@
  */
 package delfinen.filehandler;
 
+import delfinen.data.CompetitiveMember;
 import delfinen.data.Member;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -16,9 +17,29 @@ import java.io.PrintWriter;
  *
  * @author sinanjasar
  */
-public class formandFile 
+public class PresidentFile 
 {
     public static void printMember(Member member) throws IOException
+    {
+        File orderFile = new File("/Users/orale/Desktop/textDoc-kopi.txt");
+        FileWriter fileWriter = new FileWriter(orderFile,true);
+        BufferedWriter buffer = new BufferedWriter(fileWriter);
+        PrintWriter printWriter = new PrintWriter(buffer);
+ 
+        if(orderFile.exists() == false)
+        {
+           orderFile.createNewFile();
+           System.out.println("The file has been created");
+        }
+         else
+        {
+            System.out.println("");
+        }
+        //printWriter.print("                                                                                     " + "Fornavn: " + firstName + " Efternavn: " + lastName + " Alder: " + ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) + " Disciplin: " + dis);
+        printWriter.print(member);
+        printWriter.close();
+    }
+    public static void printCompetitiveMember(CompetitiveMember member) throws IOException
     {
         File orderFile = new File("/Users/orale/Desktop/textDoc-kopi.txt");
         FileWriter fileWriter = new FileWriter(orderFile,true);
