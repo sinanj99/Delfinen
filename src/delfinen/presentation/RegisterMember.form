@@ -74,10 +74,10 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton7" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton6" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Rygcrawl" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Butterfly" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Crawl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Brystsvømning" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -97,7 +97,7 @@
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="126" max="32767" attributes="0"/>
+              <EmptySpace pref="121" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -114,12 +114,12 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="firstName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lastName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Crawl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jRadioButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Brystsvømning" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -132,9 +132,9 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jRadioButton7" min="-2" max="-2" attributes="0"/>
+                      <Component id="Butterfly" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
+                      <Component id="Rygcrawl" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -315,36 +315,36 @@
         <Property name="text" type="java.lang.String" value="Disciplin"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+    <Component class="javax.swing.JRadioButton" name="Crawl">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jRadioButton3"/>
+        <Property name="text" type="java.lang.String" value="Crawl"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton4">
+    <Component class="javax.swing.JRadioButton" name="Rygcrawl">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jRadioButton3"/>
+        <Property name="text" type="java.lang.String" value="Rygcrawl"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton6">
+    <Component class="javax.swing.JRadioButton" name="Brystsv&#xf8;mning">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jRadioButton3"/>
+        <Property name="text" type="java.lang.String" value="Brystsv&#xf8;mning"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton7">
+    <Component class="javax.swing.JRadioButton" name="Butterfly">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jRadioButton3"/>
+        <Property name="text" type="java.lang.String" value="Butterfly"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">

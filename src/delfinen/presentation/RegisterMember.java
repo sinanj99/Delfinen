@@ -5,14 +5,18 @@
  */
 package delfinen.presentation;
 
-import delfinen.data.Team;
-import delfinen.filehandler.formandFile;
-import static delfinen.filehandler.formandFile.printMember;
+import delfinen.data.CompetitiveMember;
+import delfinen.data.Discipline;
+import static delfinen.data.Discipline.BRYST;
+import static delfinen.data.Discipline.BUTTERFLY;
+import static delfinen.data.Discipline.CRAWL;
+import static delfinen.data.Discipline.RYGCRAWL;
+import delfinen.data.Member;
+import delfinen.data.TeamType;
+import delfinen.filehandler.PresidentFile;
 import delfinen.logic.Controller;
+import java.io.IOException;
 import java.time.LocalDate;
-import java.time.Period;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
@@ -54,10 +58,10 @@ public class RegisterMember extends javax.swing.JFrame {
         aktiv = new javax.swing.JRadioButton();
         passiv = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
+        Crawl = new javax.swing.JRadioButton();
+        Rygcrawl = new javax.swing.JRadioButton();
+        Brystsvømning = new javax.swing.JRadioButton();
+        Butterfly = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
         motionist = new javax.swing.JRadioButton();
         konkurrence = new javax.swing.JRadioButton();
@@ -138,17 +142,17 @@ public class RegisterMember extends javax.swing.JFrame {
 
         jLabel5.setText("Disciplin");
 
-        buttonGroup3.add(jRadioButton3);
-        jRadioButton3.setText("jRadioButton3");
+        buttonGroup3.add(Crawl);
+        Crawl.setText("Crawl");
 
-        buttonGroup3.add(jRadioButton4);
-        jRadioButton4.setText("jRadioButton3");
+        buttonGroup3.add(Rygcrawl);
+        Rygcrawl.setText("Rygcrawl");
 
-        buttonGroup3.add(jRadioButton6);
-        jRadioButton6.setText("jRadioButton3");
+        buttonGroup3.add(Brystsvømning);
+        Brystsvømning.setText("Brystsvømning");
 
-        buttonGroup3.add(jRadioButton7);
-        jRadioButton7.setText("jRadioButton3");
+        buttonGroup3.add(Butterfly);
+        Butterfly.setText("Butterfly");
 
         jLabel6.setText("Hold");
 
@@ -196,10 +200,10 @@ public class RegisterMember extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(50, 50, 50)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton4)
-                                    .addComponent(jRadioButton7)
-                                    .addComponent(jRadioButton3)
-                                    .addComponent(jRadioButton6)
+                                    .addComponent(Rygcrawl)
+                                    .addComponent(Butterfly)
+                                    .addComponent(Crawl)
+                                    .addComponent(Brystsvømning)
                                     .addComponent(jLabel5)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(5, 5, 5)
@@ -211,7 +215,7 @@ public class RegisterMember extends javax.swing.JFrame {
                         .addComponent(Aktivitetsform)
                         .addGap(153, 153, 153)
                         .addComponent(jLabel6)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,11 +229,11 @@ public class RegisterMember extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(firstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton3))
+                    .addComponent(Crawl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jRadioButton6))
+                    .addComponent(Brystsvømning))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -239,9 +243,9 @@ public class RegisterMember extends javax.swing.JFrame {
                             .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton7)
+                        .addComponent(Butterfly)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton4)))
+                        .addComponent(Rygcrawl)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,7 +277,7 @@ public class RegisterMember extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         Controller ctrl = new Controller();
-        formandFile ff = new formandFile();
+        PresidentFile ff = new PresidentFile();
         
         String firstName = this.firstName.getText();
         String lastName = this.lastName.getText();
@@ -284,7 +288,15 @@ public class RegisterMember extends javax.swing.JFrame {
         
         boolean competitive = this.konkurrence.isSelected();
         boolean motionist = this.motionist.isSelected();
-        Team team = null;
+        TeamType team = null;
+        Member member = null;
+        CompetitiveMember competitiveMember = null;
+        
+        boolean crawl = this.Crawl.isSelected();
+        boolean bryst = this.Brystsvømning.isSelected();
+        boolean butterfly = this.Butterfly.isSelected();
+        boolean rygcrawl = this.Rygcrawl.isSelected();
+        Discipline dis = null;
         
         int day = Integer.parseInt((String) dayBox.getSelectedItem()); 
         int month = Integer.parseInt((String) monthBox.getSelectedItem());
@@ -309,42 +321,59 @@ public class RegisterMember extends javax.swing.JFrame {
         
         try {
 
-            if(competitive) {
-                team = new Team("Konkurrence");
-                ctrl.createCompetetiveMember(firstName, lastName, active, LocalDate.of(year,month,day), discipline, team);
+            if(crawl) {
+                dis = CRAWL;
             }
-            if(motionist) {
-                team = new Team("Motionist");
+            if(bryst) {
+                dis = BRYST;
+            }
+            if(butterfly)
+            {
+               dis = BUTTERFLY;
+            }
+            if(rygcrawl)
+            {
+               dis = RYGCRAWL;
             }
 
-            if (!competitive && !motionist) {
-                throw new Exception("Hensigt not chosen");
+            if (!crawl && !bryst && !butterfly && !rygcrawl) {
+                throw new Exception("Discipline not chosen");
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Vælg venligst din hensigt");
+            JOptionPane.showMessageDialog(this, "Vælg venligst din(e) disciplin(er)");
         }
-        
+         
          try {
 
             if(competitive) {
-                team = new Team("Konkurrence");
-                ff.printMember(ctrl.createCompetetiveMember(firstName, lastName, active, LocalDate.of(year,month,day), discipline, team));
+                competitiveMember = ctrl.createCompetitiveMember(firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
+                team = new TeamType("Konkurrence");
+                ctrl.addMember(member, team);
+                PresidentFile.printCompetitiveMember(ctrl.createCompetitiveMember(firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
             }
             if(motionist) {
-                team = new Team("Motionist");
+                member = ctrl.createMember(firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
+                team = new TeamType("Motionist");
+                ctrl.addMember(member, team);
             }
 
             if (!competitive && !motionist) {
-                throw new Exception("Hensigt not chosen");
+                throw new Exception("Team type not chosen");
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Vælg venligst din hensigt");
+            JOptionPane.showMessageDialog(this, "Vælg venligst din holdtype");
         }
+         
+        try {
         if(!competitive)
         {
-        ff.printMember(ctrl.createMember(firstName, lastName, activity, LocalDate.of(year, month, day), discipline, team));
+        PresidentFile.printMember(ctrl.createMember(firstName, lastName, activity, LocalDate.of(year, month, day), dis, team));
+        }
+        
+        } catch (IOException e) {
+          
         }
         
         
@@ -352,8 +381,6 @@ public class RegisterMember extends javax.swing.JFrame {
 
     private void yearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBoxActionPerformed
        
-        
-        
     }//GEN-LAST:event_yearBoxActionPerformed
 
     private void monthBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthBoxActionPerformed
@@ -420,6 +447,10 @@ public class RegisterMember extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Aktivitetsform;
+    private javax.swing.JRadioButton Brystsvømning;
+    private javax.swing.JRadioButton Butterfly;
+    private javax.swing.JRadioButton Crawl;
+    private javax.swing.JRadioButton Rygcrawl;
     private javax.swing.JRadioButton aktiv;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -432,10 +463,6 @@ public class RegisterMember extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton konkurrence;
     private javax.swing.JTextField lastName;
     private javax.swing.JComboBox<String> monthBox;
