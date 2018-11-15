@@ -19,11 +19,11 @@ public class Member {
     private String lastName;
     private LocalDate birthDate;
     private Discipline discipline;
-    private TeamType team;
+    private Team team;
     private Coach coach;
     private int id;
 
-    public Member(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, TeamType team) {
+    public Member(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -36,7 +36,7 @@ public class Member {
 
     @Override
     public String toString() {
-        return "MemberId: " + id + "{" + "activity=" + activity + ", firstName=" + firstName + ", lastName=" + lastName + ", birthDate=" + birthDate + ", discipline=" + discipline + ", team=" + team + ", coach=" + coach + '}' + "\n";
+        return "MemberId: " + id + "{" + "activity=" + activity + ", firstName=" + firstName + ", lastName=" + lastName + ", birthDate=" + birthDate + ", discipline=" + discipline + ", team=" + team + ", coach=" + coach + '}' + "\n\n";
     }
     
     

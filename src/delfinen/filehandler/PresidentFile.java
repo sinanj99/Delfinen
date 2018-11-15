@@ -117,7 +117,7 @@ public class PresidentFile
         printWriter.print(member);
         printWriter.close();
     }
-    public static void printCompetitiveTeamMembers(ArrayList<Member> members) throws IOException
+    public static void printCompetitiveTeamMembers(CompetitiveMember member) throws IOException
     {
         //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\Person.txt");
         File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/CompetitiveTeam.txt");
@@ -135,10 +135,10 @@ public class PresidentFile
         {
             System.out.println("");
         }
-        printWriter.print(members);
+        printWriter.print(member + "\n\n");
         printWriter.close();
     }
-    public static void printMotionistTeamMembers(ArrayList<Member> members) throws IOException
+    public static void printMotionistTeamMembers(Member member) throws IOException
     {
         //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\Person.txt");
         File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/MotionistTeam.txt");
@@ -156,7 +156,49 @@ public class PresidentFile
         {
             System.out.println("");
         }
-        printWriter.print(members);
+        printWriter.print(member + "\n\n");
+        printWriter.close();
+    }
+
+    public static void printJuniorTeamMembers(CompetitiveMember member) throws IOException {
+        //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\Person.txt");
+        File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/JuniorTeam.txt");
+        
+        FileWriter fileWriter = new FileWriter(orderFile,true);
+        BufferedWriter buffer = new BufferedWriter(fileWriter);
+        PrintWriter printWriter = new PrintWriter(buffer);
+ 
+        if(orderFile.exists() == false)
+        {
+           orderFile.createNewFile();
+           System.out.println("The file has been created");
+        }
+         else
+        {
+            System.out.println("");
+        }
+        printWriter.print(member + "\n\n");
+        printWriter.close();
+    }
+
+    public static void printSeniorTeamMembers(CompetitiveMember member) throws IOException {
+        //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\Person.txt");
+        File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/SeniorTeam.txt");
+        
+        FileWriter fileWriter = new FileWriter(orderFile,true);
+        BufferedWriter buffer = new BufferedWriter(fileWriter);
+        PrintWriter printWriter = new PrintWriter(buffer);
+ 
+        if(orderFile.exists() == false)
+        {
+           orderFile.createNewFile();
+           System.out.println("The file has been created");
+        }
+         else
+        {
+            System.out.println("");
+        }
+        printWriter.print(member + "\n\n");
         printWriter.close();
     }
 }

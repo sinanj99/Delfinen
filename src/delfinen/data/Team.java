@@ -4,32 +4,20 @@
  * and open the template in the editor.
  */
 package delfinen.data;
-
-import java.util.ArrayList;
-
 /**
  *
  * @author sinanjasar
  */
-public class TeamType {
-    private ArrayList<Member> competitiveMembers;
-    private ArrayList<Member> motionistMembers;
+public class Team {
     private Coach coach;
     private String teamName;
 
-    public TeamType(String teamName) {
+    public Team(String teamName) {
         this.teamName = teamName;
     }
 
     public String getTeamName() {
         return teamName;
-    }
-            
-    public ArrayList<Member> getMotionistMembers() {
-        return motionistMembers;
-    }
-    public ArrayList<Member> getCompetitiveMembers() {
-        return competitiveMembers;
     }
 
     public Coach getCoach() {

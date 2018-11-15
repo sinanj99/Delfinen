@@ -6,17 +6,22 @@
 package delfinen.presentation;
 
 import delfinen.data.CompetitiveMember;
+import delfinen.data.CompetitiveTeam;
 import delfinen.data.Discipline;
 import static delfinen.data.Discipline.BRYST;
 import static delfinen.data.Discipline.BUTTERFLY;
 import static delfinen.data.Discipline.CRAWL;
 import static delfinen.data.Discipline.RYGCRAWL;
+import delfinen.data.JuniorTeam;
 import delfinen.data.Member;
-import delfinen.data.TeamType;
+import delfinen.data.MotionistTeam;
+import delfinen.data.SeniorTeam;
+import delfinen.data.Team;
 import delfinen.filehandler.PresidentFile;
 import delfinen.logic.Controller;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
@@ -289,7 +294,7 @@ public class RegisterMember extends javax.swing.JFrame {
         
         boolean competitive = this.konkurrence.isSelected();
         boolean motionist = this.motionist.isSelected();
-        TeamType team = null;
+        Team team = null;
         Member member = null;
         CompetitiveMember competitiveMember = null;
         
@@ -302,8 +307,11 @@ public class RegisterMember extends javax.swing.JFrame {
         int day = Integer.parseInt((String) dayBox.getSelectedItem()); 
         int month = Integer.parseInt((String) monthBox.getSelectedItem());
         int year = Integer.parseInt((String) yearBox.getSelectedItem());
-        TeamType competitiveTeam = new TeamType("Competitive");
-        TeamType motionistTeam = new TeamType("Motionist");
+        CompetitiveTeam competitiveTeam = new CompetitiveTeam("Competitive");
+        MotionistTeam motionistTeam = new MotionistTeam("Motionist");
+        JuniorTeam juniorTeam = new JuniorTeam("Junior");
+        SeniorTeam seniorTeam = new SeniorTeam("Senior");
+        
         try {
 
             if(active) {
@@ -351,12 +359,23 @@ public class RegisterMember extends javax.swing.JFrame {
             if(competitive) {
                 competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
                 ctrl.addCompetitiveMember(competitiveMember, competitiveTeam);
-                PresidentFile.printCompetitiveTeamMembers(competitiveTeam.getCompetitiveMembers());
+                if(ChronoUnit.YEARS.between(LocalDate.of(year,month,day), LocalDate.now()) <= 18)
+                {
+                    PresidentFile.printJuniorTeamMembers();
+                }
+                else
+                {
+                    ctrl.addSeniorMember(competitiveMember, seniorTeam);
+                    PresidentFile.printSeniorTeamMembers();
+                }
+                //PresidentFile.printCompetitiveTeamMembers(competitiveTeam.getCompetitiveMembers());
+                PresidentFile.printCompetitiveTeamMembers(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
             }
             if(motionist) {
                 member = ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
                 ctrl.addMotionistMember(member, motionistTeam);
-                PresidentFile.printMotionistTeamMembers(motionistTeam.getMotionistMembers());
+                //PresidentFile.printMotionistTeamMembers(motionistTeam.getMotionistMembers());
+                PresidentFile.printMotionistTeamMembers(ctrl.createMember(day, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
             }
 
             
@@ -374,13 +393,12 @@ public class RegisterMember extends javax.swing.JFrame {
         try {
             if(motionist){
                 PresidentFile.printMember(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, team));
-                PresidentFile.printMotionistTeamMembers(motionistTeam.getMotionistMembers());
-                System.out.println(motionistTeam.getMotionistMembers());
+                PresidentFile.printMotionistTeamMembers(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
             }
             
             if(competitive){
                 PresidentFile.printCompetitiveMember(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
-                PresidentFile.printCompetitiveTeamMembers(competitiveTeam.getCompetitiveMembers());
+                PresidentFile.printCompetitiveTeamMembers(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
             }
         } catch (IOException e) {
           

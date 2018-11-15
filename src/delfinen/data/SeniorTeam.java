@@ -11,7 +11,16 @@ import java.util.ArrayList;
  *
  * @author sinanjasar
  */
-public class Coach 
-{
-    private ArrayList<Team> teams;
+public class SeniorTeam extends CompetitiveTeam {
+    
+    private ArrayList<CompetitiveMember> members;
+
+    public SeniorTeam(String teamName) {
+        super(teamName);
+    }
+
+    public ArrayList<CompetitiveMember> getMembers() {
+        return members;
+    }
+    
 }
