@@ -6,6 +6,7 @@
 package delfinen.filehandler;
 
 import delfinen.data.CompetitiveMember;
+import delfinen.data.JuniorTeam;
 import delfinen.data.Member;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -201,5 +202,6 @@ public class PresidentFile
         printWriter.print(member + "\n\n");
         printWriter.close();
     }
+
 }
 
