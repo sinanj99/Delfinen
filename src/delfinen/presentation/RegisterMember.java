@@ -30,7 +30,10 @@ import javax.swing.JOptionPane;
  * @author sinanjasar
  */
 public class RegisterMember extends javax.swing.JFrame {
-
+    CompetitiveTeam competitiveTeam = new CompetitiveTeam("Konkurrenceholdet");
+    MotionistTeam motionistTeam = new MotionistTeam("Motionistholdet");
+    JuniorTeam juniorTeam = new JuniorTeam("Juniorholdet");
+    SeniorTeam seniorTeam = new SeniorTeam("Seniorholdet");
     /**
      * Creates new form GUIDelfinen2
      */
@@ -78,14 +81,18 @@ public class RegisterMember extends javax.swing.JFrame {
 
         jLabel2.setText("Efternavn");
 
-        firstName.setText("Indtast fornavn");
         firstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstNameActionPerformed(evt);
             }
         });
 
-        lastName.setText("Indtast efternavn");
+        lastName.setText(" ");
+        lastName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastNameActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Fødselsdag");
 
@@ -179,12 +186,12 @@ public class RegisterMember extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(17, 17, 17)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(firstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1))
-                                .addGap(28, 28, 28)
+                                    .addComponent(jLabel1)
+                                    .addComponent(firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2)))
+                                    .addComponent(jLabel2)
+                                    .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +224,7 @@ public class RegisterMember extends javax.swing.JFrame {
                                     .addComponent(konkurrence)
                                     .addComponent(motionist))
                                 .addGap(18, 18, 18)))
-                        .addGap(0, 115, Short.MAX_VALUE))
+                        .addGap(0, 127, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1)))
@@ -307,10 +314,7 @@ public class RegisterMember extends javax.swing.JFrame {
         int day = Integer.parseInt((String) dayBox.getSelectedItem()); 
         int month = Integer.parseInt((String) monthBox.getSelectedItem());
         int year = Integer.parseInt((String) yearBox.getSelectedItem());
-        CompetitiveTeam competitiveTeam = new CompetitiveTeam("Competitive");
-        MotionistTeam motionistTeam = new MotionistTeam("Motionist");
-        JuniorTeam juniorTeam = new JuniorTeam("Junior");
-        SeniorTeam seniorTeam = new SeniorTeam("Senior");
+        
         
         try {
 
@@ -357,7 +361,7 @@ public class RegisterMember extends javax.swing.JFrame {
          try {
              
             if(competitive) {
-                competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
+                competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, competitiveTeam);
                 ctrl.addCompetitiveMember(competitiveMember, competitiveTeam);
                 if(ChronoUnit.YEARS.between(LocalDate.of(year,month,day), LocalDate.now()) < 18)
                 {
@@ -370,13 +374,13 @@ public class RegisterMember extends javax.swing.JFrame {
                     PresidentFile.printSeniorTeamMembers(competitiveMember);
                 }
                 //PresidentFile.printCompetitiveTeamMembers(competitiveTeam.getCompetitiveMembers());
-                PresidentFile.printCompetitiveTeamMembers(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
+                PresidentFile.printCompetitiveTeamMembers(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, competitiveTeam));
             }
             if(motionist) {
                 member = ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
                 ctrl.addMotionistMember(member, motionistTeam);
                 //PresidentFile.printMotionistTeamMembers(motionistTeam.getMotionistMembers());
-                PresidentFile.printMotionistTeamMembers(ctrl.createMember(day, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
+                PresidentFile.printMotionistTeamMembers(ctrl.createMember(day, firstName, lastName, activity, LocalDate.of(year,month,day), dis, motionistTeam));
             }
 
             
@@ -393,14 +397,14 @@ public class RegisterMember extends javax.swing.JFrame {
          
         try {
             if(motionist){
-                PresidentFile.printMember(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, team));
-                PresidentFile.printMotionistTeamMembers(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
+                PresidentFile.printMember(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam));
+                PresidentFile.printMotionistTeamMembers(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, motionistTeam));
             }
             
             if(competitive)
             {
-                PresidentFile.printCompetitiveMember(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
-                PresidentFile.printCompetitiveTeamMembers(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
+                PresidentFile.printCompetitiveMember(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, competitiveTeam));
+                PresidentFile.printCompetitiveTeamMembers(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, competitiveTeam));
                 if(ChronoUnit.YEARS.between(LocalDate.of(year,month,day), LocalDate.now()) <= 18)
                 {
                     //ctrl.addJuniorMember(competitiveMember, juniorTeam);
@@ -434,6 +438,10 @@ public class RegisterMember extends javax.swing.JFrame {
     private void passivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passivActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passivActionPerformed
+
+    private void lastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameActionPerformed
 
     /**
      * @param args the command line arguments
