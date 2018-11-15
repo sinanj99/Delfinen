@@ -162,8 +162,8 @@ public class PresidentFile
     }
 
     public static void printJuniorTeamMembers(CompetitiveMember member) throws IOException {
-        //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\Person.txt");
-        File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/JuniorTeam.txt");
+        File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\JuniorTeam.txt");
+        //File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/JuniorTeam.txt");
         
         FileWriter fileWriter = new FileWriter(orderFile,true);
         BufferedWriter buffer = new BufferedWriter(fileWriter);
@@ -183,8 +183,8 @@ public class PresidentFile
     }
 
     public static void printSeniorTeamMembers(CompetitiveMember member) throws IOException {
-        //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\Person.txt");
-        File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/SeniorTeam.txt");
+        File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\SeniorTeam.txt");
+        //File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/SeniorTeam.txt");
         
         FileWriter fileWriter = new FileWriter(orderFile,true);
         BufferedWriter buffer = new BufferedWriter(fileWriter);
