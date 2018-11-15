@@ -36,7 +36,14 @@ public class Member {
 
     @Override
     public String toString() {
-        return "MemberId: " + id + "{" + "activity=" + activity + ", firstName=" + firstName + ", lastName=" + lastName + ", birthDate=" + birthDate + ", discipline=" + discipline + ", team=" + team + ", coach=" + coach + '}' + "\n\n";
+        return "Medlem Id: " + id + 
+               "\nAktivitetsform: " + activity + 
+               "\nFornavn: " + firstName + 
+               "\nEfternavn: " + lastName + 
+               "\nFødselsdag: " + birthDate + 
+               "\nDisciplin: " + discipline + 
+               "\nHold: " + team + 
+               "\nTræner: " + coach + "\n\n";
     }
     
     

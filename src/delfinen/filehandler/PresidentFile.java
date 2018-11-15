@@ -178,7 +178,7 @@ public class PresidentFile
         {
             System.out.println("");
         }
-        printWriter.print(member + "\n\n");
+        printWriter.print(member);
         printWriter.close();
     }
 
@@ -199,7 +199,7 @@ public class PresidentFile
         {
             System.out.println("");
         }
-        printWriter.print(member + "\n\n");
+        printWriter.print(member);
         printWriter.close();
     }
 

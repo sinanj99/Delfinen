@@ -23,6 +23,11 @@ public class Team {
     public Coach getCoach() {
         return coach;
     }
+
+    @Override
+    public String toString() {
+        return teamName;
+    }
     
     
 }
