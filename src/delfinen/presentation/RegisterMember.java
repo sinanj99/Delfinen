@@ -397,9 +397,20 @@ public class RegisterMember extends javax.swing.JFrame {
                 PresidentFile.printMotionistTeamMembers(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
             }
             
-            if(competitive){
+            if(competitive)
+            {
                 PresidentFile.printCompetitiveMember(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
                 PresidentFile.printCompetitiveTeamMembers(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team));
+                if(ChronoUnit.YEARS.between(LocalDate.of(year,month,day), LocalDate.now()) <= 18)
+                {
+                    //ctrl.addJuniorMember(competitiveMember, juniorTeam);
+                    PresidentFile.printJuniorTeamMembers(competitiveMember);
+                }
+                else
+                {
+                    //ctrl.addSeniorMember(competitiveMember, seniorTeam);
+                    PresidentFile.printSeniorTeamMembers(competitiveMember);
+                }
             }
         } catch (IOException e) {
           
