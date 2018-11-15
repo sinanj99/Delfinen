@@ -25,10 +25,11 @@ public class Controller
     {
         return new Member(id, firstName, lastName, activity, birthDate, discipline, team);
     }
-    public void editMember(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team)
-    {
-        createMember(id, firstName, lastName, activity, birthDate, discipline, team);
-    }
+    
+//    public void editMember(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team)
+//    {
+//        createMember(id, firstName, lastName, activity, birthDate, discipline, team);
+//    }
     
     public void addCompetitiveMember(CompetitiveMember member, CompetitiveTeam team)
     {
