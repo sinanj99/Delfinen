@@ -6,7 +6,6 @@
 package delfinen.filehandler;
 
 import delfinen.data.CompetitiveMember;
-import delfinen.data.JuniorTeam;
 import delfinen.data.Member;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,8 +15,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.Character.LINE_SEPARATOR;
-import java.util.ArrayList;
+
 
 /**
  *
