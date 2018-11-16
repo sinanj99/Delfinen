@@ -45,6 +45,38 @@ public class Member {
                "\nHold: " + team + 
                "\nTræner: " + coach + "\n\n";
     }
+
+    public String getActivity() {
+        return activity;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public Discipline getDiscipline() {
+        return discipline;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public Coach getCoach() {
+        return coach;
+    }
+
+    public int getId() {
+        return id;
+    }
     
     
     

@@ -1,0 +1,324 @@
+Medlem Id: 22
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: CRAWL
+Hold: Konkurrenceholdet
+Træner: null
+
+Medlem Id: 23
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: CRAWL
+Hold: Konkurrenceholdet
+Træner: null
+
+Medlem Id: 24
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: CRAWL
+Hold: Konkurrenceholdet
+Træner: null
+
+Medlem Id: 25
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: CRAWL
+Hold: Konkurrenceholdet
+Træner: null
+
+Medlem Id: 26
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: CRAWL
+Hold: Konkurrenceholdet
+Træner: null
+
+Medlem Id: 27
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: CRAWL
+Hold: Konkurrenceholdet
+Træner: null
+
+Medlem Id: 30
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  b
+Fødselsdag: 1900-01-01
+Disciplin: RYGCRAWL
+Hold: Konkurrenceholdet
+Træner: null
+
+Medlem Id: 29
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: BUTTERFLY
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 30
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: BUTTERFLY
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 31
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: BUTTERFLY
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 32
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: BUTTERFLY
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 33
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: BUTTERFLY
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 34
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 2011-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 35
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 2011-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 36
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 2011-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 37
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 2011-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 38
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 2011-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 39
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 2011-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 40
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 2011-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 41
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 1900-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 42
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 1900-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 43
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 1900-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 44
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 1900-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 45
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 1900-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 46
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 1900-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 47
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 1900-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 48
+Aktivitetsform: passive
+Fornavn: a
+Efternavn: z 
+Fødselsdag: 1900-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 53
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 54
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 55
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 56
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: BRYST
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 4
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: CRAWL
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 5
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: CRAWL
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 6
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 1900-01-01
+Disciplin: CRAWL
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 7
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 2009-01-01
+Disciplin: CRAWL
+Hold: Motionistholdet
+Træner: null
+
+Medlem Id: 8
+Aktivitetsform: active
+Fornavn: a
+Efternavn:  a
+Fødselsdag: 2009-01-01
+Disciplin: CRAWL
+Hold: Motionistholdet
+Træner: null
+

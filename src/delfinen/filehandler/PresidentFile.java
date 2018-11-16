@@ -27,8 +27,8 @@ public class PresidentFile
 {
     public static int getLatestId() {
       
-        String fileName = "C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\PersonId.txt";
-        //String fileName = "/Users/sinanjasar/Desktop/delfinentxt/personID.txt";
+        //String fileName = "C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\PersonId.txt";
+        String fileName = "/Users/sinanjasar/Desktop/delfinentxt/personID.txt";
         String line = null;
         String lastLine = null;
 
@@ -75,11 +75,12 @@ public class PresidentFile
         return Integer.parseInt(lastLine);
     }
     
-    public static void printMember(Member member) throws IOException
+    public static void printMember(Member member)
     {
-        File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\Person.txt");
-        //File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/Members.txt");
+        //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\Person.txt");
+        File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/Members.txt");
         
+        try {
         FileWriter fileWriter = new FileWriter(orderFile,true);
         BufferedWriter buffer = new BufferedWriter(fileWriter);
         PrintWriter printWriter = new PrintWriter(buffer);
@@ -96,12 +97,21 @@ public class PresidentFile
         
         printWriter.print(member);
         printWriter.close();
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println(
+                "Kunne ikke åbne filen '" + 
+                orderFile + "'");                
+        }
+        catch(IOException ex) {
+            ex.printStackTrace();
+        }
     }
-    public static void printCompetitiveMember(CompetitiveMember member) throws IOException
+    public static void printCompetitiveMember(CompetitiveMember member)
     {
         File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\Person.txt");
         //File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/Members.txt");
-        
+        try {
         FileWriter fileWriter = new FileWriter(orderFile,true);
         BufferedWriter buffer = new BufferedWriter(fileWriter);
         PrintWriter printWriter = new PrintWriter(buffer);
@@ -117,12 +127,22 @@ public class PresidentFile
         }
         printWriter.print(member);
         printWriter.close();
-    }
-    public static void printCompetitiveTeamMembers(CompetitiveMember member) throws IOException
-    {
-        File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\CompetitiveTeam.txt");
-        //File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/CompetitiveTeam.txt");
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println(
+                "Kunne ikke åbne filen '" + 
+                orderFile + "'");                
+        }
+        catch(IOException ex) {
+            ex.printStackTrace();
+        }
         
+    }
+    public static void printCompetitiveTeamMembers(CompetitiveMember member)
+    {
+        //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\CompetitiveTeam.txt");
+        File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/CompetitiveTeam.txt");
+        try {
         FileWriter fileWriter = new FileWriter(orderFile,true);
         BufferedWriter buffer = new BufferedWriter(fileWriter);
         PrintWriter printWriter = new PrintWriter(buffer);
@@ -138,12 +158,21 @@ public class PresidentFile
         }
         printWriter.print(member + "\n\n");
         printWriter.close();
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println(
+                "Kunne ikke åbne filen '" + 
+                orderFile + "'");                
+        }
+        catch(IOException ex) {
+            ex.printStackTrace();
+        }
     }
-    public static void printMotionistTeamMembers(Member member) throws IOException
+    public static void printMotionistTeamMembers(Member member)
     {
-        File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\MotionistTeam.txt");
-        //File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/MotionistTeam.txt");
-        
+        //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\MotionistTeam.txt");
+        File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/MotionistTeam.txt");
+        try {
         FileWriter fileWriter = new FileWriter(orderFile,true);
         BufferedWriter buffer = new BufferedWriter(fileWriter);
         PrintWriter printWriter = new PrintWriter(buffer);
@@ -159,12 +188,21 @@ public class PresidentFile
         }
         printWriter.print(member + "\n\n");
         printWriter.close();
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println(
+                "Kunne ikke åbne filen '" + 
+                orderFile + "'");                
+        }
+        catch(IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
-    public static void printJuniorTeamMembers(CompetitiveMember member) throws IOException {
-        File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\JuniorTeam.txt");
-        //File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/JuniorTeam.txt");
-        
+    public static void printJuniorTeamMembers(CompetitiveMember member) {
+        //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\JuniorTeam.txt");
+        File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/JuniorTeam.txt");
+        try{
         FileWriter fileWriter = new FileWriter(orderFile,true);
         BufferedWriter buffer = new BufferedWriter(fileWriter);
         PrintWriter printWriter = new PrintWriter(buffer);
@@ -180,12 +218,21 @@ public class PresidentFile
         }
         printWriter.print(member);
         printWriter.close();
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println(
+                "Kunne ikke åbne filen '" + 
+                orderFile + "'");                
+        }
+        catch(IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
-    public static void printSeniorTeamMembers(CompetitiveMember member) throws IOException {
-        File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\SeniorTeam.txt");
-        //File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/SeniorTeam.txt");
-        
+    public static void printSeniorTeamMembers(CompetitiveMember member) {
+        //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\SeniorTeam.txt");
+        File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/SeniorTeam.txt");
+        try{
         FileWriter fileWriter = new FileWriter(orderFile,true);
         BufferedWriter buffer = new BufferedWriter(fileWriter);
         PrintWriter printWriter = new PrintWriter(buffer);
@@ -201,6 +248,15 @@ public class PresidentFile
         }
         printWriter.print(member);
         printWriter.close();
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println(
+                "Kunne ikke åbne filen '" + 
+                orderFile + "'");                
+        }
+        catch(IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
 }

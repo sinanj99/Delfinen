@@ -19,7 +19,6 @@ import delfinen.data.SeniorTeam;
 import delfinen.data.Team;
 import delfinen.filehandler.PresidentFile;
 import delfinen.logic.Controller;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
@@ -30,15 +29,17 @@ import javax.swing.JOptionPane;
  * @author sinanjasar
  */
 public class RegisterMember extends javax.swing.JFrame {
+
     CompetitiveTeam competitiveTeam = new CompetitiveTeam("Konkurrenceholdet");
     MotionistTeam motionistTeam = new MotionistTeam("Motionistholdet");
     JuniorTeam juniorTeam = new JuniorTeam("Juniorholdet");
     SeniorTeam seniorTeam = new SeniorTeam("Seniorholdet");
+
     /**
      * Creates new form GUIDelfinen2
      */
     public RegisterMember() {
-        
+
         initComponents();
     }
 
@@ -288,40 +289,61 @@ public class RegisterMember extends javax.swing.JFrame {
     }//GEN-LAST:event_dayBoxActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         int userId = PresidentFile.getLatestId();
         Controller ctrl = new Controller();
         PresidentFile ff = new PresidentFile();
-        
+
         String firstName = this.firstName.getText();
         String lastName = this.lastName.getText();
+
+        try {
+            if (this.firstName == null || this.lastName == null) {
+                throw new IllegalArgumentException("Name is null");
+            }
+
+            if (this.firstName.equals((String) "") || this.lastName.equals((String) "")) {
+                throw new Exception("Name is empty");
+            }
+
+            if ((firstName != (String) firstName) || (lastName != (String) lastName))
+            {
+                throw new IllegalArgumentException("arg");
+            }
         
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(this, "Indtast venligst et navn");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Indtast venligst et navn");
+        }
+
+        // tjek om input er bogstaver
         boolean active = this.aktiv.isSelected();
         boolean passive = this.passiv.isSelected();
         String activity = null;
-        
+
         boolean competitive = this.konkurrence.isSelected();
         boolean motionist = this.motionist.isSelected();
         Team team = null;
         Member member = null;
         CompetitiveMember competitiveMember = null;
-        
+
         boolean crawl = this.Crawl.isSelected();
         boolean bryst = this.Brystsvømning.isSelected();
         boolean butterfly = this.Butterfly.isSelected();
         boolean rygcrawl = this.Rygcrawl.isSelected();
         Discipline dis = null;
-        
-        int day = Integer.parseInt((String) dayBox.getSelectedItem()); 
+
+        int day = Integer.parseInt((String) dayBox.getSelectedItem());
         int month = Integer.parseInt((String) monthBox.getSelectedItem());
         int year = Integer.parseInt((String) yearBox.getSelectedItem());
-        
-        
+
         try {
 
-            if(active) {
+            if (active) {
                 activity = "active";
             }
-            if(passive) {
+            if (passive) {
                 activity = "passive";
             }
 
@@ -332,22 +354,20 @@ public class RegisterMember extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Vælg venligst din aktivitetsform");
         }
-        
+
         try {
 
-            if(crawl) {
+            if (crawl) {
                 dis = CRAWL;
             }
-            if(bryst) {
+            if (bryst) {
                 dis = BRYST;
             }
-            if(butterfly)
-            {
-               dis = BUTTERFLY;
+            if (butterfly) {
+                dis = BUTTERFLY;
             }
-            if(rygcrawl)
-            {
-               dis = RYGCRAWL;
+            if (rygcrawl) {
+                dis = RYGCRAWL;
             }
 
             if (!crawl && !bryst && !butterfly && !rygcrawl) {
@@ -357,74 +377,56 @@ public class RegisterMember extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Vælg venligst din(e) disciplin(er)");
         }
-         
-         try {
-             
-            if(competitive) {
-                competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, competitiveTeam);
-                ctrl.addCompetitiveMember(competitiveMember, competitiveTeam);
-                if(ChronoUnit.YEARS.between(LocalDate.of(year,month,day), LocalDate.now()) < 18)
-                {
-                    ctrl.addJuniorMember(competitiveMember, juniorTeam);
-                    PresidentFile.printJuniorTeamMembers(competitiveMember);
-                }
-                else
-                {
-                    ctrl.addSeniorMember(competitiveMember, seniorTeam);
-                    PresidentFile.printSeniorTeamMembers(competitiveMember);
-                }
-                //PresidentFile.printCompetitiveTeamMembers(competitiveTeam.getCompetitiveMembers());
-                PresidentFile.printCompetitiveTeamMembers(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, competitiveTeam));
-            }
-            if(motionist) {
-                member = ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, team);
-                ctrl.addMotionistMember(member, motionistTeam);
-                //PresidentFile.printMotionistTeamMembers(motionistTeam.getMotionistMembers());
-                PresidentFile.printMotionistTeamMembers(ctrl.createMember(day, firstName, lastName, activity, LocalDate.of(year,month,day), dis, motionistTeam));
-            }
 
-            
+        try {
+
+            if (competitive) {
+                competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, competitiveTeam);
+                ctrl.addCompetitiveMember(competitiveMember, competitiveTeam);
+
+                if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
+                    ctrl.addJuniorMember(competitiveMember, juniorTeam);
+                    ctrl.printJunior(competitiveMember);
+                } else {
+                    ctrl.addSeniorMember(competitiveMember, seniorTeam);
+                    ctrl.printSenior(competitiveMember);
+                }
+            }
+            if (motionist) {
+                member = ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam);
+                ctrl.addMotionistMember(member, motionistTeam);
+            }
         } catch (Exception e) {
         }
-         
-        try{
+
+        try {
             if (!competitive && !motionist) {
-               throw new Exception("Team type not chosen");
+                throw new Exception("Team type not chosen");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Vælg venligst din holdtype");
         }
-         
-        try {
-            if(motionist){
-                PresidentFile.printMember(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam));
-                PresidentFile.printMotionistTeamMembers(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, motionistTeam));
-            }
-            
-            if(competitive)
-            {
-                PresidentFile.printCompetitiveMember(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, competitiveTeam));
-                PresidentFile.printCompetitiveTeamMembers(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year,month,day), dis, competitiveTeam));
-                if(ChronoUnit.YEARS.between(LocalDate.of(year,month,day), LocalDate.now()) <= 18)
-                {
-                    //ctrl.addJuniorMember(competitiveMember, juniorTeam);
-                    PresidentFile.printJuniorTeamMembers(competitiveMember);
-                }
-                else
-                {
-                    //ctrl.addSeniorMember(competitiveMember, seniorTeam);
-                    PresidentFile.printSeniorTeamMembers(competitiveMember);
-                }
-            }
-        } catch (IOException e) {
-          
+
+        // programmet virker ikke uden nedenstående kode af en mærkelig årsag
+        if (motionist) {
+            ctrl.printMember(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam));
+            ctrl.printMotionistTeamMembers(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam));
         }
-        
-        
+        if (competitive) {
+            ctrl.printCompetitiveMember(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam));
+            ctrl.printCompetitiveTeamMembers(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam));
+        }
+        if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) <= 18) {
+            ctrl.printJunior(competitiveMember);
+        } else {
+            ctrl.printSenior(competitiveMember);
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void yearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBoxActionPerformed
-       
+
     }//GEN-LAST:event_yearBoxActionPerformed
 
     private void monthBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthBoxActionPerformed

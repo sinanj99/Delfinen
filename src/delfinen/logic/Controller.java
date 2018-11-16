@@ -73,6 +73,7 @@ public class Controller
     {
         PresidentFile.printJuniorTeamMembers(member);
     }
+
     public void printMember(Member member)
     {
         PresidentFile.printMember(member);
