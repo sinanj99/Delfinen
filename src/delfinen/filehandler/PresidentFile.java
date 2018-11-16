@@ -6,7 +6,9 @@
 package delfinen.filehandler;
 
 import delfinen.data.CompetitiveMember;
+import delfinen.data.Discipline;
 import delfinen.data.Member;
+import delfinen.data.Team;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,6 +17,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -350,11 +353,12 @@ public class PresidentFile {
 //            ex.printStackTrace();
 //        }
 //    }
-    public static void editMember(String filepath, String editTerm, String tempName, String newID, String newFirstName, String newLastName, String newActivity, String newBirthdate, String newDis, String newTeam) 
+    public static void editMember(String filepath, String editTerm, String tempName, String newFirstName, String newLastName, String newActivity, String newBirthdate, String newDis, String newTeam) 
     {
-        String tempFile = tempName + ".txt";
+        String tempFile = tempName;
         File oldFile = new File(filepath);
         File newFile = new File(tempFile);
+       
         String ID = ""; String firstName = ""; String lastName = ""; String activity = "";  String birthDate = ""; String dis = ""; String team = "";
         try 
         {
@@ -375,11 +379,11 @@ public class PresidentFile {
                 team = x.next();
                 if(ID.equals(editTerm))
                 {
-                    pw.println(newID + "," + newFirstName + "," + newLastName + "," + newActivity + "," + newBirthdate + "," + newDis + "," + newTeam);
+                    pw.println(newFirstName + "," + newLastName + "," + newActivity + "," + newBirthdate + "," + newDis + "," + newTeam);
                 }
                 else
                 {
-                    pw.println(ID + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
+                    pw.println(firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
                 }
             }
             x.close();
