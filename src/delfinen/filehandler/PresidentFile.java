@@ -107,8 +107,8 @@ public class PresidentFile
     }
     public static void printCompetitiveMember(CompetitiveMember member)
     {
-        File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\Person.txt");
-        //File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/Members.txt");
+        //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\Person.txt");
+        File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/Members.txt");
         try {
         FileWriter fileWriter = new FileWriter(orderFile,true);
         BufferedWriter buffer = new BufferedWriter(fileWriter);

@@ -29,10 +29,12 @@ public class ControllerTest {
     int userId = 1;
     String firstName = "John";
     String lastName = "Johnsen";
-    String activity = "active";
+    String activity = "aktiv";
     LocalDate birthDate = LocalDate.of(1999, 10, 21);
     Discipline dis = Discipline.CRAWL;
     CompetitiveTeam cteam = new CompetitiveTeam("Konkurrenceholdet");
+    MotionistTeam mteam = new MotionistTeam("Motionistholdet");
+    CompetitiveMember cmember = new CompetitiveMember(userId,firstName,lastName,activity,birthDate,dis,mteam);
     
     public ControllerTest() {
         
@@ -41,20 +43,20 @@ public class ControllerTest {
     @Test
     public void createMember()
     {
-        
-        Member actual = ctrl.createMember(userId,firstName,lastName,activity,birthDate,dis,cteam);
+        Member actual = ctrl.createMember(userId,firstName,lastName,activity,birthDate,dis,mteam);
         assertNotNull(actual); 
         assertEquals("John", actual.getFirstName());
         assertEquals(LocalDate.of(1999,10,21),actual.getBirthDate());
-        assertEquals(cteam, actual.getTeam());
+        assertEquals(mteam, actual.getTeam());
     }
     
     
     @Test
     public void addCompetitiveMember()
     {
-//        ctrl.addCompetitiveMember(new CompetitiveMember(userId,firstName,lastName,activity,birthDate,dis,cteam), cteam);
-//        assertEquals(,cteam.getCompetitiveMembers().get(0));
+        ctrl.addCompetitiveMember(cmember,cteam);
+        System.out.println(cteam.getCompetitiveMembers());
+        assertEquals(cmember,cteam.getCompetitiveMembers().get(0));
     }
     
     @Test

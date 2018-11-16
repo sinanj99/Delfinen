@@ -26,7 +26,7 @@ public class Controller
     public Member createMember(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team)
     {
         Member member = new Member(id, firstName, lastName, activity, birthDate, discipline, team);
-        PresidentFile.printMember(member);
+        //PresidentFile.printMember(member);
         return member;
     }
     
@@ -38,18 +38,18 @@ public class Controller
     public void addCompetitiveMember(CompetitiveMember member, CompetitiveTeam team)
     {
         team.getCompetitiveMembers().add(member);
-        PresidentFile.printCompetitiveTeamMembers(member);  
+        //PresidentFile.printCompetitiveTeamMembers(member);  
     }
     public void addMotionistMember(Member member, MotionistTeam team)
     {
         team.getMotionistMembers().add(member);
-        PresidentFile.printMotionistTeamMembers(member);
+        //PresidentFile.printMotionistTeamMembers(member);
     }
     
     public CompetitiveMember createCompetitiveMember(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team)
     {
         CompetitiveMember member = new CompetitiveMember(id, firstName, lastName, activity, birthDate, discipline, team);
-        PresidentFile.printMember(member);
+        //PresidentFile.printCompetitiveMember(member);
         return member;
     }
 

@@ -306,7 +306,7 @@ public class RegisterMember extends javax.swing.JFrame {
                 throw new Exception("Name is empty");
             }
 
-            if ((firstName != (String) firstName) || (lastName != (String) lastName))
+            if ((firstName != (String) firstName) || (lastName != (String) lastName)) // tjek om input er String
             {
                 throw new IllegalArgumentException("arg");
             }
@@ -317,7 +317,7 @@ public class RegisterMember extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Indtast venligst et navn");
         }
 
-        // tjek om input er bogstaver
+        
         boolean active = this.aktiv.isSelected();
         boolean passive = this.passiv.isSelected();
         String activity = null;
@@ -382,7 +382,9 @@ public class RegisterMember extends javax.swing.JFrame {
 
             if (competitive) {
                 competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, competitiveTeam);
+                ctrl.printCompetitiveMember(competitiveMember);
                 ctrl.addCompetitiveMember(competitiveMember, competitiveTeam);
+                ctrl.printCompetitiveTeamMembers(competitiveMember);
 
                 if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
                     ctrl.addJuniorMember(competitiveMember, juniorTeam);
@@ -395,6 +397,7 @@ public class RegisterMember extends javax.swing.JFrame {
             if (motionist) {
                 member = ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam);
                 ctrl.addMotionistMember(member, motionistTeam);
+                ctrl.printMember(member);
             }
         } catch (Exception e) {
         }
