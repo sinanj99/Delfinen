@@ -14,8 +14,6 @@ import delfinen.data.MotionistTeam;
 import delfinen.data.SeniorTeam;
 import delfinen.logic.Controller;
 import java.time.LocalDate;
-import java.time.Month;
-import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

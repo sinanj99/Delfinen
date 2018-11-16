@@ -21,6 +21,7 @@ import delfinen.filehandler.PresidentFile;
 import delfinen.logic.Controller;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
@@ -302,7 +303,7 @@ public class RegisterMember extends javax.swing.JFrame {
                 throw new IllegalArgumentException("Name is null");
             }
 
-            if (this.firstName.equals((String) "") || this.lastName.equals((String) "")) {
+            if (this.firstName.equals("") || this.lastName.equals("")) {
                 throw new Exception("Name is empty");
             }
 
@@ -382,26 +383,28 @@ public class RegisterMember extends javax.swing.JFrame {
             if (competitive) {
                 competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, competitiveTeam);
                 ctrl.addCompetitiveMember(competitiveMember, competitiveTeam);
+                ctrl.addMember(competitiveMember, competitiveTeam);
                 ctrl.printCompetitiveMember(competitiveMember);
                 ctrl.printCompetitiveTeamMembers(competitiveMember);
-                ctrl.PrintCompetitiveMemberArrayList(competitiveMember);
+//                ctrl.PrintCompetitiveMemberArrayList(competitiveMember);
 
                 if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
                     ctrl.addJuniorMember(competitiveMember, juniorTeam);
                     ctrl.printJunior(competitiveMember);
-                    ctrl.printJuniorMemberArrayList(juniorTeam.getMembers());
+//                    ctrl.printJuniorMemberArrayList(juniorTeam.getJuniorMembers());
                 } else {
                     ctrl.addSeniorMember(competitiveMember, seniorTeam);
                     ctrl.printSenior(competitiveMember);
-                    ctrl.printSeniorMemberArrayList(seniorTeam.getMembers());
+//                    ctrl.printSeniorMemberArrayList(seniorTeam.getSeniorMembers());
                 }
             }
             if (motionist) {
                 member = ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam);
                 ctrl.addMotionistMember(member, motionistTeam);
+                ctrl.addMember(member, motionistTeam);
                 ctrl.printMotionistTeamMembers(member);
                 ctrl.printMember(member);
-                ctrl.printMotionistMemberArrayList(motionistTeam.getMotionistMembers());
+//                ctrl.printMotionistMemberArrayList(motionistTeam.getMotionistMembers());
             }
         } catch (Exception e) {
         }
@@ -413,7 +416,8 @@ public class RegisterMember extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Vælg venligst din holdtype");
         }
-
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void yearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBoxActionPerformed

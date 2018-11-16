@@ -19,7 +19,7 @@ public class SeniorTeam extends CompetitiveTeam {
         super(teamName);
     }
 
-    public ArrayList<CompetitiveMember> getMembers() {
+    public ArrayList<CompetitiveMember> getSeniorMembers() {
         return members;
     }
     

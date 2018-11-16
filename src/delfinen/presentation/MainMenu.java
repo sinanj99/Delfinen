@@ -95,7 +95,7 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new StaffChoice().setVisible(true);
+        new PresidentChoice().setVisible(true);
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

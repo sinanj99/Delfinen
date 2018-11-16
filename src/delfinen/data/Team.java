@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package delfinen.data;
+
+import java.util.ArrayList;
+
 /**
  *
  * @author sinanjasar
@@ -11,6 +14,7 @@ package delfinen.data;
 public class Team {
     private Coach coach;
     private String teamName;
+    private ArrayList<Member> members = new ArrayList<Member>();
 
     public Team(String teamName) {
         this.teamName = teamName;
@@ -24,6 +28,10 @@ public class Team {
         return coach;
     }
 
+    public ArrayList<Member> getMembers() {
+        return members;
+    }
+    
     @Override
     public String toString() {
         return teamName;

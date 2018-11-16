@@ -29,6 +29,11 @@ public class Controller
         //PresidentFile.printMember(member);
         return member;
     }
+    public void addMember(Member member, Team team)
+    {
+        team.getMembers();
+    }
+            
     public void addCompetitiveMember(CompetitiveMember member, CompetitiveTeam team)
     {
         team.getCompetitiveMembers().add(member);
@@ -77,19 +82,19 @@ public class Controller
         PresidentFile.printCompetitiveTeamMembers(createCompetitiveMember);
     }
 
-    public void printJuniorMemberArrayList(ArrayList<CompetitiveMember> members) {
-        PresidentFile.printJuniorMemberArrayList(members);
-    }
-
-    public void PrintCompetitiveMemberArrayList(CompetitiveMember competitiveMember) {
-        PresidentFile.PrintCompetitiveMemberArrayList(competitiveMember);
-    }
-
-    public void printSeniorMemberArrayList(ArrayList<CompetitiveMember> members) {
-        PresidentFile.PrintSeniorMemberArrayList(members);
-    }
-
-    public void printMotionistMemberArrayList(ArrayList<Member> motionistMembers) {
-        PresidentFile.printMotionistMemberArrayList(motionistMembers);
-    }
+//    public void printJuniorMemberArrayList(ArrayList<CompetitiveMember> members) {
+//        PresidentFile.printJuniorMemberArrayList(members);
+//    }
+//
+//    public void PrintCompetitiveMemberArrayList(CompetitiveMember competitiveMember) {
+//        PresidentFile.PrintCompetitiveMemberArrayList(competitiveMember);
+//    }
+//
+//    public void printSeniorMemberArrayList(ArrayList<CompetitiveMember> members) {
+//        PresidentFile.PrintSeniorMemberArrayList(members);
+//    }
+//
+//    public void printMotionistMemberArrayList(ArrayList<Member> motionistMembers) {
+//        PresidentFile.printMotionistMemberArrayList(motionistMembers);
+//    }
 }
