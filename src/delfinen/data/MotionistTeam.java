@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author sinanjasar
  */
 public class MotionistTeam extends Team {
-    private ArrayList<Member> motionistMembers;
+    private ArrayList<Member> motionistMembers = new ArrayList<Member>();
     
     public MotionistTeam(String teamName) {
         super(teamName);

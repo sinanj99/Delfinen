@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class SeniorTeam extends CompetitiveTeam {
     
-    private ArrayList<CompetitiveMember> members;
+    private ArrayList<CompetitiveMember> members = new ArrayList<CompetitiveMember>();
 
     public SeniorTeam(String teamName) {
         super(teamName);

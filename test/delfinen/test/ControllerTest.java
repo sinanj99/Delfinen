@@ -8,8 +8,10 @@ package delfinen.test;
 import delfinen.data.CompetitiveMember;
 import delfinen.data.CompetitiveTeam;
 import delfinen.data.Discipline;
+import delfinen.data.JuniorTeam;
 import delfinen.data.Member;
 import delfinen.data.MotionistTeam;
+import delfinen.data.SeniorTeam;
 import delfinen.logic.Controller;
 import java.time.LocalDate;
 import java.time.Month;
@@ -35,8 +37,12 @@ public class ControllerTest {
     CompetitiveTeam cteam = new CompetitiveTeam("Konkurrenceholdet");
     MotionistTeam mteam = new MotionistTeam("Motionistholdet");
     CompetitiveMember cmember = new CompetitiveMember(userId,firstName,lastName,activity,birthDate,dis,mteam);
+    Member mmember = new Member(userId,firstName,lastName,activity,birthDate,dis,mteam);
+    JuniorTeam jteam = new JuniorTeam("Juniorholdet");
+    SeniorTeam steam = new SeniorTeam("Seniorholdet");
     
-    public ControllerTest() {
+    public ControllerTest() 
+    {
         
     }
 
@@ -49,22 +55,20 @@ public class ControllerTest {
         assertEquals(LocalDate.of(1999,10,21),actual.getBirthDate());
         assertEquals(mteam, actual.getTeam());
     }
-    
-    
     @Test
     public void addCompetitiveMember()
     {
         ctrl.addCompetitiveMember(cmember,cteam);
-        System.out.println(cteam.getCompetitiveMembers());
-        assertEquals(cmember,cteam.getCompetitiveMembers().get(0));
+        assertEquals(cmember.getActivity(),cteam.getCompetitiveMembers().get(0).getActivity());
+        assertEquals(cmember.getFirstName(),cteam.getCompetitiveMembers().get(0).getFirstName());
     }
-    
     @Test
     public void addMotionistMember()
     {
-        
+        mteam.getMotionistMembers().add(mmember);
+        assertEquals(mmember.getActivity(),mteam.getMotionistMembers().get(0).getActivity());
+        assertEquals(mmember.getFirstName(),mteam.getMotionistMembers().get(0).getFirstName());
     }
-    
     @Test
     public void createCompetitiveMember()
     {
@@ -78,10 +82,16 @@ public class ControllerTest {
     @Test
     public void addJuniorMember()
     {
+        ctrl.addJuniorMember(cmember,jteam);
+        assertEquals(cmember.getActivity(),jteam.getMembers().get(0).getActivity());
+        assertEquals(cmember.getFirstName(),jteam.getMembers().get(0).getFirstName());
     }
     
     @Test
     public void addSeniorMember()
     {
+        ctrl.addMotionistMember(mmember,mteam);
+        assertEquals(mmember.getActivity(),mteam.getMotionistMembers().get(0).getActivity());
+        assertEquals(mmember.getFirstName(),mteam.getMotionistMembers().get(0).getFirstName());
     }
 }

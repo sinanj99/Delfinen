@@ -13,12 +13,12 @@ import java.util.ArrayList;
  */
 public class CompetitiveTeam extends Team {
     
-    private ArrayList<Member> competitiveMembers;
+    private ArrayList<CompetitiveMember> competitiveMembers = new ArrayList<CompetitiveMember>();
     
     public CompetitiveTeam(String teamName) {
         super(teamName);
     }
-    public ArrayList<Member> getCompetitiveMembers() {
+    public ArrayList<CompetitiveMember> getCompetitiveMembers() {
         return competitiveMembers;
     }
 }

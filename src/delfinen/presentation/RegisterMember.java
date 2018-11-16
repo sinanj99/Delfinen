@@ -310,14 +310,13 @@ public class RegisterMember extends javax.swing.JFrame {
             {
                 throw new IllegalArgumentException("arg");
             }
-        
+
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(this, "Indtast venligst et navn");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Indtast venligst et navn");
         }
 
-        
         boolean active = this.aktiv.isSelected();
         boolean passive = this.passiv.isSelected();
         String activity = null;
@@ -382,22 +381,27 @@ public class RegisterMember extends javax.swing.JFrame {
 
             if (competitive) {
                 competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, competitiveTeam);
-                ctrl.printCompetitiveMember(competitiveMember);
                 ctrl.addCompetitiveMember(competitiveMember, competitiveTeam);
+                ctrl.printCompetitiveMember(competitiveMember);
                 ctrl.printCompetitiveTeamMembers(competitiveMember);
+                ctrl.PrintCompetitiveMemberArrayList(competitiveMember);
 
                 if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
                     ctrl.addJuniorMember(competitiveMember, juniorTeam);
                     ctrl.printJunior(competitiveMember);
+                    ctrl.printJuniorMemberArrayList(juniorTeam.getMembers());
                 } else {
                     ctrl.addSeniorMember(competitiveMember, seniorTeam);
                     ctrl.printSenior(competitiveMember);
+                    ctrl.printSeniorMemberArrayList(seniorTeam.getMembers());
                 }
             }
             if (motionist) {
                 member = ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam);
                 ctrl.addMotionistMember(member, motionistTeam);
+                ctrl.printMotionistTeamMembers(member);
                 ctrl.printMember(member);
+                ctrl.printMotionistMemberArrayList(motionistTeam.getMotionistMembers());
             }
         } catch (Exception e) {
         }
@@ -409,22 +413,6 @@ public class RegisterMember extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Vælg venligst din holdtype");
         }
-
-        // programmet virker ikke uden nedenstående kode af en mærkelig årsag
-        if (motionist) {
-            ctrl.printMember(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam));
-            ctrl.printMotionistTeamMembers(ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam));
-        }
-        if (competitive) {
-            ctrl.printCompetitiveMember(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam));
-            ctrl.printCompetitiveTeamMembers(ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam));
-        }
-        if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) <= 18) {
-            ctrl.printJunior(competitiveMember);
-        } else {
-            ctrl.printSenior(competitiveMember);
-        }
-
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
