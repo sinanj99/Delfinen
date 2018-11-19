@@ -29,58 +29,58 @@ public class Controller
         //PresidentFile.printMember(member);
         return member;
     }
-    public void addMember(Member member, Team team)
-    {
-        team.getMembers();
-    }
-            
-    public void addCompetitiveMember(CompetitiveMember member, CompetitiveTeam team)
-    {
-        team.getCompetitiveMembers().add(member);
-    }
-    public void addMotionistMember(Member member, MotionistTeam team)
-    {
-        team.getMotionistMembers().add(member);
-    }
+//    public void addMember(Member member, Team team)
+//    {
+//        team.getMembers();
+//    }
+//            
+//    public void addCompetitiveMember(CompetitiveMember member, CompetitiveTeam team)
+//    {
+//        team.getCompetitiveMembers().add(member);
+//    }
+//    public void addMotionistMember(Member member, MotionistTeam team)
+//    {
+//        team.getMotionistMembers().add(member);
+//    }
     public CompetitiveMember createCompetitiveMember(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team)
     {
         CompetitiveMember member = new CompetitiveMember(id, firstName, lastName, activity, birthDate, discipline, team);
         return member;
     }
-    public void addJuniorMember(CompetitiveMember member, JuniorTeam team) 
-    {
-        team.getMembers().add(member);
-    }
-
-    public void addSeniorMember(CompetitiveMember member, SeniorTeam team) {
-        
-        team.getMembers().add(member);
-    }
-    public void printSenior(CompetitiveMember member)
-    {
-        PresidentFile.printSeniorTeamMembers(member);
-    }
-    public void printJunior(CompetitiveMember member)
-    {
-        PresidentFile.printJuniorTeamMembers(member);
-    }
+//    public void addJuniorMember(CompetitiveMember member, JuniorTeam team) 
+//    {
+//        team.getMembers().add(member);
+//    }
+//
+//    public void addSeniorMember(CompetitiveMember member, SeniorTeam team) {
+//        
+//        team.getMembers().add(member);
+//    }
+//    public void printSenior(CompetitiveMember member)
+//    {
+//        PresidentFile.printSeniorTeamMembers(member);
+//    }
+//    public void printJunior(CompetitiveMember member)
+//    {
+//        PresidentFile.printJuniorTeamMembers(member);
+//    }
 
     public void printMember(Member member)
     {
         PresidentFile.printMember(member);
     }
 
-    public void printMotionistTeamMembers(Member createMember) {
-        PresidentFile.printMotionistTeamMembers(createMember);
+//    public void printMotionistTeamMembers(Member createMember) {
+//        PresidentFile.printMotionistTeamMembers(createMember);
+//    }
+//
+    public void printCompetitiveMember(CompetitiveMember member) {
+        PresidentFile.printCompetitiveMember(member);
     }
-
-    public void printCompetitiveMember(CompetitiveMember createCompetitiveMember) {
-        PresidentFile.printCompetitiveMember(createCompetitiveMember);
-    }
-
-    public void printCompetitiveTeamMembers(CompetitiveMember createCompetitiveMember) {
-        PresidentFile.printCompetitiveTeamMembers(createCompetitiveMember);
-    }
+//
+//    public void printCompetitiveTeamMembers(CompetitiveMember createCompetitiveMember) {
+//        PresidentFile.printCompetitiveTeamMembers(createCompetitiveMember);
+//    }
 
 //    public void printJuniorMemberArrayList(ArrayList<CompetitiveMember> members) {
 //        PresidentFile.printJuniorMemberArrayList(members);
