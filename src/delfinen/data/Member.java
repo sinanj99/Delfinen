@@ -36,7 +36,7 @@ public class Member {
 
     @Override
     public String toString() {
-        return id + "," + activity + "," + firstName + "," + lastName + "," + birthDate + "," + discipline + "," + team + "," + coach + "\n";
+        return id + "," + activity + "," + firstName + "," + lastName + "," + birthDate + "," + discipline + "," + team + "\n";
     }
 
     public String getActivity() {

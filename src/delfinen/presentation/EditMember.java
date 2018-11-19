@@ -333,8 +333,8 @@ public class EditMember extends javax.swing.JFrame {
         
         //int memberID = Integer.parseInt(this.memberID.getText());
         String editTerm = this.medlemsID.getText();
-        String filePath = "/Users/sinanjasar/Desktop/delfinentxt/Members.txt";
-        String tempName = "/Users/sinanjasar/Desktop/delfinentxt/TempMember.txt";
+//        String filePath = "/Users/sinanjasar/Desktop/delfinentxt/Members.txt";
+//        String tempName = "/Users/sinanjasar/Desktop/delfinentxt/TempMember.txt";
         String newFirstName = this.firstName.getText();
         String newLastName = this.lastName.getText();
         boolean active = this.aktiv.isSelected();
@@ -408,7 +408,8 @@ public class EditMember extends javax.swing.JFrame {
          }
          
 
-        PresidentFile.editMember(filePath, editTerm, tempName, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+        PresidentFile.editMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+
 //        filePath = "/Users/sinanjasar/Desktop/delfinentxt/CompetitiveTeam.txt";
 //        tempName = "/Users/sinanjasar/Desktop/delfinentxt/TempCompetitive.txt";
 //        
