@@ -71,13 +71,13 @@ public class Controller
         PresidentFile.printMember(member);
     }
 
-//    public void printMotionistTeamMembers(Member createMember) {
-//        PresidentFile.printMotionistTeamMembers(createMember);
-//    }
-//
-//    public void printCompetitiveMember(CompetitiveMember member) {
-//        PresidentFile.printCompetitiveMember(member);
-//    }
+    public void printMotionistMember(Member member) {
+        PresidentFile.printMotionistMember(member);
+    }
+
+    public void printCompetitiveMember(CompetitiveMember member) {
+        PresidentFile.printCompetitiveMember(member);
+    }
 //
 //    public void printCompetitiveTeamMembers(CompetitiveMember createCompetitiveMember) {
 //        PresidentFile.printCompetitiveTeamMembers(createCompetitiveMember);

@@ -392,7 +392,7 @@ public class RegisterMember extends javax.swing.JFrame {
                 competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, competitiveTeam);
 //                ctrl.addCompetitiveMember(competitiveMember, competitiveTeam);
 //                ctrl.addMember(competitiveMember, competitiveTeam);
-//                ctrl.printCompetitiveMember(competitiveMember);
+                ctrl.printCompetitiveMember(competitiveMember);
 //                ctrl.printCompetitiveTeamMembers(competitiveMember);
 //                ctrl.PrintCompetitiveMemberArrayList(competitiveMember);
 
@@ -412,6 +412,7 @@ public class RegisterMember extends javax.swing.JFrame {
 //                ctrl.addMember(member, motionistTeam);
 //                ctrl.printMotionistTeamMembers(member);
                 ctrl.printMember(member);
+                ctrl.printMotionistMember(member);
 //                ctrl.printMotionistMemberArrayList(motionistTeam.getMotionistMembers());
             }
         } catch (Exception e) {

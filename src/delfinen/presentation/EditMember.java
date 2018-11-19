@@ -17,6 +17,9 @@ import delfinen.data.MotionistTeam;
 import delfinen.data.SeniorTeam;
 import delfinen.data.Team;
 import delfinen.filehandler.PresidentFile;
+import static delfinen.filehandler.PresidentFile.printCompetitiveJuniorMember;
+import static delfinen.filehandler.PresidentFile.printCompetitiveSeniorMember;
+import static delfinen.filehandler.PresidentFile.printMember;
 import delfinen.logic.Controller;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -33,6 +36,7 @@ public class EditMember extends javax.swing.JFrame {
     MotionistTeam motionistTeam = new MotionistTeam("Motionistholdet");
     JuniorTeam juniorTeam = new JuniorTeam("Juniorholdet");
     SeniorTeam seniorTeam = new SeniorTeam("Seniorholdet");
+    Controller ctrl = new Controller();
 
     /**
      * Creates new form SearchForMember
@@ -396,26 +400,37 @@ public class EditMember extends javax.swing.JFrame {
 
             if (competitive) {
                 newTeam = competitiveTeam;
+
+                PresidentFile.DeleteMotionistMember(editTerm);
+                PresidentFile.DeleteSeniorMember(editTerm);
+                PresidentFile.DeleteJuniorMember(editTerm);
+
                 if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
-//                    PresidentFile.DeleteJuniorMember(editTerm);
+                    printCompetitiveJuniorMember(ctrl.createCompetitiveMember(editTermInt - 1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
                 } else {
+                    printCompetitiveSeniorMember(ctrl.createCompetitiveMember(editTermInt - 1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
                 }
+            }
                 if (motionist) {
                     newTeam = motionistTeam;
-//                    PresidentFile.printMember(ctrl.createMember(editTermInt, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
+                    PresidentFile.DeleteJuniorMember(editTerm);
+                    PresidentFile.DeleteSeniorMember(editTerm);
+                    PresidentFile.DeleteMotionistMember(editTerm);
+                    PresidentFile.printMember(ctrl.createMember(editTermInt - 1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
+                    PresidentFile.printMotionistMember(ctrl.createMember(editTermInt - 1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
+                    
+                }
+            
 
-            }
-            }
         } catch (Exception e) {
         }
 
         PresidentFile.editMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+        PresidentFile.editMotionistMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
         PresidentFile.editJuniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
         PresidentFile.editSeniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
-        PresidentFile.DeleteJuniorMember(editTerm, year, month, day, newTeam, newDis);
-        PresidentFile.DeleteSeniorMember(editTerm, year, month, day, newTeam, newDis);
-        PresidentFile.DeleteMotionistMember(editTerm, year, month, day, newTeam, newDis);
-        
+
+
     }//GEN-LAST:event_RedigerActionPerformed
 
     private void yearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBoxActionPerformed
