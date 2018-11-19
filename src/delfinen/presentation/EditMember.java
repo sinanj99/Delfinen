@@ -330,7 +330,7 @@ public class EditMember extends javax.swing.JFrame {
     }//GEN-LAST:event_monthBoxActionPerformed
 
     private void RedigerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedigerActionPerformed
-        
+
         String editTerm = this.medlemsID.getText();
         String newFirstName = this.firstName.getText();
         String newLastName = this.lastName.getText();
@@ -388,22 +388,22 @@ public class EditMember extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Vælg venligst din(e) disciplin(er)");
         }
-        
-         try {
 
-            if(competitive) {
+        try {
+
+            if (competitive) {
                 newTeam = competitiveTeam;
+                if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
+                    PresidentFile.DeleteJuniorMember(editTerm);
+                } else {
+                }
+                if (motionist) {
+                    newTeam = motionistTeam;
+                }
+
             }
-            if(motionist)
-            {
-                newTeam = motionistTeam;
-            }
-            
-         }
-         catch(Exception e)
-         {
-         }
-         
+        } catch (Exception e) {
+        }
 
         PresidentFile.editMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
         PresidentFile.editJuniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));

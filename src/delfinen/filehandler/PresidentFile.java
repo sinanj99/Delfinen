@@ -152,7 +152,6 @@ public class PresidentFile {
 //            ex.printStackTrace();
 //        }
 //    }
-
 //    public static void printMotionistTeamMembers(Member member) {
 //        //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\MotionistTeam.txt");
 //        File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/MotionistTeam.txt");
@@ -464,4 +463,53 @@ public class PresidentFile {
 
     }
 
-}
+    public static void DeleteJuniorMember(String deleteTerm) {
+        String filepath = "/Users/sinanjasar/Desktop/delfinentxt/CompetitiveJuniorTeam.txt";
+        String tempFile = "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteJunior.txt";
+
+        File oldFile = new File(filepath);
+        File newFile = new File(tempFile);
+
+        String ID = "";
+        String firstName = "";
+        String lastName = "";
+        String activity = "";
+        String birthDate = "";
+        String dis = "";
+        String team = "";
+
+        try {
+            FileWriter fw = new FileWriter(tempFile, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+            x = new Scanner(new File(filepath));
+            x.useDelimiter("[,\n]");
+
+            while (x.hasNext()) {
+                ID = x.next();
+                firstName = x.next();
+                lastName = x.next();
+                activity = x.next();
+                birthDate = x.next();
+                dis = x.next();
+                team = x.next();
+                if (!ID.equals(deleteTerm)) {
+                    pw.println(deleteTerm + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
+                }
+                }
+                x.close();
+                pw.flush();
+                pw.close();
+                oldFile.delete();
+                File dump = new File(filepath);
+                newFile.renameTo(dump);
+            
+        }
+        catch (Exception e)
+        { }
+    }
+    }
+                
+        
+     
+                        
