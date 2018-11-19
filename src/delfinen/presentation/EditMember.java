@@ -5,7 +5,6 @@
  */
 package delfinen.presentation;
 
-import delfinen.data.CompetitiveMember;
 import delfinen.data.CompetitiveTeam;
 import delfinen.data.Discipline;
 import static delfinen.data.Discipline.BRYST;
@@ -13,14 +12,11 @@ import static delfinen.data.Discipline.BUTTERFLY;
 import static delfinen.data.Discipline.CRAWL;
 import static delfinen.data.Discipline.RYGCRAWL;
 import delfinen.data.JuniorTeam;
-import delfinen.data.Member;
 import delfinen.data.MotionistTeam;
 import delfinen.data.SeniorTeam;
 import delfinen.data.Team;
 import delfinen.filehandler.PresidentFile;
-import delfinen.logic.Controller;
 import java.time.LocalDate;
-import java.time.Month;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -73,7 +69,7 @@ public class EditMember extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         dayBox = new javax.swing.JComboBox<>();
         monthBox = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        Rediger = new javax.swing.JButton();
         motionist = new javax.swing.JRadioButton();
         yearBox = new javax.swing.JComboBox<>();
         konkurrence = new javax.swing.JRadioButton();
@@ -155,10 +151,10 @@ public class EditMember extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Ændr");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Rediger.setText("Ændr");
+        Rediger.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RedigerActionPerformed(evt);
             }
         });
 
@@ -249,7 +245,7 @@ public class EditMember extends javax.swing.JFrame {
                             .addGap(0, 0, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(450, 450, 450)
-                            .addComponent(jButton1)))
+                            .addComponent(Rediger)))
                     .addGap(98, 98, 98)))
         );
         layout.setVerticalGroup(
@@ -298,7 +294,7 @@ public class EditMember extends javax.swing.JFrame {
                         .addComponent(passiv)
                         .addComponent(konkurrence))
                     .addGap(4, 4, 4)
-                    .addComponent(jButton1)
+                    .addComponent(Rediger)
                     .addContainerGap(88, Short.MAX_VALUE)))
         );
 
@@ -333,7 +329,7 @@ public class EditMember extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_monthBoxActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void RedigerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedigerActionPerformed
         
         //int memberID = Integer.parseInt(this.memberID.getText());
         String editTerm = this.medlemsID.getText();
@@ -353,6 +349,8 @@ public class EditMember extends javax.swing.JFrame {
         int month = Integer.parseInt((String) monthBox.getSelectedItem());
         int year = Integer.parseInt((String) yearBox.getSelectedItem());
         Team newTeam = null;
+        boolean competitive = this.konkurrence.isSelected();
+        boolean motionist = this.motionist.isSelected();
 
         try {
 
@@ -393,9 +391,41 @@ public class EditMember extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Vælg venligst din(e) disciplin(er)");
         }
+        
+         try {
+
+            if(competitive) {
+                newTeam = competitiveTeam;
+            }
+            if(motionist)
+            {
+                newTeam = motionistTeam;
+            }
+            
+         }
+         catch(Exception e)
+         {
+         }
+         
 
         PresidentFile.editMember(filePath, editTerm, tempName, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
-    }//GEN-LAST:event_jButton1ActionPerformed
+//        filePath = "/Users/sinanjasar/Desktop/delfinentxt/CompetitiveTeam.txt";
+//        tempName = "/Users/sinanjasar/Desktop/delfinentxt/TempCompetitive.txt";
+//        
+//        PresidentFile.editMember(filePath, editTerm, tempName, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+//        filePath = "/Users/sinanjasar/Desktop/delfinentxt/MotionistTeam.txt";
+//        tempName = "/Users/sinanjasar/Desktop/delfinentxt/TempMotionist.txt";
+//        
+//        PresidentFile.editMember(filePath, editTerm, tempName, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+//        filePath = "/Users/sinanjasar/Desktop/delfinentxt/SeniorTeam.txt";
+//        tempName = "/Users/sinanjasar/Desktop/delfinentxt/TempSenior.txt";
+//        
+//        PresidentFile.editMember(filePath, editTerm, tempName, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+//        filePath = "/Users/sinanjasar/Desktop/delfinentxt/JuniorTeam.txt";
+//        tempName = "/Users/sinanjasar/Desktop/delfinentxt/TempJunior.txt";
+//        
+//        PresidentFile.editMember(filePath, editTerm, tempName, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+    }//GEN-LAST:event_RedigerActionPerformed
 
     private void yearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBoxActionPerformed
 
@@ -442,6 +472,7 @@ public class EditMember extends javax.swing.JFrame {
     private javax.swing.JRadioButton Brystsvømning;
     private javax.swing.JRadioButton Butterfly;
     private javax.swing.JRadioButton Crawl;
+    private javax.swing.JButton Rediger;
     private javax.swing.JRadioButton Rygcrawl;
     private javax.swing.JRadioButton aktiv;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -449,7 +480,6 @@ public class EditMember extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JComboBox<String> dayBox;
     private javax.swing.JTextField firstName;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
