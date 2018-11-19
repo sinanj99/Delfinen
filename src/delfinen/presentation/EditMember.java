@@ -414,7 +414,7 @@ public class EditMember extends javax.swing.JFrame {
         PresidentFile.editSeniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
         PresidentFile.DeleteJuniorMember(editTerm, year, month, day, newTeam, newDis);
         PresidentFile.DeleteSeniorMember(editTerm, year, month, day, newTeam, newDis);
-        //PresidentFile.DeleteMotionistMember(editTerm, year, month, day, newTeam, newDis);
+        PresidentFile.DeleteMotionistMember(editTerm, year, month, day, newTeam, newDis);
         
     }//GEN-LAST:event_RedigerActionPerformed
 

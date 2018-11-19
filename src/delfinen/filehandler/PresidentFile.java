@@ -441,9 +441,9 @@ public class PresidentFile {
                     pw.println(ID + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
                 }
                 Controller ctrl = new Controller();
-                    MotionistTeam mteam = new MotionistTeam("Motionistholdet");
-                    int id = Integer.parseInt(ID);
-                    printMember(ctrl.createMember(id - 1, firstName, lastName, activity, LocalDate.of(year, month, day), disci, mteam));
+                MotionistTeam mteam = new MotionistTeam("Motionistholdet");
+                int id = Integer.parseInt(ID);
+                printMember(ctrl.createMember(id - 1, firstName, lastName, activity, LocalDate.of(year, month, day), disci, mteam));
             }
             x.close();
             pw.flush();
@@ -455,9 +455,6 @@ public class PresidentFile {
         } catch (Exception e) {
         }
 
-    }
-}
-/*
     }
 
     public static void DeleteMotionistMember(String deleteTerm, int year, int month, int day, Team teams, Discipline disci) {
@@ -493,6 +490,14 @@ public class PresidentFile {
                 if (!ID.equals(deleteTerm)) {
                     pw.println(ID + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
                 }
+                Controller ctrl = new Controller();
+                CompetitiveTeam cteam = new CompetitiveTeam("Konkurrenceholdet");
+                int id = Integer.parseInt(ID);
+                if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
+                    printCompetitiveJuniorMember(ctrl.createCompetitiveMember(id - 1, firstName, lastName, activity, LocalDate.of(year, month, day), disci, cteam));
+                } else {
+                    printCompetitiveSeniorMember(ctrl.createCompetitiveMember(id - 1, firstName, lastName, activity, LocalDate.of(year, month, day), disci, cteam));
+                }
             }
             x.close();
             pw.flush();
@@ -504,16 +509,6 @@ public class PresidentFile {
         } catch (Exception e) {
         }
 
-        Controller ctrl = new Controller();
-        CompetitiveTeam cteam = new CompetitiveTeam("Konkurrenceholdet");
-        int id = Integer.parseInt(ID);
-        if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
-            printCompetitiveJuniorMember(ctrl.createCompetitiveMember(id - 1, firstName, lastName, activity, LocalDate.of(year, month, day), disci, mteam));
-        }
-        else {
-            printCompetitiveSeniorMember(ctrl.createCompetitiveMember(id - 1, firstName, lastName, activity, LocalDate.of(year, month, day), disci, mteam));
-        }
     }
 
 }
- */
