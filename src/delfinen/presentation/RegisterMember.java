@@ -392,17 +392,17 @@ public class RegisterMember extends javax.swing.JFrame {
                 competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, competitiveTeam);
 //                ctrl.addCompetitiveMember(competitiveMember, competitiveTeam);
 //                ctrl.addMember(competitiveMember, competitiveTeam);
-                ctrl.printCompetitiveMember(competitiveMember);
+//                ctrl.printCompetitiveMember(competitiveMember);
 //                ctrl.printCompetitiveTeamMembers(competitiveMember);
 //                ctrl.PrintCompetitiveMemberArrayList(competitiveMember);
 
                 if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
 //                    ctrl.addJuniorMember(competitiveMember, juniorTeam);
-//                    ctrl.printJunior(competitiveMember);
+                    ctrl.printJunior(competitiveMember);
 //                    ctrl.printJuniorMemberArrayList(juniorTeam.getJuniorMembers());
                 } else {
 //                    ctrl.addSeniorMember(competitiveMember, seniorTeam);
-//                    ctrl.printSenior(competitiveMember);
+                    ctrl.printSenior(competitiveMember);
 //                    ctrl.printSeniorMemberArrayList(seniorTeam.getSeniorMembers());
                 }
             }

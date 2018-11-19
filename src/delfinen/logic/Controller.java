@@ -56,14 +56,15 @@ public class Controller
 //        
 //        team.getMembers().add(member);
 //    }
-//    public void printSenior(CompetitiveMember member)
-//    {
-//        PresidentFile.printSeniorTeamMembers(member);
-//    }
-//    public void printJunior(CompetitiveMember member)
-//    {
-//        PresidentFile.printJuniorTeamMembers(member);
-//    }
+    public void printSenior(CompetitiveMember member)
+    {
+        PresidentFile.printSeniorTeamMembers(member);
+    }
+    
+    public void printJunior(CompetitiveMember member)
+    {
+        PresidentFile.printJuniorTeamMembers(member);
+    }
 
     public void printMember(Member member)
     {
@@ -74,9 +75,9 @@ public class Controller
 //        PresidentFile.printMotionistTeamMembers(createMember);
 //    }
 //
-    public void printCompetitiveMember(CompetitiveMember member) {
-        PresidentFile.printCompetitiveMember(member);
-    }
+//    public void printCompetitiveMember(CompetitiveMember member) {
+//        PresidentFile.printCompetitiveMember(member);
+//    }
 //
 //    public void printCompetitiveTeamMembers(CompetitiveMember createCompetitiveMember) {
 //        PresidentFile.printCompetitiveTeamMembers(createCompetitiveMember);
