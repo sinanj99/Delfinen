@@ -12,10 +12,12 @@ import static delfinen.data.Discipline.BUTTERFLY;
 import static delfinen.data.Discipline.CRAWL;
 import static delfinen.data.Discipline.RYGCRAWL;
 import delfinen.data.JuniorTeam;
+import delfinen.data.Member;
 import delfinen.data.MotionistTeam;
 import delfinen.data.SeniorTeam;
 import delfinen.data.Team;
 import delfinen.filehandler.PresidentFile;
+import delfinen.logic.Controller;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
@@ -332,6 +334,7 @@ public class EditMember extends javax.swing.JFrame {
     private void RedigerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedigerActionPerformed
 
         String editTerm = this.medlemsID.getText();
+        int editTermInt = Integer.parseInt(this.medlemsID.getText());
         String newFirstName = this.firstName.getText();
         String newLastName = this.lastName.getText();
         boolean active = this.aktiv.isSelected();
@@ -394,13 +397,14 @@ public class EditMember extends javax.swing.JFrame {
             if (competitive) {
                 newTeam = competitiveTeam;
                 if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
-                    PresidentFile.DeleteJuniorMember(editTerm);
+//                    PresidentFile.DeleteJuniorMember(editTerm);
                 } else {
                 }
                 if (motionist) {
                     newTeam = motionistTeam;
-                }
+//                    PresidentFile.printMember(ctrl.createMember(editTermInt, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
 
+            }
             }
         } catch (Exception e) {
         }
@@ -408,6 +412,10 @@ public class EditMember extends javax.swing.JFrame {
         PresidentFile.editMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
         PresidentFile.editJuniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
         PresidentFile.editSeniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+        PresidentFile.DeleteJuniorMember(editTerm, year, month, day, newTeam, newDis);
+        PresidentFile.DeleteSeniorMember(editTerm, year, month, day, newTeam, newDis);
+        //PresidentFile.DeleteMotionistMember(editTerm, year, month, day, newTeam, newDis);
+        
     }//GEN-LAST:event_RedigerActionPerformed
 
     private void yearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBoxActionPerformed
