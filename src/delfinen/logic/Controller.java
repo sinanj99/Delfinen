@@ -99,9 +99,21 @@ public class Controller {
         return smallest;
     }
     
-    public void addBestTeam(Team team) {
-       
-        team.getBestResults().add(getBestResultMember);
+    public void addCrawlResult(Result result) 
+    {
+        result.getCrawlResults().add(result);
+    }
+    public void addChestResult(Result result)
+    {
+        result.getBrystResults().add(result);
+    }
+    public void addBackCrawlResult(Result result)
+    {
+        result.getRygcrawlResults().add(result);
+    }
+    public void addButterflyResult(Result result)
+    {
+        result.getButterflyResults().add(result);
     }
 }
 

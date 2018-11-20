@@ -14,8 +14,8 @@ public class CompetitionResult extends Result {
     private int placement;
     private int time;
     
-    public CompetitionResult(int min, int time, String event, int placement) {
-        super(min, time);
+    public CompetitionResult(Member member, String discipline, int distance, int time, String event, int placement) {
+        super(member, discipline, distance, time);
         this.event = event;
         this.placement = placement;
         this.time = time;

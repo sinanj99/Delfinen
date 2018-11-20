@@ -9,21 +9,25 @@ import java.util.ArrayList;
 
 
 public class Result {
-    private int min;
+    private int distance;
     private int time;
-    ArrayList<Integer> crawlResults = new ArrayList<Integer>();
-    ArrayList<Integer> rygcrawlResults = new ArrayList<Integer>();
-    ArrayList<Integer> butterflyResults = new ArrayList<Integer>();
-    ArrayList<Integer> brystResults = new ArrayList<Integer>();
+    private String discipline;
+    private Member member;
+    ArrayList<Result> crawlResults = new ArrayList<Result>();
+    ArrayList<Result> rygcrawlResults = new ArrayList<Result>();
+    ArrayList<Result> butterflyResults = new ArrayList<Result>();
+    ArrayList<Result> brystResults = new ArrayList<Result>();
     
 
-    public Result(int min, int time) {
-        this.min = min;
+    public Result(Member member, String discipline, int distance, int time) {
+        this.discipline = discipline;
+        this.member = member;
+        this.distance = distance;
         this.time = time;
     }
 
-    public int getMin() {
-        return min;
+    public int getDistance() {
+        return distance;
     }
 
     public int getTime() {
@@ -32,7 +36,27 @@ public class Result {
 
     @Override
     public String toString() {
-        return "Resultat: "  + min + ":" + time;
+        return member.getId() + " - " + member.getFirstName() + ": " + distance + ":" + time + "\n";
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public ArrayList<Result> getCrawlResults() {
+        return crawlResults;
+    }
+
+    public ArrayList<Result> getRygcrawlResults() {
+        return rygcrawlResults;
+    }
+
+    public ArrayList<Result> getButterflyResults() {
+        return butterflyResults;
+    }
+
+    public ArrayList<Result> getBrystResults() {
+        return brystResults;
     }
     
     
