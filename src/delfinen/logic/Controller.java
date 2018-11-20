@@ -14,60 +14,37 @@ import delfinen.data.MotionistTeam;
 import delfinen.data.SeniorTeam;
 import delfinen.data.Team;
 import delfinen.filehandler.PresidentFile;
+import static delfinen.filehandler.PresidentFile.printCompetitiveJuniorMember;
+import static delfinen.filehandler.PresidentFile.printCompetitiveSeniorMember;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 /**
  *
  * @author sinanjasar
  */
-public class Controller 
-{
-    public Member createMember(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team)
-    {
+public class Controller {
+
+    public Member createMember(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team) {
         Member member = new Member(id, firstName, lastName, activity, birthDate, discipline, team);
         //PresidentFile.printMember(member);
         return member;
     }
-//    public void addMember(Member member, Team team)
-//    {
-//        team.getMembers();
-//    }
-//            
-//    public void addCompetitiveMember(CompetitiveMember member, CompetitiveTeam team)
-//    {
-//        team.getCompetitiveMembers().add(member);
-//    }
-//    public void addMotionistMember(Member member, MotionistTeam team)
-//    {
-//        team.getMotionistMembers().add(member);
-//    }
-    public CompetitiveMember createCompetitiveMember(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team)
-    {
+
+    public CompetitiveMember createCompetitiveMember(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team) {
         CompetitiveMember member = new CompetitiveMember(id, firstName, lastName, activity, birthDate, discipline, team);
         return member;
     }
-//    public void addJuniorMember(CompetitiveMember member, JuniorTeam team) 
-//    {
-//        team.getMembers().add(member);
-//    }
-//
-//    public void addSeniorMember(CompetitiveMember member, SeniorTeam team) {
-//        
-//        team.getMembers().add(member);
-//    }
-    public void printSenior(CompetitiveMember member)
-    {
+    public void printSenior(CompetitiveMember member) {
         PresidentFile.printSeniorTeamMembers(member);
     }
-    
-    public void printJunior(CompetitiveMember member)
-    {
+
+    public void printJunior(CompetitiveMember member) {
         PresidentFile.printJuniorTeamMembers(member);
     }
 
-    public void printMember(Member member)
-    {
+    public void printMember(Member member) {
         PresidentFile.printMember(member);
     }
 
@@ -78,24 +55,41 @@ public class Controller
     public void printCompetitiveMember(CompetitiveMember member) {
         PresidentFile.printCompetitiveMember(member);
     }
-//
-//    public void printCompetitiveTeamMembers(CompetitiveMember createCompetitiveMember) {
-//        PresidentFile.printCompetitiveTeamMembers(createCompetitiveMember);
-//    }
 
-//    public void printJuniorMemberArrayList(ArrayList<CompetitiveMember> members) {
-//        PresidentFile.printJuniorMemberArrayList(members);
-//    }
-//
-//    public void PrintCompetitiveMemberArrayList(CompetitiveMember competitiveMember) {
-//        PresidentFile.PrintCompetitiveMemberArrayList(competitiveMember);
-//    }
-//
-//    public void printSeniorMemberArrayList(ArrayList<CompetitiveMember> members) {
-//        PresidentFile.PrintSeniorMemberArrayList(members);
-//    }
-//
-//    public void printMotionistMemberArrayList(ArrayList<Member> motionistMembers) {
-//        PresidentFile.printMotionistMemberArrayList(motionistMembers);
-//    }
+    public void competitiveChosen(String editTerm, int editTermInt, String newFirstName, String newLastName, String newActivity, int year, int month, int day, Discipline newDis, Team newTeam) {
+        
+        PresidentFile.DeleteMotionistMember(editTerm);
+        
+        
+
+        if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
+            printCompetitiveJuniorMember(createCompetitiveMember(editTermInt, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
+            PresidentFile.DeleteJuniorMember(editTerm);
+        } else {
+            printCompetitiveSeniorMember(createCompetitiveMember(editTermInt, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
+            PresidentFile.DeleteSeniorMember(editTerm);
+        }
+    }
+
+    public void motionistChosen(String editTerm, int editTermInt, String newFirstName, String newLastName, String newActivity, int year, int month, int day, Discipline newDis, Team newTeam) {
+        PresidentFile.DeleteMotionistMember(editTerm);
+        PresidentFile.printMotionistMember(createMember(editTermInt - 1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
+        
+        if(ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
+        PresidentFile.DeleteJuniorMember(editTerm);
+        }
+        else{
+        PresidentFile.DeleteSeniorMember(editTerm);
+        }
+        
+        
+    }
+
+
+    public void editAllMembers(String editTerm, String newFirstName, String newLastName, String newActivity, int year, int month, int day, Discipline newDis, Team newTeam) {
+        PresidentFile.editMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+        PresidentFile.editMotionistMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+        PresidentFile.editJuniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+        PresidentFile.editSeniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+    }
 }

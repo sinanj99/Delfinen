@@ -300,9 +300,9 @@ public class PresidentFile {
                 dis = x.next();
                 team = x.next();
                 if (ID.equals(editTerm)) {
-                    pw.println(editTerm + "," + newFirstName + "," + newLastName + "," + newActivity + "," + newBirthdate + "," + newDis + "," + newTeam);
+                    pw.println(ID + "," + newFirstName + "," + newLastName + "," + newActivity + "," + newBirthdate + "," + newDis + "," + newTeam);
                 } else {
-                    pw.println(editTerm + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
+                    pw.println(ID + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
                 }
             }
             x.close();
@@ -346,9 +346,9 @@ public class PresidentFile {
                 dis = x.next();
                 team = x.next();
                 if (ID.equals(editTerm)) {
-                    pw.println(editTerm + "," + newFirstName + "," + newLastName + "," + newActivity + "," + newBirthdate + "," + newDis + "," + newTeam);
+                    pw.println(ID + "," + newFirstName + "," + newLastName + "," + newActivity + "," + newBirthdate + "," + newDis + "," + newTeam);
                 } else {
-                    pw.println(editTerm + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
+                    pw.println(ID + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
                 }
             }
             x.close();
@@ -393,9 +393,9 @@ public class PresidentFile {
                 dis = x.next();
                 team = x.next();
                 if (ID.equals(editTerm)) {
-                    pw.println(editTerm + "," + newFirstName + "," + newLastName + "," + newActivity + "," + newBirthdate + "," + newDis + "," + newTeam);
+                    pw.println(ID + "," + newFirstName + "," + newLastName + "," + newActivity + "," + newBirthdate + "," + newDis + "," + newTeam);
                 } else {
-                    pw.println(editTerm + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
+                    pw.println(ID + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
                 }
             }
             x.close();
@@ -440,9 +440,9 @@ public class PresidentFile {
                 dis = x.next();
                 team = x.next();
                 if (ID.equals(editTerm)) {
-                    pw.println(editTerm + "," + newFirstName + "," + newLastName + "," + newActivity + "," + newBirthdate + "," + newDis + "," + newTeam);
+                    pw.println(ID + "," + newFirstName + "," + newLastName + "," + newActivity + "," + newBirthdate + "," + newDis + "," + newTeam);
                 } else {
-                    pw.println(editTerm + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
+                    pw.println(ID + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
                 }
             }
             x.close();
@@ -583,6 +583,12 @@ public class PresidentFile {
                     pw.println(ID + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
                 }
             }
+            
+//            2
+//            1,active,a,a,motionist;
+//            2,active,b,b,motionist;
+//            3,active,c,c,motionist;
+                    
             x.close();
             pw.flush();
             pw.close();
