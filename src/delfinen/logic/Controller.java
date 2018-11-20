@@ -59,28 +59,30 @@ public class Controller {
     public void competitiveChosen(String editTerm, int editTermInt, String newFirstName, String newLastName, String newActivity, int year, int month, int day, Discipline newDis, Team newTeam) {
         
         PresidentFile.DeleteMotionistMember(editTerm);
-        
-        
+        PresidentFile.DeleteJuniorMember(editTerm);
+        PresidentFile.DeleteSeniorMember(editTerm);
 
         if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
-            printCompetitiveJuniorMember(createCompetitiveMember(editTermInt, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
-            PresidentFile.DeleteJuniorMember(editTerm);
+            printCompetitiveJuniorMember(createCompetitiveMember(editTermInt-1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
+            
         } else {
-            printCompetitiveSeniorMember(createCompetitiveMember(editTermInt, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
-            PresidentFile.DeleteSeniorMember(editTerm);
+            printCompetitiveSeniorMember(createCompetitiveMember(editTermInt-1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
+            
         }
     }
 
     public void motionistChosen(String editTerm, int editTermInt, String newFirstName, String newLastName, String newActivity, int year, int month, int day, Discipline newDis, Team newTeam) {
         PresidentFile.DeleteMotionistMember(editTerm);
-        PresidentFile.printMotionistMember(createMember(editTermInt - 1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
-        
-        if(ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
+        PresidentFile.printMotionistMember(createMember(editTermInt-1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
         PresidentFile.DeleteJuniorMember(editTerm);
-        }
-        else{
         PresidentFile.DeleteSeniorMember(editTerm);
-        }
+        
+//        if(ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
+//        
+//        }
+//        else{
+//        
+//        }
         
         
     }

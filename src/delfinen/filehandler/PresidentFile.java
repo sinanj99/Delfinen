@@ -583,11 +583,6 @@ public class PresidentFile {
                     pw.println(ID + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
                 }
             }
-            
-//            2
-//            1,active,a,a,motionist;
-//            2,active,b,b,motionist;
-//            3,active,c,c,motionist;
                     
             x.close();
             pw.flush();

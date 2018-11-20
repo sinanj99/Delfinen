@@ -401,21 +401,25 @@ public class EditMember extends javax.swing.JFrame {
         }
 
         try {
+            
+            
 
             if (competitive) {
-                newTeam = competitiveTeam;
+                newTeam = new CompetitiveTeam("Konkurrenceholdet");
                 ctrl.competitiveChosen(editTerm, editTermInt, newFirstName, newLastName, newActivity, year, month, day, newDis, newTeam);
+            ctrl.editAllMembers(editTerm, newFirstName, newLastName, newActivity, year, month, day, newDis, newTeam);
             }
                 if (motionist) {
-                    newTeam = motionistTeam;
+                    newTeam = new MotionistTeam("Motionistholdet");
                     ctrl.motionistChosen(editTerm, editTermInt, newFirstName, newLastName, newActivity, year, month, day, newDis, newTeam);
+                ctrl.editAllMembers(editTerm, newFirstName, newLastName, newActivity, year, month, day, newDis, newTeam);
                 }
             
 
         } catch (Exception e) {
         }
 
-        ctrl.editAllMembers(editTerm, newFirstName, newLastName, newActivity, year, month, day, newDis, newTeam);
+        
 
 
     }//GEN-LAST:event_RedigerActionPerformed
