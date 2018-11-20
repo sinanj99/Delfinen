@@ -99,8 +99,9 @@ public class Controller {
         return smallest;
     }
     
-    public int getBestResultTeam(Team team) {
+    public void addBestTeam(Team team) {
        
+        team.getBestResults().add(getBestResultMember);
     }
 }
 

@@ -5,10 +5,17 @@
  */
 package delfinen.data;
 
+import java.util.ArrayList;
+
 
 public class Result {
     private int min;
     private int time;
+    ArrayList<Integer> crawlResults = new ArrayList<Integer>();
+    ArrayList<Integer> rygcrawlResults = new ArrayList<Integer>();
+    ArrayList<Integer> butterflyResults = new ArrayList<Integer>();
+    ArrayList<Integer> brystResults = new ArrayList<Integer>();
+    
 
     public Result(int min, int time) {
         this.min = min;
