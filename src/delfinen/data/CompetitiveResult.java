@@ -9,12 +9,10 @@ package delfinen.data;
  *
  * @author sinanjasar
  */
-public class Delfinen {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+public class CompetitiveResult extends Result {
+    
+    public CompetitiveResult(int min, int time) {
+        super(min, time);
     }
     
 }

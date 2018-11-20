@@ -77,14 +77,6 @@ public class Controller {
         PresidentFile.DeleteJuniorMember(editTerm);
         PresidentFile.DeleteSeniorMember(editTerm);
         
-//        if(ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
-//        
-//        }
-//        else{
-//        
-//        }
-        
-        
     }
 
 

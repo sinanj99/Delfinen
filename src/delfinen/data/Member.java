@@ -22,6 +22,7 @@ public class Member {
     private Team team;
     private Coach coach;
     private int id;
+    private Result result;
 
     public Member(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team) {
         this.id = id;
