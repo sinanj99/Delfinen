@@ -8,6 +8,7 @@ package delfinen.presentation;
 import delfinen.data.Discipline;
 import delfinen.data.Member;
 import delfinen.data.Result;
+import delfinen.filehandler.CoachFile;
 import delfinen.logic.Controller;
 import java.time.LocalDate;
 import java.util.Calendar;
@@ -256,7 +257,8 @@ public class EnterTrainingResults extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        int time = 0;
+        double time = 0;
+        int id = Integer.parseInt(jLabel1.getText());
         try{
         int distance = Integer.parseInt(this.jTextField1.getText());
         time = Integer.parseInt(this.jTextField2.getText());
@@ -286,30 +288,39 @@ public class EnterTrainingResults extends javax.swing.JFrame {
         int year = Integer.parseInt((String) yearBox.getSelectedItem());
         LocalDate date = LocalDate.of(year, month, day);
         Member member = null;
+        // find ud af hvordan man kan bruge den member man har valgt i find member!! p.t er member null
         
         try {
             if (crawl) {
                 discipline = "crawl";
                 member.setBestCrawlResult(time);
                 member.setBestCrawlResultDate(date);
+                CoachFile.deleteCrawlResult(String.valueOf(member.getId()));
+                CoachFile.printCrawlResult(member.getId(), member.getFirstName(), member.getLastName(), member.getBestCrawlResult(), member.getBestChestResultDate());
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!" );
             }
             if (chest) {
                 discipline = "brystsvømning";
                 member.setBestChestResult(time);
                 member.setBestChestResultDate(date);
+                CoachFile.deleteChestResult(String.valueOf(member.getId()));
+                CoachFile.printChestResults(member.getId(), member.getFirstName(), member.getLastName(), member.getBestCrawlResult(), member.getBestChestResultDate());
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!" );
             }
             if (butterfly) {
                 discipline = "butterfly";
                 member.setBestButterflyResult(time);
                 member.setBestButterflyResultDate(date);
+                CoachFile.deleteButterflyResult(String.valueOf(member.getId()));
+                CoachFile.printButterflyResults(member.getId(), member.getFirstName(), member.getLastName(), member.getBestCrawlResult(), member.getBestChestResultDate());
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!" );
             }
             if (backcrawl) {
                 discipline = "backcrawl";
                 member.setBestBackCrawlResult(time);
                 member.setBestBackCrawlResultDate(date);
+                CoachFile.deleteBackCrawlResult(String.valueOf(member.getId()));
+                CoachFile.printBackCrawlResults(member.getId(), member.getFirstName(), member.getLastName(), member.getBestCrawlResult(), member.getBestChestResultDate());
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!");
             }
 

@@ -23,10 +23,10 @@ public class Member {
     private Coach coach;
     private int id;
     private Result result;
-    private int bestCrawlResult = 0;
-    private int bestChestResult = 0;
-    private int bestButterflyResult = 0;
-    private int bestBackCrawlResult = 0;
+    private double bestCrawlResult = 0;
+    private double bestChestResult = 0;
+    private double bestButterflyResult = 0;
+    private double bestBackCrawlResult = 0;
     private LocalDate bestCrawlResultDate = null;
     private LocalDate bestChestResultDate = null;
     private LocalDate bestButterflyResultDate = null;
@@ -112,19 +112,19 @@ public class Member {
         return backcrawlResults;
     }
 
-    public void setBestCrawlResult(int bestCrawlResult) {
+    public void setBestCrawlResult(double bestCrawlResult) {
         this.bestCrawlResult = bestCrawlResult;
     }
 
-    public void setBestChestResult(int bestChestResult) {
+    public void setBestChestResult(double bestChestResult) {
         this.bestChestResult = bestChestResult;
     }
 
-    public void setBestButterflyResult(int bestButterflyResult) {
+    public void setBestButterflyResult(double bestButterflyResult) {
         this.bestButterflyResult = bestButterflyResult;
     }
 
-    public void setBestBackCrawlResult(int bestBackCrawlResult) {
+    public void setBestBackCrawlResult(double bestBackCrawlResult) {
         this.bestBackCrawlResult = bestBackCrawlResult;
     }
 
@@ -142,6 +142,38 @@ public class Member {
 
     public void setBestBackCrawlResultDate(LocalDate bestBackCrawlResultDate) {
         this.bestBackCrawlResultDate = bestBackCrawlResultDate;
+    }
+
+    public double getBestCrawlResult() {
+        return bestCrawlResult;
+    }
+
+    public double getBestChestResult() {
+        return bestChestResult;
+    }
+
+    public double getBestButterflyResult() {
+        return bestButterflyResult;
+    }
+
+    public double getBestBackCrawlResult() {
+        return bestBackCrawlResult;
+    }
+
+    public LocalDate getBestCrawlResultDate() {
+        return bestCrawlResultDate;
+    }
+
+    public LocalDate getBestChestResultDate() {
+        return bestChestResultDate;
+    }
+
+    public LocalDate getBestButterflyResultDate() {
+        return bestButterflyResultDate;
+    }
+
+    public LocalDate getBestBackCrawlResultDate() {
+        return bestBackCrawlResultDate;
     }
 
 

@@ -14,6 +14,7 @@ import delfinen.data.MotionistTeam;
 import delfinen.data.Result;
 import delfinen.data.SeniorTeam;
 import delfinen.data.Team;
+import delfinen.filehandler.CoachFile;
 import delfinen.filehandler.PresidentFile;
 import static delfinen.filehandler.PresidentFile.printCompetitiveJuniorMember;
 import static delfinen.filehandler.PresidentFile.printCompetitiveSeniorMember;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
  * @author sinanjasar
  */
 public class Controller {
-
+    CoachFile cf = null;
     public Member createMember(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team) {
         Member member = new Member(id, firstName, lastName, activity, birthDate, discipline, team);
         //PresidentFile.printMember(member);
