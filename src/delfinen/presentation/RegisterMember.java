@@ -315,12 +315,15 @@ public class RegisterMember extends javax.swing.JFrame {
         int userId = PresidentFile.getLatestId();
         Controller ctrl = new Controller();
         PresidentFile ff = new PresidentFile();
-
-        String firstName = this.firstName.getText();
-        String lastName = this.lastName.getText();
+        String firstName = null;
+        String lastName = null; 
+        try {
+            
+        firstName = this.firstName.getText();
+        lastName = this.lastName.getText();
        
 
-        try {
+        
             if (this.firstName == null || this.lastName == null) {
                 throw new IllegalArgumentException("Name is null");
             }

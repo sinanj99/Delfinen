@@ -23,7 +23,18 @@ public class Member {
     private Coach coach;
     private int id;
     private Result result;
-    private ArrayList<Integer> results = new ArrayList<Integer>();
+    private int bestCrawlResult = 0;
+    private int bestChestResult = 0;
+    private int bestButterflyResult = 0;
+    private int bestBackCrawlResult = 0;
+    private LocalDate bestCrawlResultDate = null;
+    private LocalDate bestChestResultDate = null;
+    private LocalDate bestButterflyResultDate = null;
+    private LocalDate bestBackCrawlResultDate = null;
+    private ArrayList<Result> chestResults = new ArrayList<Result>();
+    private ArrayList<Result> crawlResults = new ArrayList<Result>();
+    private ArrayList<Result> butterflyResults = new ArrayList<Result>();
+    private ArrayList<Result> backcrawlResults = new ArrayList<Result>();
 
     public Member(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team) {
         this.id = id;
@@ -34,8 +45,6 @@ public class Member {
         this.discipline = discipline;
         this.team = team;
         this.id++;
-        
-        
     }
     
     public Member(int id, String firstName, String lastName){
@@ -87,9 +96,55 @@ public class Member {
         return result;
     }
 
-    public ArrayList<Integer> getResults() {
-        return results;
+    public ArrayList<Result> getChestResults() {
+        return chestResults;
     }
+
+    public ArrayList<Result> getCrawlResults() {
+        return crawlResults;
+    }
+
+    public ArrayList<Result> getButterflyResults() {
+        return butterflyResults;
+    }
+
+    public ArrayList<Result> getBackcrawlResults() {
+        return backcrawlResults;
+    }
+
+    public void setBestCrawlResult(int bestCrawlResult) {
+        this.bestCrawlResult = bestCrawlResult;
+    }
+
+    public void setBestChestResult(int bestChestResult) {
+        this.bestChestResult = bestChestResult;
+    }
+
+    public void setBestButterflyResult(int bestButterflyResult) {
+        this.bestButterflyResult = bestButterflyResult;
+    }
+
+    public void setBestBackCrawlResult(int bestBackCrawlResult) {
+        this.bestBackCrawlResult = bestBackCrawlResult;
+    }
+
+    public void setBestCrawlResultDate(LocalDate bestCrawlResultDate) {
+        this.bestCrawlResultDate = bestCrawlResultDate;
+    }
+
+    public void setBestChestResultDate(LocalDate bestChestResultDate) {
+        this.bestChestResultDate = bestChestResultDate;
+    }
+
+    public void setBestButterflyResultDate(LocalDate bestButterflyResultDate) {
+        this.bestButterflyResultDate = bestButterflyResultDate;
+    }
+
+    public void setBestBackCrawlResultDate(LocalDate bestBackCrawlResultDate) {
+        this.bestBackCrawlResultDate = bestBackCrawlResultDate;
+    }
+
+
     
     
     

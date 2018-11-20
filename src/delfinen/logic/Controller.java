@@ -88,32 +88,67 @@ public class Controller {
         PresidentFile.editSeniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
     }
 
-    public int getBestResultMember(Member member) {
-        int smallest = member.getResults().get(0);
-        for (int i = 1; i < member.getResults().size(); i++) {
-            if (member.getResults().get(i) < smallest) {
-                smallest = member.getResults().get(i);
-            }
-        }
+//    public int getBestChestResultMember(Member member) {
+//        int smallest = member.getChestResults().get(0).getTime();
+//                
+//        for (int i = 1; i < member.getChestResults().size(); i++) {
+//            if (member.getChestResults().get(i).getTime() < smallest) {
+//                smallest = member.getChestResults().get(i).getTime();
+//            }
+//        }
+//
+//        return smallest;
+//    }
+//    public int getBestCrawlResultMember(Member member) {
+//        int smallest = member.getCrawlResults().get(0).getTime();
+//                
+//        for (int i = 1; i < member.getCrawlResults().size(); i++) {
+//            if (member.getCrawlResults().get(i).getTime() < smallest) {
+//                smallest = member.getCrawlResults().get(i).getTime();
+//            }
+//        }
+//
+//        return smallest;
+//    }
+//    public int getBestButterflyResultMember(Member member) {
+//        int smallest = member.getButterflyResults().get(0).getTime();
+//        for (int i = 1; i < member.getButterflyResults().size(); i++) {
+//            if (member.getButterflyResults().get(i).getTime() < smallest) {
+//                smallest = member.getButterflyResults().get(i).getTime();
+//            }
+//        }
+//
+//        return smallest;
+//    }
+//    public int getBestBackCrawlResultMember(Member member) {
+//        int smallest = member.getBackcrawlResults().get(0).getTime();
+//                
+//        for (int i = 1; i < member.getBackcrawlResults().size(); i++) {
+//            if (member.getBackcrawlResults().get(i).getTime() < smallest) {
+//                smallest = member.getBackcrawlResults().get(i).getTime();
+//            }
+//        }
+//
+//        return smallest;
+//    }
+//    
 
-        return smallest;
-    }
-    
-    public void addCrawlResult(Result result) 
-    {
-        result.getCrawlResults().add(result);
-    }
-    public void addChestResult(Result result)
-    {
-        result.getBrystResults().add(result);
-    }
-    public void addBackCrawlResult(Result result)
-    {
-        result.getRygcrawlResults().add(result);
-    }
-    public void addButterflyResult(Result result)
-    {
-        result.getButterflyResults().add(result);
-    }
+//    
+//    public void addCrawlResult(Result result) 
+//    {
+//        result.getCrawlResults().add(result);
+//    }
+//    public void addChestResult(Result result)
+//    {
+//        result.getBrystResults().add(result);
+//    }
+//    public void addBackCrawlResult(Result result)
+//    {
+//        result.getRygcrawlResults().add(result);
+//    }
+//    public void addButterflyResult(Result result)
+//    {
+//        result.getButterflyResults().add(result);
+//    }
 }
 
