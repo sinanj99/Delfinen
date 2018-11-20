@@ -15,6 +15,7 @@ public class Team {
     private Coach coach;
     private String teamName;
     private ArrayList<Member> members = new ArrayList<Member>();
+    private ArrayList<Integer> bestResults = new ArrayList<Integer>();
 
     public Team(String teamName) {
         this.teamName = teamName;
@@ -35,6 +36,10 @@ public class Team {
     @Override
     public String toString() {
         return teamName;
+    }
+
+    public ArrayList<Integer> getBestResults() {
+        return bestResults;
     }
     
     

@@ -11,6 +11,7 @@ import delfinen.data.Discipline;
 import delfinen.data.JuniorTeam;
 import delfinen.data.Member;
 import delfinen.data.MotionistTeam;
+import delfinen.data.Result;
 import delfinen.data.SeniorTeam;
 import delfinen.data.Team;
 import delfinen.filehandler.PresidentFile;
@@ -36,6 +37,7 @@ public class Controller {
         CompetitiveMember member = new CompetitiveMember(id, firstName, lastName, activity, birthDate, discipline, team);
         return member;
     }
+
     public void printSenior(CompetitiveMember member) {
         PresidentFile.printSeniorTeamMembers(member);
     }
@@ -57,28 +59,27 @@ public class Controller {
     }
 
     public void competitiveChosen(String editTerm, int editTermInt, String newFirstName, String newLastName, String newActivity, int year, int month, int day, Discipline newDis, Team newTeam) {
-        
+
         PresidentFile.DeleteMotionistMember(editTerm);
         PresidentFile.DeleteJuniorMember(editTerm);
         PresidentFile.DeleteSeniorMember(editTerm);
 
         if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
-            printCompetitiveJuniorMember(createCompetitiveMember(editTermInt-1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
-            
+            printCompetitiveJuniorMember(createCompetitiveMember(editTermInt - 1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
+
         } else {
-            printCompetitiveSeniorMember(createCompetitiveMember(editTermInt-1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
-            
+            printCompetitiveSeniorMember(createCompetitiveMember(editTermInt - 1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
+
         }
     }
 
     public void motionistChosen(String editTerm, int editTermInt, String newFirstName, String newLastName, String newActivity, int year, int month, int day, Discipline newDis, Team newTeam) {
         PresidentFile.DeleteMotionistMember(editTerm);
-        PresidentFile.printMotionistMember(createMember(editTermInt-1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
+        PresidentFile.printMotionistMember(createMember(editTermInt - 1, newFirstName, newLastName, newActivity, LocalDate.of(year, month, day), newDis, newTeam));
         PresidentFile.DeleteJuniorMember(editTerm);
         PresidentFile.DeleteSeniorMember(editTerm);
-        
-    }
 
+    }
 
     public void editAllMembers(String editTerm, String newFirstName, String newLastName, String newActivity, int year, int month, int day, Discipline newDis, Team newTeam) {
         PresidentFile.editMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
@@ -86,4 +87,20 @@ public class Controller {
         PresidentFile.editJuniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
         PresidentFile.editSeniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
     }
+
+    public int getBestResultMember(Member member) {
+        int smallest = member.getResults().get(0);
+        for (int i = 1; i < member.getResults().size(); i++) {
+            if (member.getResults().get(i) < smallest) {
+                smallest = member.getResults().get(i);
+            }
+        }
+
+        return smallest;
+    }
+    
+    public int getBestResultTeam(Team team) {
+       
+    }
 }
+

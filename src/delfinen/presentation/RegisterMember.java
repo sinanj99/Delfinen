@@ -318,6 +318,7 @@ public class RegisterMember extends javax.swing.JFrame {
 
         String firstName = this.firstName.getText();
         String lastName = this.lastName.getText();
+       
 
         try {
             if (this.firstName == null || this.lastName == null) {
@@ -391,12 +392,19 @@ public class RegisterMember extends javax.swing.JFrame {
                 dis = RYGCRAWL;
             }
 
-            if (!crawl && !bryst && !butterfly && !rygcrawl) {
-                throw new Exception("Discipline not chosen");
+            if (!crawl && !bryst && !butterfly && !rygcrawl && competitive == true) {
+                
+                throw new Exception("Vælg venligst din disciplin");
+
+            }
+            if ((crawl || bryst || butterfly || rygcrawl) && motionist == true) {
+                
+                throw new Exception("Motionister må ikke vælge en disciplin");
+
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Vælg venligst din(e) disciplin(er)");
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
 
         try {
@@ -418,6 +426,7 @@ public class RegisterMember extends javax.swing.JFrame {
                     ctrl.printSenior(competitiveMember);
 //                    ctrl.printSeniorMemberArrayList(seniorTeam.getSeniorMembers());
                 }
+                JOptionPane.showMessageDialog(this, firstName + " er blevet oprettet.");
             }
             if (motionist) {
                 member = ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam);
@@ -427,6 +436,7 @@ public class RegisterMember extends javax.swing.JFrame {
                 ctrl.printMember(member);
                 ctrl.printMotionistMember(member);
 //                ctrl.printMotionistMemberArrayList(motionistTeam.getMotionistMembers());
+                JOptionPane.showMessageDialog(this, firstName + " er blevet oprettet.");
             }
         } catch (Exception e) {
         }

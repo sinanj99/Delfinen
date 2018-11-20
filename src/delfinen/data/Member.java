@@ -23,6 +23,7 @@ public class Member {
     private Coach coach;
     private int id;
     private Result result;
+    private ArrayList<Integer> results = new ArrayList<Integer>();
 
     public Member(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team) {
         this.id = id;
@@ -33,7 +34,17 @@ public class Member {
         this.discipline = discipline;
         this.team = team;
         this.id++;
+        
+        
     }
+    
+    public Member(int id, String firstName, String lastName){
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    
+    
 
     @Override
     public String toString() {
@@ -71,7 +82,14 @@ public class Member {
     public int getId() {
         return id;
     }
-    
+
+    public Result getResult() {
+        return result;
+    }
+
+    public ArrayList<Integer> getResults() {
+        return results;
+    }
     
     
     
