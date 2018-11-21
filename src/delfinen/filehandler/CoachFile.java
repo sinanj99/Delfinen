@@ -5,15 +5,10 @@
  */
 package delfinen.filehandler;
 
-import delfinen.data.Discipline;
 import delfinen.data.Member;
-import delfinen.data.Result;
-import delfinen.data.Team;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,8 +25,8 @@ public class CoachFile {
     private static Scanner x;
 
     public static ArrayList<Member> getMembers(String filePath) {
-        ArrayList<Member> members = new ArrayList<>();
-
+        
+        ArrayList<Member> members = new ArrayList<Member>();
         String ID = null;
         String active = null;
         String firstName = null;
@@ -39,6 +34,7 @@ public class CoachFile {
         String birthDay = null;
         String disciplin = null;
         String team = null;
+        String age = null;
 
         try {
             x = new Scanner(new File(filePath));
@@ -46,14 +42,14 @@ public class CoachFile {
 
             while (x.hasNext()) {
                 ID = x.next();
-                active = x.next();
                 firstName = x.next();
                 lastName = x.next();
+                active = x.next();
+                age = x.next();
                 birthDay = x.next();
                 disciplin = x.next();
                 team = x.next();
-
-                members.add(new Member(Integer.parseInt(ID), firstName.trim(), lastName.trim()));
+                members.add(new Member(Integer.parseInt(ID), firstName.trim(), lastName.trim(), Integer.parseInt(age)));
             }
 
         } catch (Exception e) {
@@ -62,7 +58,27 @@ public class CoachFile {
 
         return members;
     }
-    
+    public static int getChosenMembersSize(String filePath) {
+        
+        String ID = null;
+        ArrayList<String> ids = new ArrayList<String>();
+        try {
+            x = new Scanner(new File(filePath));
+            x.useDelimiter("[,\n]");
+
+            while (x.hasNext()) {
+                ID = x.next();
+
+                ids.add(ID);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return ids.size();
+    }
+
     public static ArrayList<String> getChosenMembers(String filePath) {
         String ID = null;
         ArrayList<String> ids = new ArrayList<String>();
@@ -72,7 +88,7 @@ public class CoachFile {
 
             while (x.hasNext()) {
                 ID = x.next();
-                
+
                 ids.add(ID);
             }
 
@@ -82,34 +98,35 @@ public class CoachFile {
 
         return ids;
     }
-    
 
     public static Member getMember(int id) {
         ArrayList<Member> members = new ArrayList<>();
         String filePath = "/Users/sinanjasar/Desktop/delfinentxt/Members.txt";
         String ID = null;
-        String active = null;
         String firstName = null;
         String lastName = null;
+        String active = null;
         String birthDay = null;
         String disciplin = null;
         String team = null;
         Member member = null;
+        String age = null;
         try {
             x = new Scanner(new File(filePath));
             x.useDelimiter("[,\n]");
 
             while (x.hasNext()) {
                 ID = x.next();
-                active = x.next();
                 firstName = x.next();
                 lastName = x.next();
+                active = x.next();
+                age = x.next();
                 birthDay = x.next();
                 disciplin = x.next();
                 team = x.next();
-                if (ID.equals(String.valueOf(id))) 
-                {
-                    member = new Member(id, firstName, lastName);
+                // indsæt alder her!!
+                if (ID.equals(String.valueOf(id))) {
+                    member = new Member(id, firstName, lastName, Integer.parseInt(age));
                 }
             }
 
@@ -118,7 +135,8 @@ public class CoachFile {
         }
         return member;
     }
-    public static void printResult(int id, String firstName, String lastName, double time, LocalDate date, String filePath) {
+
+    public static void printResult(int id, double time, LocalDate date, String filePath) {
 
         //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\Person.txt");
         File orderFile = new File(filePath);
@@ -146,9 +164,9 @@ public class CoachFile {
         }
     }
 
-    public static void chooseCompetitionMember(String term) {
+    public static void chooseSeniorCompetitionMember(String term) {
         String filepath = "/Users/sinanjasar/Desktop/delfinentxt/Members.txt";
-        String chosen = "/Users/sinanjasar/Desktop/delfinentxt/ChosenMembers.txt";
+        String chosen = "/Users/sinanjasar/Desktop/delfinentxt/ChosenSeniorMembers.txt";
         File oldFile = new File(filepath);
         File newFile = new File(chosen);
 
@@ -159,6 +177,7 @@ public class CoachFile {
         String birthDate = "";
         String dis = "";
         String team = "";
+        String age = "";
         try {
             FileWriter fw = new FileWriter(newFile, true);
             BufferedWriter bw = new BufferedWriter(fw);
@@ -168,9 +187,10 @@ public class CoachFile {
 
             while (x.hasNext()) {
                 ID = x.next();
-                activity = x.next();
                 firstName = x.next();
                 lastName = x.next();
+                activity = x.next();
+                age = x.next();
                 birthDate = x.next();
                 dis = x.next();
                 team = x.next();
@@ -178,20 +198,60 @@ public class CoachFile {
                     pw.println(ID);
                 }
             }
-                x.close();
-                pw.flush();
-                pw.close();
-         
+            x.close();
+            pw.flush();
+            pw.close();
+
         } catch (Exception e) {
 
         }
 
     }
 
-    public static void deleteCompetitionMember(String term) {
-        
-        String filepath = "/Users/sinanjasar/Desktop/delfinentxt/ChosenMembers.txt";
-        String tempFile = "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteChosenMembers.txt";
+    public static void chooseJuniorCompetitionMember(String term) {
+        String filepath = "/Users/sinanjasar/Desktop/delfinentxt/Members.txt";
+        String chosen = "/Users/sinanjasar/Desktop/delfinentxt/ChosenJuniorMembers.txt";
+        File oldFile = new File(filepath);
+        File newFile = new File(chosen);
+
+        String ID = "";
+        String activity = "";
+        String firstName = "";
+        String lastName = "";
+        String birthDate = "";
+        String dis = "";
+        String team = "";
+        String age = "";
+        try {
+            FileWriter fw = new FileWriter(newFile, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+            x = new Scanner(new File(filepath));
+            x.useDelimiter("[,\n]");
+
+            while (x.hasNext()) {
+                ID = x.next();
+                firstName = x.next();
+                lastName = x.next();
+                activity = x.next();
+                age = x.next();
+                birthDate = x.next();
+                dis = x.next();
+                team = x.next();
+                if (ID.equals(term)) {
+                    pw.println(ID);
+                }
+            }
+            x.close();
+            pw.flush();
+            pw.close();
+
+        } catch (Exception e) {
+
+        }
+
+    }
+    public static void deleteCompetitionMember(String term, String filepath, String tempFile) {
 
         File oldFile = new File(filepath);
         File newFile = new File(tempFile);
@@ -199,6 +259,7 @@ public class CoachFile {
         String ID = "";
         String firstName = "";
         String lastName = "";
+        String age = "";
 
         try {
             FileWriter fw = new FileWriter(tempFile, true);
@@ -211,11 +272,12 @@ public class CoachFile {
                 ID = x.next();
                 firstName = x.next();
                 lastName = x.next();
+                age = x.next();
                 if (!ID.equals(term)) {
-                    pw.println(ID + "," + firstName + "," + lastName);
+                    pw.println(ID + "," + firstName + "," + lastName + "," + age);
                 }
             }
-                    
+
             x.close();
             pw.flush();
             pw.close();
@@ -227,6 +289,7 @@ public class CoachFile {
         }
 
     }
+
     public static void deleteResult(String term, String filePath, String tempFile) {
 
         File oldFile = new File(filePath);
@@ -255,7 +318,7 @@ public class CoachFile {
                     pw.println(ID + "," + time + "," + date);
                 }
             }
-                    
+
             x.close();
             pw.flush();
             pw.close();

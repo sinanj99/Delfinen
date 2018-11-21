@@ -5,9 +5,7 @@
  */
 package delfinen.presentation;
 
-import delfinen.data.Discipline;
 import delfinen.data.Member;
-import delfinen.data.Result;
 import delfinen.filehandler.CoachFile;
 import delfinen.logic.Controller;
 import java.time.LocalDate;
@@ -283,34 +281,34 @@ public class EnterTrainingResults extends javax.swing.JFrame {
         try {
             if (crawl) {
                 discipline = "crawl";
-                member.setBestCrawlResult(time);
-                member.setBestCrawlResultDate(date);
+//                member.setBestCrawlResult(time);
+//                member.setBestCrawlResultDate(date);
                 CoachFile.deleteResult(String.valueOf(member.getId()), "/Users/sinanjasar/Desktop/delfinentxt/BestCrawlResults.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteCrawlResults.txt");
-                CoachFile.printResult(member.getId(), member.getFirstName(), member.getLastName(), member.getBestCrawlResult(), member.getBestCrawlResultDate(), "/Users/sinanjasar/Desktop/delfinentxt/BestCrawlResults.txt");
+                CoachFile.printResult(member.getId(), time, date, "/Users/sinanjasar/Desktop/delfinentxt/BestCrawlResults.txt");
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!" );
             }
             if (chest) {
                 discipline = "brystsvømning";
-                member.setBestChestResult(time);
-                member.setBestChestResultDate(date);
+//                member.setBestChestResult(time);
+//                member.setBestChestResultDate(date);
                 CoachFile.deleteResult(String.valueOf(member.getId()), "/Users/sinanjasar/Desktop/delfinentxt/ChestResults.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteChestResults.txt");
-                CoachFile.printResult(member.getId(), member.getFirstName(), member.getLastName(), time, date, "/Users/sinanjasar/Desktop/delfinentxt/ChestResults.txt");
+                CoachFile.printResult(member.getId(), time, date, "/Users/sinanjasar/Desktop/delfinentxt/ChestResults.txt");
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!" );
             }
             if (butterfly) {
                 discipline = "butterfly";
-                member.setBestButterflyResult(time);
-                member.setBestButterflyResultDate(date);
+//                member.setBestButterflyResult(time);
+//                member.setBestButterflyResultDate(date);
                 CoachFile.deleteResult(String.valueOf(member.getId()), "/Users/sinanjasar/Desktop/delfinentxt/ButterflyResults.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteButterflyResults.txt" );
-                CoachFile.printResult(member.getId(), member.getFirstName(), member.getLastName(), member.getBestCrawlResult(), member.getBestChestResultDate(), "/Users/sinanjasar/Desktop/delfinentxt/ButterflyResults.txt");
+                CoachFile.printResult(member.getId(), time, date, "/Users/sinanjasar/Desktop/delfinentxt/ButterflyResults.txt");
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!" );
             }
             if (backcrawl) {
                 discipline = "backcrawl";
-                member.setBestBackCrawlResult(time);
-                member.setBestBackCrawlResultDate(date);
+//                member.setBestBackCrawlResult(time);
+//                member.setBestBackCrawlResultDate(date);
                 CoachFile.deleteResult(String.valueOf(member.getId()), "/Users/sinanjasar/Desktop/delfinentxt/BackCrawlResults.txt","/Users/sinanjasar/Desktop/delfinentxt/TempDeleteBackCrawlResults.txt");
-                CoachFile.printResult(member.getId(), member.getFirstName(), member.getLastName(), member.getBestCrawlResult(), member.getBestChestResultDate(),"/Users/sinanjasar/Desktop/delfinentxt/BackCrawlResults.txt");
+                CoachFile.printResult(member.getId(), time, date,"/Users/sinanjasar/Desktop/delfinentxt/BackCrawlResults.txt");
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!");
             }
 

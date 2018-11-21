@@ -471,6 +471,7 @@ public class PresidentFile {
         String birthDate = "";
         String dis = "";
         String team = "";
+        String age = "";
 
         try {
             FileWriter fw = new FileWriter(tempFile, true);
@@ -484,11 +485,12 @@ public class PresidentFile {
                 firstName = x.next();
                 lastName = x.next();
                 activity = x.next();
+                age = x.next();
                 birthDate = x.next();
                 dis = x.next();
                 team = x.next();
                 if (!ID.equals(deleteTerm)) {
-                    pw.println(ID + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
+                    pw.println(ID + "," + firstName + "," + lastName + "," + activity + "," + age + "," + birthDate + "," + dis + "," + team);
                 }
             }
             x.close();
@@ -517,6 +519,7 @@ public class PresidentFile {
         String birthDate = "";
         String dis = "";
         String team = "";
+        String age = "";
 
         try {
             FileWriter fw = new FileWriter(tempFile, true);
@@ -530,6 +533,7 @@ public class PresidentFile {
                 firstName = x.next();
                 lastName = x.next();
                 activity = x.next();
+                age = x.next();
                 birthDate = x.next();
                 dis = x.next();
                 team = x.next();
@@ -560,6 +564,7 @@ public class PresidentFile {
         String firstName = "";
         String lastName = "";
         String activity = "";
+        String age = "";
         String birthDate = "";
         String dis = "";
         String team = "";
@@ -576,11 +581,12 @@ public class PresidentFile {
                 firstName = x.next();
                 lastName = x.next();
                 activity = x.next();
+                age = x.next();
                 birthDate = x.next();
                 dis = x.next();
                 team = x.next();
                 if (!ID.equals(deleteTerm)) {
-                    pw.println(ID + "," + firstName + "," + lastName + "," + activity + "," + birthDate + "," + dis + "," + team);
+                    pw.println(ID + "," + firstName + "," + lastName + "," + activity + "," + age + "," + birthDate + "," + dis + "," + team);
                 }
             }
                     

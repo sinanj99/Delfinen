@@ -12,17 +12,11 @@ import static delfinen.data.Discipline.BUTTERFLY;
 import static delfinen.data.Discipline.CRAWL;
 import static delfinen.data.Discipline.RYGCRAWL;
 import delfinen.data.JuniorTeam;
-import delfinen.data.Member;
 import delfinen.data.MotionistTeam;
 import delfinen.data.SeniorTeam;
 import delfinen.data.Team;
-import delfinen.filehandler.PresidentFile;
-import static delfinen.filehandler.PresidentFile.printCompetitiveJuniorMember;
-import static delfinen.filehandler.PresidentFile.printCompetitiveSeniorMember;
-import static delfinen.filehandler.PresidentFile.printMember;
 import delfinen.logic.Controller;
 import java.time.LocalDate;
-import java.time.Month;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -356,6 +350,7 @@ public class EditMember extends javax.swing.JFrame {
         int day = Integer.parseInt((String) dayBox.getSelectedItem());
         int month = Integer.parseInt((String) monthBox.getSelectedItem());
         int year = Integer.parseInt((String) yearBox.getSelectedItem());
+        int age = (int) ChronoUnit.YEARS.between(LocalDate.of(year,month,day), LocalDate.now());
         Team newTeam = null;
         boolean competitive = this.konkurrence.isSelected();
         boolean motionist = this.motionist.isSelected();
@@ -392,12 +387,19 @@ public class EditMember extends javax.swing.JFrame {
                 newDis = RYGCRAWL;
             }
 
-            if (!crawl && !bryst && !butterfly && !rygcrawl) {
-                throw new Exception("Discipline not chosen");
+            if (!crawl && !bryst && !butterfly && !rygcrawl && competitive == true) {
+                
+                throw new Exception("Vælg venligst din disciplin");
+
+            }
+            if ((crawl || bryst || butterfly || rygcrawl) && motionist == true) {
+                
+                throw new Exception("Motionister må ikke vælge en disciplin");
+
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Vælg venligst din(e) disciplin(er)");
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
 
         try {
@@ -406,12 +408,12 @@ public class EditMember extends javax.swing.JFrame {
 
             if (competitive) {
                 newTeam = new CompetitiveTeam("Konkurrenceholdet");
-                ctrl.competitiveChosen(editTerm, editTermInt, newFirstName, newLastName, newActivity, year, month, day, newDis, newTeam);
+                ctrl.competitiveChosen(editTerm, editTermInt, newFirstName, newLastName, newActivity, age, year, month, day, newDis, newTeam);
             ctrl.editAllMembers(editTerm, newFirstName, newLastName, newActivity, year, month, day, newDis, newTeam);
             }
                 if (motionist) {
                     newTeam = new MotionistTeam("Motionistholdet");
-                    ctrl.motionistChosen(editTerm, editTermInt, newFirstName, newLastName, newActivity, year, month, day, newDis, newTeam);
+                    ctrl.motionistChosen(editTerm, editTermInt, newFirstName, newLastName, newActivity, age, year, month, day, newDis, newTeam);
                 ctrl.editAllMembers(editTerm, newFirstName, newLastName, newActivity, year, month, day, newDis, newTeam);
                 }
             

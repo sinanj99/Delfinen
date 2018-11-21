@@ -6,6 +6,10 @@
 package delfinen.data;
 
 import delfinen.filehandler.CoachFile;
+import static delfinen.filehandler.CoachFile.getMembers;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,6 +17,14 @@ import delfinen.filehandler.CoachFile;
  */
 public class test {
     public static void main(String[] args) {
-        System.out.println(CoachFile.getMember(1));
+        int day = 21;
+        int month = 10;
+        int year = 1999;
+        
+        int age = (int) ChronoUnit.YEARS.between(LocalDate.of(year,month,day), LocalDate.now());
+        System.out.println(age);
+        
+        ArrayList<Member> jMembers = CoachFile.getMembers("/Users/sinanjasar/Desktop/delfinentxt/Members.txt");
+        System.out.println(jMembers.size());
     }
 }

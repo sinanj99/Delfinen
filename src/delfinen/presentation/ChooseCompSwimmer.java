@@ -6,12 +6,15 @@
 package delfinen.presentation;
 
 import delfinen.filehandler.CoachFile;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 /**
  *
  * @author sinanjasar
  */
 public class ChooseCompSwimmer extends javax.swing.JFrame {
+
     /**
      * Creates new form ChooseCompSwimmer
      */
@@ -90,7 +93,7 @@ public class ChooseCompSwimmer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void medlemsIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medlemsIDActionPerformed
-        
+
     }//GEN-LAST:event_medlemsIDActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -101,8 +104,16 @@ public class ChooseCompSwimmer extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String term = this.medlemsID.getText();
-        CoachFile.deleteCompetitionMember(term);
-        CoachFile.chooseCompetitionMember(term);
+        CoachFile.deleteCompetitionMember(term, "/Users/sinanjasar/Desktop/delfinentxt/ChosenJuniorMembers.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteChosenJuniorMembers.txt");
+        CoachFile.deleteCompetitionMember(term, "/Users/sinanjasar/Desktop/delfinentxt/ChosenSeniorMembers.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteChosenSeniorMembers.txt");
+        
+        if(CoachFile.getMember(Integer.parseInt(term)).getAge() < 18)
+        {
+            CoachFile.chooseJuniorCompetitionMember(term);
+        } else {
+            CoachFile.chooseSeniorCompetitionMember(term);
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

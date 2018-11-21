@@ -31,9 +31,26 @@
                   <Component id="MemberIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton2" alignment="1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="374" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jScrollPane2" min="-2" pref="374" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="374" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="34" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -41,19 +58,26 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="MemberIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" alignment="0" min="-2" pref="320" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="MemberIdLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Component id="jTextField1" min="-2" pref="43" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="ShowMemberButton" min="-2" pref="41" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton2" min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -85,6 +109,39 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
       </Events>
     </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="jList2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="1"/>
+            </Property>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="DefaultListModel jMemberList = new DefaultListModel();&#xa;ArrayList&lt;Member&gt; jMembers = CoachFile.getMembers(&quot;/Users/sinanjasar/Desktop/delfinentxt/Members.txt&quot;);&#xa;int jsize = CoachFile.getChosenMembersSize(&quot;/Users/sinanjasar/Desktop/delfinentxt/ChosenJuniorMembers.txt&quot;);&#xa;if(jsize &lt; 1){&#xa;    jMemberList.addElement(&quot;Ingen medlemmer at v&#xe6;lge&quot;);&#xa;}else{&#xa;    for(int i = 0; i &lt; jsize; i++){&#xa;        int id = jMembers.get(i).getId();&#xa;        String firstName = jMembers.get(i).getFirstName();&#xa;        String lastName = jMembers.get(i).getLastName();&#xa;        jMemberList.addElement(&quot;Id: &quot; + id + &quot; - &quot; + firstName + &quot; &quot; + lastName);&#xa;    }&#xa;}&#xa;jList2.setModel(jMemberList);"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Senior:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Junior:"/>
+      </Properties>
+    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -102,7 +159,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="DefaultListModel memberList = new DefaultListModel();&#xa;ArrayList&lt;Member&gt; members = CoachFile.getMembers(&quot;/Users/sinanjasar/Desktop/delfinentxt/Members.txt&quot;);&#xa;ArrayList&lt;String&gt; ids = CoachFile.getChosenMembers(&quot;/Users/sinanjasar/Desktop/delfinentxt/ChosenMembers.txt&quot;);&#xa;if(ids.size() &lt; 1){&#xa;    memberList.addElement(&quot;Ingen medlemmer at v&#xe6;lge&quot;);&#xa;}else{&#xa;    for(int i = 0; i &lt; ids.size(); i++){&#xa;        int id = Integer.parseInt(CoachFile.getChosenMembers(&quot;/Users/sinanjasar/Desktop/delfinentxt/ChosenMembers.txt&quot;).get(i));&#xa;        String firstName = CoachFile.getMember(id).getFirstName();&#xa;        String lastName = CoachFile.getMember(id).getLastName();&#xa;        memberList.addElement(&quot;Id: &quot; + id + &quot; - &quot; + firstName + &quot; &quot; + lastName);&#xa;    }&#xa;}&#xa;jList1.setModel(memberList);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="DefaultListModel sMemberList = new DefaultListModel();&#xa;ArrayList&lt;Member&gt; sMembers = CoachFile.getMembers(&quot;/Users/sinanjasar/Desktop/delfinentxt/Members.txt&quot;);&#xa;int size = CoachFile.getChosenMembersSize(&quot;/Users/sinanjasar/Desktop/delfinentxt/ChosenSeniorMembers.txt&quot;);&#xa;if(size &lt; 1){&#xa;    sMemberList.addElement(&quot;Ingen medlemmer at v&#xe6;lge&quot;);&#xa;}else{&#xa;    for(int i = 0; i &lt; size; i++){&#xa;        int id = sMembers.get(i).getId();&#xa;        String firstName = sMembers.get(i).getFirstName();&#xa;        String lastName = sMembers.get(i).getLastName();&#xa;        sMemberList.addElement(&quot;Id: &quot; + id + &quot; - &quot; + firstName + &quot; &quot; + lastName);&#xa;    }&#xa;}&#xa;jList1.setModel(sMemberList);"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>

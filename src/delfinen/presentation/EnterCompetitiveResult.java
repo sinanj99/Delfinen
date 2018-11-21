@@ -5,6 +5,11 @@
  */
 package delfinen.presentation;
 
+import delfinen.filehandler.CoachFile;
+import java.time.LocalDate;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sinanjasar
@@ -20,7 +25,7 @@ public class EnterCompetitiveResult extends javax.swing.JFrame {
     
     public EnterCompetitiveResult(String passedId) {
         initComponents();
-        Stævne.setText(passedId);
+        jLabel1.setText(passedId);
     }
 
     /**
@@ -40,10 +45,21 @@ public class EnterCompetitiveResult extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        monthBox = new javax.swing.JComboBox<>();
+        yearBox = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        dayBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Stævne.setText("Stævne");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Placering");
 
@@ -53,6 +69,47 @@ public class EnterCompetitiveResult extends javax.swing.JFrame {
 
         jLabel6.setText("Medlem:");
 
+        jButton1.setText("Registrer");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        monthBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        monthBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                monthBoxActionPerformed(evt);
+            }
+        });
+
+        int yearNow = Calendar.getInstance().get(Calendar.YEAR);
+        int yearLen =  yearNow-1900+1;
+        int year = 1900;
+        int yearPos = 0;
+        String[] years = new String[yearLen];
+
+        for(int i = 1; i < yearLen+1; i++){
+            years[yearPos] = Integer.toString(year);
+            year++;
+            yearPos++;
+        }
+        yearBox.setModel(new javax.swing.DefaultComboBoxModel<>(years));
+        yearBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Dato:");
+
+        dayBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        dayBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dayBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -60,12 +117,7 @@ public class EnterCompetitiveResult extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
+                        .addGap(101, 101, 101)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -74,13 +126,28 @@ public class EnterCompetitiveResult extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(Stævne)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(136, Short.MAX_VALUE))
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 89, Short.MAX_VALUE)
+                .addComponent(dayBox, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(monthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,7 +156,7 @@ public class EnterCompetitiveResult extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel6))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Stævne)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -101,11 +168,91 @@ public class EnterCompetitiveResult extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(monthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        int id = Integer.parseInt(jLabel1.getText());
+        
+        try {
+            
+        String event = jTextField1.getText();
+        String placement = jTextField3.getText();
+        
+        if (this.jTextField1 == null || this.jTextField3 == null) {
+                throw new IllegalArgumentException("Name is null");
+            }
+
+            if (this.jTextField1.equals("") || this.jTextField3.equals("")) {
+                throw new Exception("Name is empty");
+            }
+
+            if ((event != (String) event) || (placement != (String) placement)) // tjek om input er String
+            {
+                throw new IllegalArgumentException("arg");
+            }
+
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(this, "Indtast venligst et navn");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Indtast venligst et navn");
+        }
+        
+        double time = 0;
+        
+        try {
+        time = Double.parseDouble(jTextField4.getText());
+        if (this.jTextField4 == null) {
+                throw new IllegalArgumentException("Int not found");
+            }
+
+            if (time < 0) {
+                throw new Exception("Negative input inserted");
+            }
+
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(this, "Indtast venligst resultat");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Indtast venligst et positivt heltal");
+        }
+        
+        LocalDate date = null;
+        int day = Integer.parseInt((String) dayBox.getSelectedItem());
+        int month = Integer.parseInt((String) monthBox.getSelectedItem());
+        int year = Integer.parseInt((String) yearBox.getSelectedItem());
+        
+        date = LocalDate.of(year, month, day);
+        CoachFile.printResult(id,time,date,"/Users/sinanjasar/Desktop/delfinentxt/CompetitionResults.txt");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void monthBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_monthBoxActionPerformed
+
+    private void yearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBoxActionPerformed
+
+    }//GEN-LAST:event_yearBoxActionPerformed
+
+    private void dayBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dayBoxActionPerformed
+
+    }//GEN-LAST:event_dayBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,12 +292,17 @@ public class EnterCompetitiveResult extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Stævne;
+    private javax.swing.JComboBox<String> dayBox;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JComboBox<String> monthBox;
+    private javax.swing.JComboBox<String> yearBox;
     // End of variables declaration//GEN-END:variables
 }

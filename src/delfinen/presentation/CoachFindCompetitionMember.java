@@ -35,6 +35,10 @@ public class CoachFindCompetitionMember extends javax.swing.JFrame {
         ShowMemberButton = new javax.swing.JButton();
         MemberIdLabel = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
 
@@ -62,20 +66,41 @@ public class CoachFindCompetitionMember extends javax.swing.JFrame {
             }
         });
 
-        DefaultListModel memberList = new DefaultListModel();
-        ArrayList<Member> members = CoachFile.getMembers("/Users/sinanjasar/Desktop/delfinentxt/Members.txt");
-        ArrayList<String> ids = CoachFile.getChosenMembers("/Users/sinanjasar/Desktop/delfinentxt/ChosenMembers.txt");
-        if(ids.size() < 1){
-            memberList.addElement("Ingen medlemmer at vælge");
+        DefaultListModel jMemberList = new DefaultListModel();
+        ArrayList<Member> jMembers = CoachFile.getMembers("/Users/sinanjasar/Desktop/delfinentxt/Members.txt");
+        int jsize = CoachFile.getChosenMembersSize("/Users/sinanjasar/Desktop/delfinentxt/ChosenJuniorMembers.txt");
+        if(jsize < 1){
+            jMemberList.addElement("Ingen medlemmer at vælge");
         }else{
-            for(int i = 0; i < ids.size(); i++){
-                int id = Integer.parseInt(CoachFile.getChosenMembers("/Users/sinanjasar/Desktop/delfinentxt/ChosenMembers.txt").get(i));
-                String firstName = CoachFile.getMember(id).getFirstName();
-                String lastName = CoachFile.getMember(id).getLastName();
-                memberList.addElement("Id: " + id + " - " + firstName + " " + lastName);
+            for(int i = 0; i < jsize; i++){
+                int id = jMembers.get(i).getId();
+                String firstName = jMembers.get(i).getFirstName();
+                String lastName = jMembers.get(i).getLastName();
+                jMemberList.addElement("Id: " + id + " - " + firstName + " " + lastName);
             }
         }
-        jList1.setModel(memberList);
+        jList2.setModel(jMemberList);
+        jList2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jScrollPane2.setViewportView(jList2);
+
+        jLabel1.setText("Senior:");
+
+        jLabel2.setText("Junior:");
+
+        DefaultListModel sMemberList = new DefaultListModel();
+        ArrayList<Member> sMembers = CoachFile.getMembers("/Users/sinanjasar/Desktop/delfinentxt/Members.txt");
+        int size = CoachFile.getChosenMembersSize("/Users/sinanjasar/Desktop/delfinentxt/ChosenSeniorMembers.txt");
+        if(size < 1){
+            sMemberList.addElement("Ingen medlemmer at vælge");
+        }else{
+            for(int i = 0; i < size; i++){
+                int id = sMembers.get(i).getId();
+                String firstName = sMembers.get(i).getFirstName();
+                String lastName = sMembers.get(i).getLastName();
+                sMemberList.addElement("Id: " + id + " - " + firstName + " " + lastName);
+            }
+        }
+        jList1.setModel(sMemberList);
         jList1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jScrollPane1.setViewportView(jList1);
 
@@ -90,25 +115,43 @@ public class CoachFindCompetitionMember extends javax.swing.JFrame {
                     .addComponent(ShowMemberButton, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
                     .addComponent(MemberIdLabel)
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(34, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(193, 193, 193))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(195, 195, 195))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MemberIdLabel)
+                    .addComponent(jLabel1))
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(MemberIdLabel)
-                        .addGap(5, 5, 5)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ShowMemberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -170,8 +213,12 @@ public class CoachFindCompetitionMember extends javax.swing.JFrame {
     private javax.swing.JLabel MemberIdLabel;
     private javax.swing.JButton ShowMemberButton;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

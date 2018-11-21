@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author sinanjasar
  */
 public class Team {
-    private Coach coach;
+//    private Coach coach;
     private String teamName;
     private ArrayList<Member> members = new ArrayList<Member>();
     private ArrayList<Integer> bestResults = new ArrayList<Integer>();
@@ -25,9 +25,9 @@ public class Team {
         return teamName;
     }
 
-    public Coach getCoach() {
-        return coach;
-    }
+//    public Coach getCoach() {
+//        return coach;
+//    }
 
     public ArrayList<Member> getMembers() {
         return members;

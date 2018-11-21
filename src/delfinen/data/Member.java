@@ -22,21 +22,22 @@ public class Member {
     private Team team;
     private Coach coach;
     private int id;
-    private Result result;
-    private double bestCrawlResult;
-    private double bestChestResult = 0;
-    private double bestButterflyResult = 0;
-    private double bestBackCrawlResult = 0;
-    private LocalDate bestCrawlResultDate = null;
-    private LocalDate bestChestResultDate = null;
-    private LocalDate bestButterflyResultDate = null;
-    private LocalDate bestBackCrawlResultDate = null;
-    private ArrayList<Result> chestResults = new ArrayList<Result>();
-    private ArrayList<Result> crawlResults = new ArrayList<Result>();
-    private ArrayList<Result> butterflyResults = new ArrayList<Result>();
-    private ArrayList<Result> backcrawlResults = new ArrayList<Result>();
+//    private Result result;
+//    private double bestCrawlResult;
+//    private double bestChestResult = 0;
+//    private double bestButterflyResult = 0;
+//    private double bestBackCrawlResult = 0;
+//    private LocalDate bestCrawlResultDate = null;
+//    private LocalDate bestChestResultDate = null;
+//    private LocalDate bestButterflyResultDate = null;
+//    private LocalDate bestBackCrawlResultDate = null;
+//    private ArrayList<Result> chestResults = new ArrayList<Result>();
+//    private ArrayList<Result> crawlResults = new ArrayList<Result>();
+//    private ArrayList<Result> butterflyResults = new ArrayList<Result>();
+//    private ArrayList<Result> backcrawlResults = new ArrayList<Result>();
+    private int age;
 
-    public Member(int id, String firstName, String lastName, String activity, LocalDate birthDate, Discipline discipline, Team team) {
+    public Member(int id, String firstName, String lastName, String activity, int age, LocalDate birthDate, Discipline discipline, Team team) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,19 +46,21 @@ public class Member {
         this.discipline = discipline;
         this.team = team;
         this.id++;
+        this.age = age;
     }
     
-    public Member(int id, String firstName, String lastName){
+    public Member(int id, String firstName, String lastName, int age){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.age = age;
     }
     
     
 
     @Override
     public String toString() {
-        return id + "," + activity + "," + firstName + "," + lastName + "," + birthDate + "," + discipline + "," + team + "\n";
+        return id + "," + firstName + "," + lastName + "," + activity + "," + age + "," + birthDate + "," + discipline + "," + team + "\n";
     }
 
     public String getActivity() {
@@ -91,93 +94,92 @@ public class Member {
     public int getId() {
         return id;
     }
+//
+//    public Result getResult() {
+//        return result;
+//    }
 
-    public Result getResult() {
-        return result;
+//    public ArrayList<Result> getChestResults() {
+//        return chestResults;
+//    }
+//
+//    public ArrayList<Result> getCrawlResults() {
+//        return crawlResults;
+//    }
+//
+//    public ArrayList<Result> getButterflyResults() {
+//        return butterflyResults;
+//    }
+//
+//    public ArrayList<Result> getBackcrawlResults() {
+//        return backcrawlResults;
+//    }
+
+//    public void setBestCrawlResult(double bestCrawlResult) {
+//        this.bestCrawlResult = bestCrawlResult;
+//    }
+//
+//    public void setBestChestResult(double bestChestResult) {
+//        this.bestChestResult = bestChestResult;
+//    }
+//
+//    public void setBestButterflyResult(double bestButterflyResult) {
+//        this.bestButterflyResult = bestButterflyResult;
+//    }
+//
+//    public void setBestBackCrawlResult(double bestBackCrawlResult) {
+//        this.bestBackCrawlResult = bestBackCrawlResult;
+//    }
+//
+//    public void setBestCrawlResultDate(LocalDate bestCrawlResultDate) {
+//        this.bestCrawlResultDate = bestCrawlResultDate;
+//    }
+//
+//    public void setBestChestResultDate(LocalDate bestChestResultDate) {
+//        this.bestChestResultDate = bestChestResultDate;
+//    }
+//
+//    public void setBestButterflyResultDate(LocalDate bestButterflyResultDate) {
+//        this.bestButterflyResultDate = bestButterflyResultDate;
+//    }
+//
+//    public void setBestBackCrawlResultDate(LocalDate bestBackCrawlResultDate) {
+//        this.bestBackCrawlResultDate = bestBackCrawlResultDate;
+//    }
+
+//    public double getBestCrawlResult() {
+//        return bestCrawlResult;
+//    }
+//
+//    public double getBestChestResult() {
+//        return bestChestResult;
+//    }
+//
+//    public double getBestButterflyResult() {
+//        return bestButterflyResult;
+//    }
+//
+//    public double getBestBackCrawlResult() {
+//        return bestBackCrawlResult;
+//    }
+//
+//    public LocalDate getBestCrawlResultDate() {
+//        return bestCrawlResultDate;
+//    }
+//
+//    public LocalDate getBestChestResultDate() {
+//        return bestChestResultDate;
+//    }
+//
+//    public LocalDate getBestButterflyResultDate() {
+//        return bestButterflyResultDate;
+//    }
+//
+//    public LocalDate getBestBackCrawlResultDate() {
+//        return bestBackCrawlResultDate;
+//    }
+
+    public int getAge() {
+        return age;
     }
-
-    public ArrayList<Result> getChestResults() {
-        return chestResults;
-    }
-
-    public ArrayList<Result> getCrawlResults() {
-        return crawlResults;
-    }
-
-    public ArrayList<Result> getButterflyResults() {
-        return butterflyResults;
-    }
-
-    public ArrayList<Result> getBackcrawlResults() {
-        return backcrawlResults;
-    }
-
-    public void setBestCrawlResult(double bestCrawlResult) {
-        this.bestCrawlResult = bestCrawlResult;
-    }
-
-    public void setBestChestResult(double bestChestResult) {
-        this.bestChestResult = bestChestResult;
-    }
-
-    public void setBestButterflyResult(double bestButterflyResult) {
-        this.bestButterflyResult = bestButterflyResult;
-    }
-
-    public void setBestBackCrawlResult(double bestBackCrawlResult) {
-        this.bestBackCrawlResult = bestBackCrawlResult;
-    }
-
-    public void setBestCrawlResultDate(LocalDate bestCrawlResultDate) {
-        this.bestCrawlResultDate = bestCrawlResultDate;
-    }
-
-    public void setBestChestResultDate(LocalDate bestChestResultDate) {
-        this.bestChestResultDate = bestChestResultDate;
-    }
-
-    public void setBestButterflyResultDate(LocalDate bestButterflyResultDate) {
-        this.bestButterflyResultDate = bestButterflyResultDate;
-    }
-
-    public void setBestBackCrawlResultDate(LocalDate bestBackCrawlResultDate) {
-        this.bestBackCrawlResultDate = bestBackCrawlResultDate;
-    }
-
-    public double getBestCrawlResult() {
-        return bestCrawlResult;
-    }
-
-    public double getBestChestResult() {
-        return bestChestResult;
-    }
-
-    public double getBestButterflyResult() {
-        return bestButterflyResult;
-    }
-
-    public double getBestBackCrawlResult() {
-        return bestBackCrawlResult;
-    }
-
-    public LocalDate getBestCrawlResultDate() {
-        return bestCrawlResultDate;
-    }
-
-    public LocalDate getBestChestResultDate() {
-        return bestChestResultDate;
-    }
-
-    public LocalDate getBestButterflyResultDate() {
-        return bestButterflyResultDate;
-    }
-
-    public LocalDate getBestBackCrawlResultDate() {
-        return bestBackCrawlResultDate;
-    }
-
-
-    
-    
-    
 }

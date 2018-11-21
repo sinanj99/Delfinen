@@ -20,6 +20,7 @@ import delfinen.data.Team;
 import delfinen.filehandler.PresidentFile;
 import delfinen.logic.Controller;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -362,7 +363,9 @@ public class RegisterMember extends javax.swing.JFrame {
         int day = Integer.parseInt((String) dayBox.getSelectedItem());
         int month = Integer.parseInt((String) monthBox.getSelectedItem());
         int year = Integer.parseInt((String) yearBox.getSelectedItem());
-
+        
+        int age = (int) ChronoUnit.YEARS.between(LocalDate.of(year,month,day), LocalDate.now());
+        
         try {
 
             if (active) {
@@ -413,7 +416,7 @@ public class RegisterMember extends javax.swing.JFrame {
         try {
 
             if (competitive) {
-                competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, competitiveTeam);
+                competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, age, LocalDate.of(year, month, day), dis, competitiveTeam);
 //                ctrl.addCompetitiveMember(competitiveMember, competitiveTeam);
 //                ctrl.addMember(competitiveMember, competitiveTeam);
                 ctrl.printCompetitiveMember(competitiveMember);
@@ -432,7 +435,8 @@ public class RegisterMember extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, firstName + " er blevet oprettet.");
             }
             if (motionist) {
-                member = ctrl.createMember(userId, firstName, lastName, activity, LocalDate.of(year, month, day), dis, motionistTeam);
+                member = ctrl.createMember(userId, firstName, lastName, activity, age, LocalDate.of(year, month, day), dis, motionistTeam);
+                System.out.println(age);
 //                ctrl.addMotionistMember(member, motionistTeam);
 //                ctrl.addMember(member, motionistTeam);
 //                ctrl.printMotionistTeamMembers(member);
