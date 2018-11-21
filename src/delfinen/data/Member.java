@@ -23,7 +23,7 @@ public class Member {
     private Coach coach;
     private int id;
     private Result result;
-    private double bestCrawlResult = 0;
+    private double bestCrawlResult;
     private double bestChestResult = 0;
     private double bestButterflyResult = 0;
     private double bestBackCrawlResult = 0;

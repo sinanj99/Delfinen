@@ -64,6 +64,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Udtag sv&#xf8;mmer"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UdtagSv&#xf8;mmerActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="IndtastTr&#xe6;ningsresultat">
       <Properties>
@@ -77,6 +80,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Indtast konkurrenceresultat"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

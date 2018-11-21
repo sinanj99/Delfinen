@@ -90,7 +90,7 @@ public class ChooseCompSwimmer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void medlemsIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medlemsIDActionPerformed
-
+        
     }//GEN-LAST:event_medlemsIDActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -101,6 +101,7 @@ public class ChooseCompSwimmer extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String term = this.medlemsID.getText();
+        CoachFile.deleteCompetitionMember(term);
         CoachFile.chooseCompetitionMember(term);
     }//GEN-LAST:event_jButton1ActionPerformed
 

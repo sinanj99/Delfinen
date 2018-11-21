@@ -43,6 +43,7 @@ public class EnterTrainingResults extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -50,8 +51,6 @@ public class EnterTrainingResults extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         Crawl = new javax.swing.JRadioButton();
         Bryst = new javax.swing.JRadioButton();
@@ -92,22 +91,18 @@ public class EnterTrainingResults extends javax.swing.JFrame {
             }
         });
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("Distance:");
-
         jLabel6.setText("Tid:");
 
+        buttonGroup1.add(Crawl);
         Crawl.setText("Crawl");
 
+        buttonGroup1.add(Bryst);
         Bryst.setText("Brystsvømning");
 
+        buttonGroup1.add(Butterfly);
         Butterfly.setText("Butterfly");
 
+        buttonGroup1.add(Rygcrawl);
         Rygcrawl.setText("Rygcrawl");
 
         jLabel7.setText("Vælg dato: ");
@@ -158,35 +153,32 @@ public class EnterTrainingResults extends javax.swing.JFrame {
                             .addComponent(Bryst)
                             .addComponent(Butterfly))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(112, 112, 112))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(67, 67, 67)
+                                        .addComponent(jLabel7))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addGap(65, 65, 65)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabel6))
-                                            .addComponent(jLabel3)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(67, 67, 67)
-                                        .addComponent(jLabel7)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jLabel6)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel3))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                                .addComponent(dayBox, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(monthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 56, 56))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Rygcrawl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(dayBox, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(monthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61))))
+                        .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -223,13 +215,9 @@ public class EnterTrainingResults extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
+                        .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -248,7 +236,9 @@ public class EnterTrainingResults extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        new CoachFindMember().setVisible(true);
+        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -258,16 +248,16 @@ public class EnterTrainingResults extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         double time = 0;
+        LocalDate date = null;
         int id = Integer.parseInt(jLabel1.getText());
-        try{
-        int distance = Integer.parseInt(this.jTextField1.getText());
-        time = Integer.parseInt(this.jTextField2.getText());
+        try {
+        time = (Double) Double.parseDouble(this.jTextField1.getText());
         
-            if (this.jTextField1 == null || this.jTextField2 == null) {
+            if (this.jTextField1 == null) {
                 throw new IllegalArgumentException("Int not found");
             }
 
-            if (distance < 0 || time < 0) {
+            if (time < 0) {
                 throw new Exception("Negative input inserted");
             }
 
@@ -286,41 +276,41 @@ public class EnterTrainingResults extends javax.swing.JFrame {
         int day = Integer.parseInt((String) dayBox.getSelectedItem());
         int month = Integer.parseInt((String) monthBox.getSelectedItem());
         int year = Integer.parseInt((String) yearBox.getSelectedItem());
-        LocalDate date = LocalDate.of(year, month, day);
+        date = LocalDate.of(year, month, day);
         Member member = null;
-        // find ud af hvordan man kan bruge den member man har valgt i find member!! p.t er member null
+        member = CoachFile.getMember(id);
         
         try {
             if (crawl) {
                 discipline = "crawl";
                 member.setBestCrawlResult(time);
                 member.setBestCrawlResultDate(date);
-                CoachFile.deleteCrawlResult(String.valueOf(member.getId()));
-                CoachFile.printCrawlResult(member.getId(), member.getFirstName(), member.getLastName(), member.getBestCrawlResult(), member.getBestChestResultDate());
+                CoachFile.deleteResult(String.valueOf(member.getId()), "/Users/sinanjasar/Desktop/delfinentxt/BestCrawlResults.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteCrawlResults.txt");
+                CoachFile.printResult(member.getId(), member.getFirstName(), member.getLastName(), member.getBestCrawlResult(), member.getBestCrawlResultDate(), "/Users/sinanjasar/Desktop/delfinentxt/BestCrawlResults.txt");
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!" );
             }
             if (chest) {
                 discipline = "brystsvømning";
                 member.setBestChestResult(time);
                 member.setBestChestResultDate(date);
-                CoachFile.deleteChestResult(String.valueOf(member.getId()));
-                CoachFile.printChestResults(member.getId(), member.getFirstName(), member.getLastName(), member.getBestCrawlResult(), member.getBestChestResultDate());
+                CoachFile.deleteResult(String.valueOf(member.getId()), "/Users/sinanjasar/Desktop/delfinentxt/ChestResults.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteChestResults.txt");
+                CoachFile.printResult(member.getId(), member.getFirstName(), member.getLastName(), time, date, "/Users/sinanjasar/Desktop/delfinentxt/ChestResults.txt");
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!" );
             }
             if (butterfly) {
                 discipline = "butterfly";
                 member.setBestButterflyResult(time);
                 member.setBestButterflyResultDate(date);
-                CoachFile.deleteButterflyResult(String.valueOf(member.getId()));
-                CoachFile.printButterflyResults(member.getId(), member.getFirstName(), member.getLastName(), member.getBestCrawlResult(), member.getBestChestResultDate());
+                CoachFile.deleteResult(String.valueOf(member.getId()), "/Users/sinanjasar/Desktop/delfinentxt/ButterflyResults.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteButterflyResults.txt" );
+                CoachFile.printResult(member.getId(), member.getFirstName(), member.getLastName(), member.getBestCrawlResult(), member.getBestChestResultDate(), "/Users/sinanjasar/Desktop/delfinentxt/ButterflyResults.txt");
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!" );
             }
             if (backcrawl) {
                 discipline = "backcrawl";
                 member.setBestBackCrawlResult(time);
                 member.setBestBackCrawlResultDate(date);
-                CoachFile.deleteBackCrawlResult(String.valueOf(member.getId()));
-                CoachFile.printBackCrawlResults(member.getId(), member.getFirstName(), member.getLastName(), member.getBestCrawlResult(), member.getBestChestResultDate());
+                CoachFile.deleteResult(String.valueOf(member.getId()), "/Users/sinanjasar/Desktop/delfinentxt/BackCrawlResults.txt","/Users/sinanjasar/Desktop/delfinentxt/TempDeleteBackCrawlResults.txt");
+                CoachFile.printResult(member.getId(), member.getFirstName(), member.getLastName(), member.getBestCrawlResult(), member.getBestChestResultDate(),"/Users/sinanjasar/Desktop/delfinentxt/BackCrawlResults.txt");
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!");
             }
 
@@ -334,10 +324,6 @@ public class EnterTrainingResults extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void dayBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dayBoxActionPerformed
 
@@ -392,6 +378,7 @@ public class EnterTrainingResults extends javax.swing.JFrame {
     private javax.swing.JRadioButton Butterfly;
     private javax.swing.JRadioButton Crawl;
     private javax.swing.JRadioButton Rygcrawl;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> dayBox;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -399,11 +386,9 @@ public class EnterTrainingResults extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JComboBox<String> monthBox;
     private javax.swing.JComboBox<String> yearBox;
     // End of variables declaration//GEN-END:variables

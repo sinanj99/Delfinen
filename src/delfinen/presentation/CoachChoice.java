@@ -42,6 +42,11 @@ public class CoachChoice extends javax.swing.JFrame {
         });
 
         UdtagSvømmer.setText("Udtag svømmer");
+        UdtagSvømmer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UdtagSvømmerActionPerformed(evt);
+            }
+        });
 
         IndtastTræningsresultat.setText("Indtast træningsresultat");
         IndtastTræningsresultat.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +56,11 @@ public class CoachChoice extends javax.swing.JFrame {
         });
 
         jButton4.setText("Indtast konkurrenceresultat");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,6 +101,16 @@ public class CoachChoice extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_IndtastTræningsresultatActionPerformed
+
+    private void UdtagSvømmerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UdtagSvømmerActionPerformed
+        new ChooseCompSwimmer().setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_UdtagSvømmerActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
