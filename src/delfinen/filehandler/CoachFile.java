@@ -6,6 +6,7 @@
 package delfinen.filehandler;
 
 import delfinen.data.Member;
+import delfinen.data.Team;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -21,8 +23,6 @@ import java.util.Scanner;
  * @author sinanjasar
  */
 public class CoachFile {
-
-    private static Scanner x;
 
     public static ArrayList<Member> getMembers(String filePath) {
 
@@ -37,7 +37,7 @@ public class CoachFile {
         String age = null;
 
         try {
-            x = new Scanner(new File(filePath));
+            Scanner x = new Scanner(new File(filePath));
             x.useDelimiter("[,\n]");
 
             while (x.hasNext()) {
@@ -64,7 +64,7 @@ public class CoachFile {
         String ID = null;
         ArrayList<String> ids = new ArrayList<String>();
         try {
-            x = new Scanner(new File(filePath));
+            Scanner x = new Scanner(new File(filePath));
             x.useDelimiter("[,\n]");
 
             while (x.hasNext()) {
@@ -84,7 +84,7 @@ public class CoachFile {
         String ID = null;
         ArrayList<String> ids = new ArrayList<String>();
         try {
-            x = new Scanner(new File(filePath));
+            Scanner x = new Scanner(new File(filePath));
             x.useDelimiter("[,\n]");
 
             while (x.hasNext()) {
@@ -107,13 +107,14 @@ public class CoachFile {
         String firstName = null;
         String lastName = null;
         String active = null;
+        String age = null;
         String birthDay = null;
         String disciplin = null;
         String team = null;
         Member member = null;
-        String age = null;
+        
         try {
-            x = new Scanner(new File(filePath));
+            Scanner x = new Scanner(new File(filePath));
             x.useDelimiter("[,\n]");
 
             while (x.hasNext()) {
@@ -128,6 +129,7 @@ public class CoachFile {
                 // indsæt alder her!!
                 if (ID.equals(String.valueOf(id))) {
                     member = new Member(id, firstName, lastName, Integer.parseInt(age));
+                    break;
                 }
             }
 
@@ -154,7 +156,7 @@ public class CoachFile {
                 System.out.println("");
             }
 
-            printWriter.print(id + "," + time + "," + date);
+            printWriter.println(id + "," + time + "," + date);
             printWriter.close();
         } catch (FileNotFoundException ex) {
             System.out.println(
@@ -183,7 +185,7 @@ public class CoachFile {
             FileWriter fw = new FileWriter(newFile, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
-            x = new Scanner(new File(filepath));
+            Scanner x = new Scanner(new File(filepath));
             x.useDelimiter("[,\n]");
 
             while (x.hasNext()) {
@@ -209,77 +211,79 @@ public class CoachFile {
 
     }
 
-    public static void printTop5(String term, String filepath, String top5) {
-//        String filepath = "/Users/sinanjasar/Desktop/delfinentxt/Members.txt";
-//        String chosen = "/Users/sinanjasar/Desktop/delfinentxt/ChosenSeniorMembers.txt";
+    public static ArrayList<String> printTop5(String filepath) {
         File oldFile = new File(filepath);
-        File newFile = new File(top5);
-
+        ArrayList<Double> timeList = new ArrayList<Double>();
+        ArrayList<String> smallList = new ArrayList<String>();
         String ID = "";
-        String activity = "";
-        String firstName = "";
-        String lastName = "";
-        String birthDate = "";
-        String dis = "";
-        String team = "";
-        String age = "";
+        String time = "";
+        String date = "";
         try {
-            FileWriter fw = new FileWriter(newFile, true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter pw = new PrintWriter(bw);
-            x = new Scanner(new File(filepath));
+
+            Scanner x = new Scanner(new File(filepath));
+            
             x.useDelimiter("[,\n]");
 
             while (x.hasNext()) {
                 ID = x.next();
-                firstName = x.next();
-                lastName = x.next();
-                activity = x.next();
-                age = x.next();
-                birthDate = x.next();
-                dis = x.next();
-                team = x.next();
-
-//                int i;
-//                int large[] = new int[5];
-//                int array[] = {33, 55, 13, 46, 87, 42, 10, 34, 43, 56};
-//                int max = 0, index;
-//                for (int j = 0; j < 5; j++) {
-//                    max = array[0];
-//                    index = 0;
-//                    for (i = 1; i < array.length; i++) {
-//                        if (max < array[i]) {
-//                            max = array[i];
-//                            index = i;
-//                        }
-//                    }
-//                    large[j] = max;
-//                    array[index] = Integer.MIN_VALUE;
-//
-//                    System.out.println("Largest " + j + " : " + large[j]);
-//                }
+                time = x.next();
+                date = x.next();
+                timeList.add(/*"Medlem " + ID + " - " + getMember(Integer.parseInt(ID)).getFirstName() + " " + getMember(Integer.parseInt(ID)).getLastName() + " - tid: " + */Double.parseDouble(time));
             
-//            }
-            if (ID.equals(term)) {
-                pw.println(ID);
             }
+            Collections.sort(timeList);
+            
+            for (int i = 0; i < 5; i++) {
+                int memberId = getTop5Names(filepath, timeList.get(i));
+                Member m = getMember(memberId);
+                smallList.add("Id: " + memberId + " - " + m.getFirstName() + " " + m.getLastName() + " - tid: " + timeList.get(i));
+                
+            }
+            x.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        x.close();
-        pw.flush();
-        pw.close();
-
+        return smallList;
     }
-    catch (Exception e
 
-    
-    
+    public static int getTop5Names(String filepath, double bestTime) {
+        
+        File oldFile = new File(filepath);
+//        File newFile = new File(chosen);
 
-) {
+        String ID = "";
+        String time = "";
+        String date = "";
+        int id = 0;
+
+        try {
+//            FileWriter fw = new FileWriter(newFile, true);
+//            BufferedWriter bw = new BufferedWriter(fw);
+//            PrintWriter pw = new PrintWriter(bw);
+            Scanner x = new Scanner(new File(filepath));
+            x.useDelimiter("[,\n]");
+
+            while (x.hasNext()) {
+                ID = x.next();
+                time = x.next();
+                date = x.next();
+                Double dTime = Double.parseDouble(time);
+                
+                if (dTime == bestTime) {
+                    id = Integer.parseInt(ID);
+                }
+            }
+            x.close();
+//            pw.flush();
+//            pw.close();
+
+        } catch (Exception e) {
 
         }
-
+        return id;
     }
-
+    
     public static void chooseJuniorCompetitionMember(String term) {
         String filepath = "/Users/sinanjasar/Desktop/delfinentxt/Members.txt";
         String chosen = "/Users/sinanjasar/Desktop/delfinentxt/ChosenJuniorMembers.txt";
@@ -298,7 +302,7 @@ public class CoachFile {
             FileWriter fw = new FileWriter(newFile, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
-            x = new Scanner(new File(filepath));
+            Scanner x = new Scanner(new File(filepath));
             x.useDelimiter("[,\n]");
 
             while (x.hasNext()) {
@@ -323,6 +327,7 @@ public class CoachFile {
         }
 
     }
+
     public static void deleteCompetitionMember(String term, String filepath, String tempFile) {
 
         File oldFile = new File(filepath);
@@ -337,7 +342,7 @@ public class CoachFile {
             FileWriter fw = new FileWriter(tempFile, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
-            x = new Scanner(new File(filepath));
+            Scanner x = new Scanner(new File(filepath));
             x.useDelimiter("[,\n]");
 
             while (x.hasNext()) {
@@ -377,7 +382,7 @@ public class CoachFile {
             FileWriter fw = new FileWriter(tempFile, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
-            x = new Scanner(new File(filePath));
+            Scanner x = new Scanner(new File(filePath));
             x.useDelimiter("[,\n]");
 
             while (x.hasNext()) {

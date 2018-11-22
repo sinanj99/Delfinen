@@ -10,17 +10,18 @@ import delfinen.filehandler.CoachFile;
 import delfinen.logic.Controller;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author sinanjasar
  */
-public class ChooseCompSwimmer extends javax.swing.JFrame {
+public class CoachChooseCompSwimmer extends javax.swing.JFrame {
     Controller ctrl = new Controller();
     /**
      * Creates new form ChooseCompSwimmer
      */
-    public ChooseCompSwimmer() {
+    public CoachChooseCompSwimmer() {
         initComponents();
     }
 
@@ -171,6 +172,7 @@ public class ChooseCompSwimmer extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String term = this.medlemsID.getText();
         ctrl.chooseCompetitiveMember(term);
+        JOptionPane.showMessageDialog(this, ctrl.getMember(Integer.parseInt(term)).getFirstName() + " er blevet udtaget.");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -190,20 +192,21 @@ public class ChooseCompSwimmer extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChooseCompSwimmer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CoachChooseCompSwimmer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChooseCompSwimmer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CoachChooseCompSwimmer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChooseCompSwimmer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CoachChooseCompSwimmer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChooseCompSwimmer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CoachChooseCompSwimmer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ChooseCompSwimmer().setVisible(true);
+                new CoachChooseCompSwimmer().setVisible(true);
             }
         });
     }

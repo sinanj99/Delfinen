@@ -26,7 +26,6 @@ import javax.swing.JOptionPane;
  * @author Younes
  */
 public class CashierFile {
-    private static Scanner x;
     
     public static void addPayment(String id){
         String filePath = "/Users/sinanjasar/Desktop/delfinentxt/Payments.txt";
@@ -44,7 +43,7 @@ public class CashierFile {
             FileWriter fw = new FileWriter(tempPaymentsPath,true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
-            x = new Scanner(new File(filePath));
+            Scanner x = new Scanner(new File(filePath));
             x.useDelimiter("[,\n]");
             
             while(x.hasNext()){
@@ -63,6 +62,7 @@ public class CashierFile {
             x.close();
             pw.flush();
             pw.close();
+            bw.close();
             oldFile.delete();
             File dump = new File(filePath);
             newFile.renameTo(dump);
@@ -84,7 +84,7 @@ public class CashierFile {
         String status = null;
         
         try{
-            x = new Scanner(new File(filePath));
+            Scanner x = new Scanner(new File(filePath));
             x.useDelimiter("[,\n]");
             
             while(x.hasNext()){
@@ -123,7 +123,7 @@ public class CashierFile {
         int deficit = 0;
         
         try{
-            x = new Scanner(new File(filePath));
+            Scanner x = new Scanner(new File(filePath));
             x.useDelimiter("[,\n]");
             
             while(x.hasNext()){
@@ -156,16 +156,15 @@ public class CashierFile {
         String birthDay = null;
         String disciplin = null;
         String team = null;
-        String coach = null;
-        int deficitId = 0;
         String age = null;
+        int deficitId = 0;
         
         try{
-            x = new Scanner(new File(filePath));
+            Scanner x = new Scanner(new File(filePath));
             x.useDelimiter("[,\n]");
             
             while(x.hasNext()){
-                ID = x.next();
+                ID = x.next(); 
                 firstName = x.next();
                 lastName = x.next();
                 active = x.next();
@@ -174,11 +173,13 @@ public class CashierFile {
                 disciplin = x.next();
                 team = x.next();
                 deficitId = Integer.parseInt(ID);
-                
+
                 if(getDeficitByMember(deficitId) > 0){
                     members.add(new Member(Integer.parseInt(ID), firstName, lastName.trim(), Integer.parseInt(age)));
                 }
             }
+            
+
           
         }catch(Exception e){
             e.printStackTrace();
@@ -197,11 +198,10 @@ public class CashierFile {
         String birthDay = null;
         String disciplin = null;
         String team = null;
-        String coach = null;
         String age = null;
         
         try{
-            x = new Scanner(new File(filePath));
+            Scanner x = new Scanner(new File(filePath));
             x.useDelimiter("[,\n]");
             
             while(x.hasNext()){

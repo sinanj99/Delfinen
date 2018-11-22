@@ -6,10 +6,9 @@
 package delfinen.data;
 
 import delfinen.filehandler.CoachFile;
-import static delfinen.filehandler.CoachFile.getMembers;
+import delfinen.logic.Controller;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
+import java.time.Month;
 
 /**
  *
@@ -17,7 +16,7 @@ import java.util.ArrayList;
  */
 public class test {
     public static void main(String[] args) {
-        int day = 21;
+        /*int day = 21;
         int month = 10;
         int year = 1999;
         
@@ -25,6 +24,16 @@ public class test {
         System.out.println(age);
         
         ArrayList<Member> jMembers = CoachFile.getMembers("/Users/sinanjasar/Desktop/delfinentxt/Members.txt");
-        System.out.println(jMembers.size());
+        System.out.println(jMembers.size());*/
+//        System.out.println((CoachFile.getTop5Names("/Users/sinanjasar/Desktop/delfinentxt/ChestResults.txt", 11.3)));
+        Team team = new Team("holdet");
+        //Member member = new Member(1,"","","passive",12,LocalDate.of(1999, 10, 1), Discipline.BRYST, team);
+        
+        Controller ctrl = new Controller();
+        Member member = ctrl.getMember(1);
+        System.out.println(ctrl.calculateContingent(member));
+//ctrl.editAllMembers("39", "John", "Johnsen", "passive", 2, 1999, 10, 21, Discipline.BRYST, new Team("Holdet"));
+//        System.out.println(ctrl.getMember(39));
+        
     }
 }

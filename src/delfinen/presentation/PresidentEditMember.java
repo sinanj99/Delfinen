@@ -25,7 +25,7 @@ import javax.swing.JOptionPane;
  *
  * @author sinanjasar
  */
-public class EditMember extends javax.swing.JFrame {
+public class PresidentEditMember extends javax.swing.JFrame {
 
     CompetitiveTeam competitiveTeam = new CompetitiveTeam("Konkurrenceholdet");
     MotionistTeam motionistTeam = new MotionistTeam("Motionistholdet");
@@ -36,7 +36,7 @@ public class EditMember extends javax.swing.JFrame {
     /**
      * Creates new form SearchForMember
      */
-    public EditMember() {
+    public PresidentEditMember() {
         initComponents();
     }
 
@@ -350,7 +350,7 @@ public class EditMember extends javax.swing.JFrame {
         int day = Integer.parseInt((String) dayBox.getSelectedItem());
         int month = Integer.parseInt((String) monthBox.getSelectedItem());
         int year = Integer.parseInt((String) yearBox.getSelectedItem());
-        int age = (int) ChronoUnit.YEARS.between(LocalDate.of(year,month,day), LocalDate.now());
+        int age = (int) ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now());
         Team newTeam = null;
         boolean competitive = this.konkurrence.isSelected();
         boolean motionist = this.motionist.isSelected();
@@ -388,12 +388,12 @@ public class EditMember extends javax.swing.JFrame {
             }
 
             if (!crawl && !bryst && !butterfly && !rygcrawl && competitive == true) {
-                
+
                 throw new Exception("Vælg venligst din disciplin");
 
             }
             if ((crawl || bryst || butterfly || rygcrawl) && motionist == true) {
-                
+
                 throw new Exception("Motionister må ikke vælge en disciplin");
 
             }
@@ -403,25 +403,22 @@ public class EditMember extends javax.swing.JFrame {
         }
 
         try {
-            
-            
 
             if (competitive) {
                 newTeam = new CompetitiveTeam("Konkurrenceholdet");
                 ctrl.competitiveChosen(editTerm, editTermInt, newFirstName, newLastName, newActivity, age, year, month, day, newDis, newTeam);
-            ctrl.editAllMembers(editTerm, newFirstName, newLastName, newActivity, year, month, day, newDis, newTeam);
+                ctrl.editAllMembers(editTerm, newFirstName, newLastName, newActivity, age, year, month, day, newDis, newTeam);
+                JOptionPane.showMessageDialog(this, newFirstName + " er blevet opdateret.");
             }
-                if (motionist) {
-                    newTeam = new MotionistTeam("Motionistholdet");
-                    ctrl.motionistChosen(editTerm, editTermInt, newFirstName, newLastName, newActivity, age, year, month, day, newDis, newTeam);
-                ctrl.editAllMembers(editTerm, newFirstName, newLastName, newActivity, year, month, day, newDis, newTeam);
-                }
-            
+            if (motionist) {
+                newTeam = new MotionistTeam("Motionistholdet");
+                ctrl.motionistChosen(editTerm, editTermInt, newFirstName, newLastName, newActivity, age, year, month, day, newDis, newTeam);
+                ctrl.editAllMembers(editTerm, newFirstName, newLastName, newActivity, age, year, month, day, newDis, newTeam);
+                JOptionPane.showMessageDialog(this, newFirstName + " er blevet opdateret.");
+            }
 
         } catch (Exception e) {
         }
-
-        
 
 
     }//GEN-LAST:event_RedigerActionPerformed
@@ -453,21 +450,23 @@ public class EditMember extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PresidentEditMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PresidentEditMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PresidentEditMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PresidentEditMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditMember().setVisible(true);
+                new PresidentEditMember().setVisible(true);
             }
         });
     }

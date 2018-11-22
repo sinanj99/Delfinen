@@ -50,7 +50,7 @@ public class CoachFindCompetitionMember extends javax.swing.JFrame {
             }
         });
 
-        ShowMemberButton.setText("Vis medlem");
+        ShowMemberButton.setText("Vælg medlem");
         ShowMemberButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ShowMemberButtonActionPerformed(evt);
@@ -164,7 +164,7 @@ public class CoachFindCompetitionMember extends javax.swing.JFrame {
 
     private void ShowMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowMemberButtonActionPerformed
         String msg = jTextField1.getText();
-        new EnterCompetitiveResult(msg).setVisible(true);
+        new CoachEnterCompetitiveResult(msg).setVisible(true);
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_ShowMemberButtonActionPerformed

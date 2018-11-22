@@ -16,18 +16,18 @@ import javax.swing.JOptionPane;
  *
  * @author sinanjasar
  */
-public class EnterTrainingResults extends javax.swing.JFrame {
+public class CoachEnterTrainingResults extends javax.swing.JFrame {
 
     Controller ctrl = new Controller();
 
     /**
      * Creates new form TrainingResults
      */
-    public EnterTrainingResults() {
+    public CoachEnterTrainingResults() {
         initComponents();
     }
 
-    public EnterTrainingResults(String passedId) {
+    public CoachEnterTrainingResults(String passedId) {
         initComponents();
         jLabel1.setText(passedId);
     }
@@ -89,7 +89,7 @@ public class EnterTrainingResults extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Tid:");
+        jLabel6.setText("Tid (pr 50m)");
 
         buttonGroup1.add(Crawl);
         Crawl.setText("Crawl");
@@ -152,27 +152,26 @@ public class EnterTrainingResults extends javax.swing.JFrame {
                             .addComponent(Butterfly))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(67, 67, 67)
-                                        .addComponent(jLabel7))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(65, 65, 65)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jLabel6)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabel3))))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jLabel6)
+                                        .addContainerGap(177, Short.MAX_VALUE))
+                                    .addComponent(jLabel3)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(67, 67, 67)
+                                .addComponent(jLabel7)
+                                .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                                .addComponent(dayBox, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(monthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(dayBox, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(monthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(56, 56, 56))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Rygcrawl)
@@ -281,34 +280,22 @@ public class EnterTrainingResults extends javax.swing.JFrame {
         try {
             if (crawl) {
                 discipline = "crawl";
-//                member.setBestCrawlResult(time);
-//                member.setBestCrawlResultDate(date);
-                CoachFile.deleteResult(String.valueOf(member.getId()), "/Users/sinanjasar/Desktop/delfinentxt/BestCrawlResults.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteCrawlResults.txt");
-                CoachFile.printResult(member.getId(), time, date, "/Users/sinanjasar/Desktop/delfinentxt/BestCrawlResults.txt");
+                ctrl.printTrainingResult("/Users/sinanjasar/Desktop/delfinentxt/BestCrawlResults.txt","/Users/sinanjasar/Desktop/delfinentxt/TempDeleteCrawlResults.txt", id, time, date);
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!" );
             }
             if (chest) {
                 discipline = "brystsvømning";
-//                member.setBestChestResult(time);
-//                member.setBestChestResultDate(date);
-                CoachFile.deleteResult(String.valueOf(member.getId()), "/Users/sinanjasar/Desktop/delfinentxt/ChestResults.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteChestResults.txt");
-                CoachFile.printResult(member.getId(), time, date, "/Users/sinanjasar/Desktop/delfinentxt/ChestResults.txt");
+                ctrl.printTrainingResult("/Users/sinanjasar/Desktop/delfinentxt/ChestResults.txt","/Users/sinanjasar/Desktop/delfinentxt/TempDeleteChestResults.txt", id, time, date);
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!" );
             }
             if (butterfly) {
                 discipline = "butterfly";
-//                member.setBestButterflyResult(time);
-//                member.setBestButterflyResultDate(date);
-                CoachFile.deleteResult(String.valueOf(member.getId()), "/Users/sinanjasar/Desktop/delfinentxt/ButterflyResults.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteButterflyResults.txt" );
-                CoachFile.printResult(member.getId(), time, date, "/Users/sinanjasar/Desktop/delfinentxt/ButterflyResults.txt");
+                ctrl.printTrainingResult("/Users/sinanjasar/Desktop/delfinentxt/ButterflyResults.txt","/Users/sinanjasar/Desktop/delfinentxt/TempDeleteButterflyResults.txt", id, time, date);
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!" );
             }
             if (backcrawl) {
                 discipline = "backcrawl";
-//                member.setBestBackCrawlResult(time);
-//                member.setBestBackCrawlResultDate(date);
-                CoachFile.deleteResult(String.valueOf(member.getId()), "/Users/sinanjasar/Desktop/delfinentxt/BackCrawlResults.txt","/Users/sinanjasar/Desktop/delfinentxt/TempDeleteBackCrawlResults.txt");
-                CoachFile.printResult(member.getId(), time, date,"/Users/sinanjasar/Desktop/delfinentxt/BackCrawlResults.txt");
+                ctrl.printTrainingResult("/Users/sinanjasar/Desktop/delfinentxt/BackCrawlResults.txt","/Users/sinanjasar/Desktop/delfinentxt/TempDeleteBackCrawlResults.txt", id, time, date);
                 JOptionPane.showMessageDialog(this, "Resultatet er blevet registreret!");
             }
 
@@ -352,21 +339,23 @@ public class EnterTrainingResults extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EnterTrainingResults.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CoachEnterTrainingResults.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EnterTrainingResults.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CoachEnterTrainingResults.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EnterTrainingResults.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CoachEnterTrainingResults.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EnterTrainingResults.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CoachEnterTrainingResults.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EnterTrainingResults().setVisible(true);
+                new CoachEnterTrainingResults().setVisible(true);
             }
         });
     }

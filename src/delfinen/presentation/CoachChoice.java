@@ -90,7 +90,7 @@ public class CoachChoice extends javax.swing.JFrame {
                         .addGap(159, 159, 159)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(183, 183, 183)
+                        .addGap(181, 181, 181)
                         .addComponent(jLabel1)))
                 .addContainerGap(98, Short.MAX_VALUE))
         );
@@ -103,11 +103,11 @@ public class CoachChoice extends javax.swing.JFrame {
                 .addComponent(Top5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(UdtagSvømmer)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(IndtastTræningsresultat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -116,7 +116,7 @@ public class CoachChoice extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Top5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Top5ActionPerformed
-        new Top5ChooseDiscipline().setVisible(true);
+        new CoachTop5ChooseDiscipline().setVisible(true);
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_Top5ActionPerformed
@@ -128,7 +128,7 @@ public class CoachChoice extends javax.swing.JFrame {
     }//GEN-LAST:event_IndtastTræningsresultatActionPerformed
 
     private void UdtagSvømmerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UdtagSvømmerActionPerformed
-        new ChooseCompSwimmer().setVisible(true);
+        new CoachChooseCompSwimmer().setVisible(true);
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_UdtagSvømmerActionPerformed

@@ -89,7 +89,9 @@ public class CashierChoice extends javax.swing.JFrame {
     }//GEN-LAST:event_showMembersButtonActionPerformed
 
     private void deficitMembersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deficitMembersButtonActionPerformed
-        //asd
+        new CashierShowDeficit().setVisible(true);
+        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_deficitMembersButtonActionPerformed
 
     private void personnelChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personnelChoiceActionPerformed

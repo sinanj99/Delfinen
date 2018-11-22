@@ -5,6 +5,9 @@
  */
 package delfinen.test;
 
+import delfinen.data.Member;
+import delfinen.filehandler.CoachFile;
+import delfinen.filehandler.PresidentFile;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,12 +17,8 @@ import static org.junit.Assert.*;
  */
 public class CoachFileTest {
     
+    
     public CoachFileTest() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }

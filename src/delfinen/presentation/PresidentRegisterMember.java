@@ -29,7 +29,7 @@ import javax.swing.JOptionPane;
  *
  * @author sinanjasar
  */
-public class RegisterMember extends javax.swing.JFrame {
+public class PresidentRegisterMember extends javax.swing.JFrame {
 
     CompetitiveTeam competitiveTeam = new CompetitiveTeam("Konkurrenceholdet");
     MotionistTeam motionistTeam = new MotionistTeam("Motionistholdet");
@@ -39,7 +39,7 @@ public class RegisterMember extends javax.swing.JFrame {
     /**
      * Creates new form GUIDelfinen2
      */
-    public RegisterMember() {
+    public PresidentRegisterMember() {
 
         initComponents();
     }
@@ -417,32 +417,19 @@ public class RegisterMember extends javax.swing.JFrame {
 
             if (competitive) {
                 competitiveMember = ctrl.createCompetitiveMember(userId, firstName, lastName, activity, age, LocalDate.of(year, month, day), dis, competitiveTeam);
-//                ctrl.addCompetitiveMember(competitiveMember, competitiveTeam);
-//                ctrl.addMember(competitiveMember, competitiveTeam);
                 ctrl.printCompetitiveMember(competitiveMember);
-//                ctrl.printCompetitiveTeamMembers(competitiveMember);
-//                ctrl.PrintCompetitiveMemberArrayList(competitiveMember);
-
                 if (ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.now()) < 18) {
-//                    ctrl.addJuniorMember(competitiveMember, juniorTeam);
                     ctrl.printJunior(competitiveMember);
-//                    ctrl.printJuniorMemberArrayList(juniorTeam.getJuniorMembers());
                 } else {
-//                    ctrl.addSeniorMember(competitiveMember, seniorTeam);
                     ctrl.printSenior(competitiveMember);
-//                    ctrl.printSeniorMemberArrayList(seniorTeam.getSeniorMembers());
                 }
                 JOptionPane.showMessageDialog(this, firstName + " er blevet oprettet.");
             }
             if (motionist) {
                 member = ctrl.createMember(userId, firstName, lastName, activity, age, LocalDate.of(year, month, day), dis, motionistTeam);
                 System.out.println(age);
-//                ctrl.addMotionistMember(member, motionistTeam);
-//                ctrl.addMember(member, motionistTeam);
-//                ctrl.printMotionistTeamMembers(member);
                 ctrl.printMember(member);
                 ctrl.printMotionistMember(member);
-//                ctrl.printMotionistMemberArrayList(motionistTeam.getMotionistMembers());
                 JOptionPane.showMessageDialog(this, firstName + " er blevet oprettet.");
             }
         } catch (Exception e) {
@@ -502,14 +489,62 @@ public class RegisterMember extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegisterMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PresidentRegisterMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegisterMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PresidentRegisterMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegisterMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PresidentRegisterMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegisterMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PresidentRegisterMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -530,7 +565,7 @@ public class RegisterMember extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegisterMember().setVisible(true);
+                new PresidentRegisterMember().setVisible(true);
             }
         });
     }

@@ -8,7 +8,6 @@ package delfinen.presentation;
 import delfinen.data.Member;
 import delfinen.data.Payment;
 import delfinen.filehandler.CashierFile;
-import delfinen.filehandler.CoachFile;
 import delfinen.logic.Controller;
 import java.awt.Color;
 import java.awt.Font;
@@ -24,18 +23,18 @@ import javax.swing.JOptionPane;
 public class CashierShowMember extends javax.swing.JFrame {
     Member member;
     private int id;
-
+    Controller ctrl = new Controller();
     /**
      * Creates new form CashierShowMember
      */
     public CashierShowMember() {
-        this.member = CoachFile.getMember(id);
+        this.member = ctrl.getMember(id);
         initComponents();
     }
     
     public CashierShowMember(int id){
         this.id = id;
-        this.member = CoachFile.getMember(id);
+        this.member = ctrl.getMember(id);
         
         initComponents();
         memberName.setText(member.getFirstName() + " " + member.getLastName());

@@ -1,0 +1,5 @@
+2,Kurt, Kurtsen,active,118,1900-01-01,BUTTERFLY,Konkurrenceholdet
+5,Albert, Nørager,active,32,1986-04-10,RYGCRAWL,Konkurrenceholdet
+6,Magnus, Fallentin,active,69,1949-05-06,BRYST,Konkurrenceholdet
+1,Nicolai, Frandsen,active,118,1900-01-01,BUTTERFLY,Konkurrenceholdet
+7,John, Hansen,passive,118,1900-01-01,CRAWL,Konkurrenceholdet

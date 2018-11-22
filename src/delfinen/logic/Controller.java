@@ -15,34 +15,72 @@ import static delfinen.filehandler.PresidentFile.printCompetitiveJuniorMember;
 import static delfinen.filehandler.PresidentFile.printCompetitiveSeniorMember;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 
 /**
  *
  * @author sinanjasar
  */
 public class Controller {
+
     CoachFile cf = null;
+
     public Member createMember(int id, String firstName, String lastName, String activity, int age, LocalDate birthDate, Discipline discipline, Team team) {
         Member member = new Member(id, firstName, lastName, activity, age, birthDate, discipline, team);
-        //PresidentFile.printMember(member);
         return member;
     }
-    public void chooseCompetitiveMember(String term)
-    {
+
+    public void chooseCompetitiveMember(String term) {
         CoachFile.deleteCompetitionMember(term, "/Users/sinanjasar/Desktop/delfinentxt/ChosenJuniorMembers.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteChosenJuniorMembers.txt");
         CoachFile.deleteCompetitionMember(term, "/Users/sinanjasar/Desktop/delfinentxt/ChosenSeniorMembers.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteChosenSeniorMembers.txt");
-        
-        if(CoachFile.getMember(Integer.parseInt(term)).getAge() < 18)
-        {
+
+        if (CoachFile.getMember(Integer.parseInt(term)).getAge() < 18) {
             CoachFile.chooseJuniorCompetitionMember(term);
         } else {
             CoachFile.chooseSeniorCompetitionMember(term);
         }
 
     }
+
+    public void printTrainingResult(String filePath, String tempFile, int id, double time, LocalDate date) {
+        CoachFile.deleteResult(String.valueOf(id), filePath, tempFile);
+        CoachFile.printResult(id, time, date, filePath);
+    }
+
+    public void printCompetitiveResult(int id, double time, LocalDate date, String filePath) {
+        CoachFile.printResult(id, time, date, filePath);
+    }
+
     public CompetitiveMember createCompetitiveMember(int id, String firstName, String lastName, String activity, int age, LocalDate birthDate, Discipline discipline, Team team) {
         CompetitiveMember member = new CompetitiveMember(id, firstName, lastName, activity, age, birthDate, discipline, team);
         return member;
+    }
+
+    public Member getMember(int id) {
+        return CoachFile.getMember(id);
+    }
+
+    public ArrayList<Member> getMembers(String filePath) {
+        return CoachFile.getMembers(filePath);
+    }
+
+    public double calculateContingent(Member member) {
+
+        double contingent = 0;
+        if (member.getActivity().equals("passive")) {
+            contingent = 500;
+        }
+        if (member.getAge() < 18 && member.getActivity().equals("active")) {
+            contingent = 1000;
+        }
+        if (member.getAge() >= 18 && member.getAge() <= 60 && member.getActivity().equals("active")) {
+            contingent = 1600;
+        }
+        if (member.getAge() > 60 && member.getActivity().equals("active")) {
+            contingent = 1600 * 0.75;
+        }
+
+        return contingent;
     }
 
     public void printSenior(CompetitiveMember member) {
@@ -88,74 +126,11 @@ public class Controller {
 
     }
 
-    public void editAllMembers(String editTerm, String newFirstName, String newLastName, String newActivity, int year, int month, int day, Discipline newDis, Team newTeam) {
-        PresidentFile.editMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
-        PresidentFile.editMotionistMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
-        PresidentFile.editJuniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
-        PresidentFile.editSeniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+    public void editAllMembers(String editTerm, String newFirstName, String newLastName, String newActivity, int age, int year, int month, int day, Discipline newDis, Team newTeam) {
+        PresidentFile.editMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(age), String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+        PresidentFile.editMotionistMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(age), String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+        PresidentFile.editJuniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(age), String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
+        PresidentFile.editSeniorMember(editTerm, newFirstName, newLastName, newActivity, String.valueOf(age), String.valueOf(LocalDate.of(year, month, day)), String.valueOf(newDis), String.valueOf(newTeam));
     }
 
-//    public int getBestChestResultMember(Member member) {
-//        int smallest = member.getChestResults().get(0).getTime();
-//                
-//        for (int i = 1; i < member.getChestResults().size(); i++) {
-//            if (member.getChestResults().get(i).getTime() < smallest) {
-//                smallest = member.getChestResults().get(i).getTime();
-//            }
-//        }
-//
-//        return smallest;
-//    }
-//    public int getBestCrawlResultMember(Member member) {
-//        int smallest = member.getCrawlResults().get(0).getTime();
-//                
-//        for (int i = 1; i < member.getCrawlResults().size(); i++) {
-//            if (member.getCrawlResults().get(i).getTime() < smallest) {
-//                smallest = member.getCrawlResults().get(i).getTime();
-//            }
-//        }
-//
-//        return smallest;
-//    }
-//    public int getBestButterflyResultMember(Member member) {
-//        int smallest = member.getButterflyResults().get(0).getTime();
-//        for (int i = 1; i < member.getButterflyResults().size(); i++) {
-//            if (member.getButterflyResults().get(i).getTime() < smallest) {
-//                smallest = member.getButterflyResults().get(i).getTime();
-//            }
-//        }
-//
-//        return smallest;
-//    }
-//    public int getBestBackCrawlResultMember(Member member) {
-//        int smallest = member.getBackcrawlResults().get(0).getTime();
-//                
-//        for (int i = 1; i < member.getBackcrawlResults().size(); i++) {
-//            if (member.getBackcrawlResults().get(i).getTime() < smallest) {
-//                smallest = member.getBackcrawlResults().get(i).getTime();
-//            }
-//        }
-//
-//        return smallest;
-//    }
-//    
-
-//    
-//    public void addCrawlResult(Result result) 
-//    {
-//        result.getCrawlResults().add(result);
-//    }
-//    public void addChestResult(Result result)
-//    {
-//        result.getBrystResults().add(result);
-//    }
-//    public void addBackCrawlResult(Result result)
-//    {
-//        result.getRygcrawlResults().add(result);
-//    }
-//    public void addButterflyResult(Result result)
-//    {
-//        result.getButterflyResults().add(result);
-//    }
 }
-
