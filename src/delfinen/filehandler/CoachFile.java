@@ -25,7 +25,7 @@ public class CoachFile {
     private static Scanner x;
 
     public static ArrayList<Member> getMembers(String filePath) {
-        
+
         ArrayList<Member> members = new ArrayList<Member>();
         String ID = null;
         String active = null;
@@ -58,8 +58,9 @@ public class CoachFile {
 
         return members;
     }
+
     public static int getChosenMembersSize(String filePath) {
-        
+
         String ID = null;
         ArrayList<String> ids = new ArrayList<String>();
         try {
@@ -203,6 +204,77 @@ public class CoachFile {
             pw.close();
 
         } catch (Exception e) {
+
+        }
+
+    }
+
+    public static void printTop5(String term, String filepath, String top5) {
+//        String filepath = "/Users/sinanjasar/Desktop/delfinentxt/Members.txt";
+//        String chosen = "/Users/sinanjasar/Desktop/delfinentxt/ChosenSeniorMembers.txt";
+        File oldFile = new File(filepath);
+        File newFile = new File(top5);
+
+        String ID = "";
+        String activity = "";
+        String firstName = "";
+        String lastName = "";
+        String birthDate = "";
+        String dis = "";
+        String team = "";
+        String age = "";
+        try {
+            FileWriter fw = new FileWriter(newFile, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+            x = new Scanner(new File(filepath));
+            x.useDelimiter("[,\n]");
+
+            while (x.hasNext()) {
+                ID = x.next();
+                firstName = x.next();
+                lastName = x.next();
+                activity = x.next();
+                age = x.next();
+                birthDate = x.next();
+                dis = x.next();
+                team = x.next();
+
+//                int i;
+//                int large[] = new int[5];
+//                int array[] = {33, 55, 13, 46, 87, 42, 10, 34, 43, 56};
+//                int max = 0, index;
+//                for (int j = 0; j < 5; j++) {
+//                    max = array[0];
+//                    index = 0;
+//                    for (i = 1; i < array.length; i++) {
+//                        if (max < array[i]) {
+//                            max = array[i];
+//                            index = i;
+//                        }
+//                    }
+//                    large[j] = max;
+//                    array[index] = Integer.MIN_VALUE;
+//
+//                    System.out.println("Largest " + j + " : " + large[j]);
+//                }
+            
+//            }
+            if (ID.equals(term)) {
+                pw.println(ID);
+            }
+        }
+        x.close();
+        pw.flush();
+        pw.close();
+
+    }
+    catch (Exception e
+
+    
+    
+
+) {
 
         }
 
