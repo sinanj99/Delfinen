@@ -25,10 +25,6 @@ public class Team {
         return teamName;
     }
 
-//    public Coach getCoach() {
-//        return coach;
-//    }
-
     public ArrayList<Member> getMembers() {
         return members;
     }

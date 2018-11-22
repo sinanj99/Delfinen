@@ -27,7 +27,19 @@ public class Controller {
         //PresidentFile.printMember(member);
         return member;
     }
+    public void chooseCompetitiveMember(String term)
+    {
+        CoachFile.deleteCompetitionMember(term, "/Users/sinanjasar/Desktop/delfinentxt/ChosenJuniorMembers.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteChosenJuniorMembers.txt");
+        CoachFile.deleteCompetitionMember(term, "/Users/sinanjasar/Desktop/delfinentxt/ChosenSeniorMembers.txt", "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteChosenSeniorMembers.txt");
+        
+        if(CoachFile.getMember(Integer.parseInt(term)).getAge() < 18)
+        {
+            CoachFile.chooseJuniorCompetitionMember(term);
+        } else {
+            CoachFile.chooseSeniorCompetitionMember(term);
+        }
 
+    }
     public CompetitiveMember createCompetitiveMember(int id, String firstName, String lastName, String activity, int age, LocalDate birthDate, Discipline discipline, Team team) {
         CompetitiveMember member = new CompetitiveMember(id, firstName, lastName, activity, age, birthDate, discipline, team);
         return member;

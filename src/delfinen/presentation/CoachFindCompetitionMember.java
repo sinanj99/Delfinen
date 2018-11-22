@@ -69,13 +69,14 @@ public class CoachFindCompetitionMember extends javax.swing.JFrame {
         DefaultListModel jMemberList = new DefaultListModel();
         ArrayList<Member> jMembers = CoachFile.getMembers("/Users/sinanjasar/Desktop/delfinentxt/Members.txt");
         int jsize = CoachFile.getChosenMembersSize("/Users/sinanjasar/Desktop/delfinentxt/ChosenJuniorMembers.txt");
+
         if(jsize < 1){
             jMemberList.addElement("Ingen medlemmer at vælge");
         }else{
             for(int i = 0; i < jsize; i++){
-                int id = jMembers.get(i).getId();
-                String firstName = jMembers.get(i).getFirstName();
-                String lastName = jMembers.get(i).getLastName();
+                int id = Integer.parseInt(CoachFile.getChosenMembers("/Users/sinanjasar/Desktop/delfinentxt/ChosenJuniorMembers.txt").get(i));
+                String firstName = CoachFile.getMember(id).getFirstName();
+                String lastName = CoachFile.getMember(id).getFirstName();
                 jMemberList.addElement("Id: " + id + " - " + firstName + " " + lastName);
             }
         }
@@ -94,9 +95,9 @@ public class CoachFindCompetitionMember extends javax.swing.JFrame {
             sMemberList.addElement("Ingen medlemmer at vælge");
         }else{
             for(int i = 0; i < size; i++){
-                int id = sMembers.get(i).getId();
-                String firstName = sMembers.get(i).getFirstName();
-                String lastName = sMembers.get(i).getLastName();
+                int id = Integer.parseInt(CoachFile.getChosenMembers("/Users/sinanjasar/Desktop/delfinentxt/ChosenSeniorMembers.txt").get(i));
+                String firstName = CoachFile.getMember(id).getFirstName();
+                String lastName = CoachFile.getMember(id).getLastName();
                 sMemberList.addElement("Id: " + id + " - " + firstName + " " + lastName);
             }
         }
