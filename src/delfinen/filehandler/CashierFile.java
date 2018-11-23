@@ -5,21 +5,14 @@
  */
 package delfinen.filehandler;
 
-import delfinen.data.CompetitiveMember;
 import delfinen.data.Member;
 import delfinen.data.Payment;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -175,7 +168,7 @@ public class CashierFile {
                 deficitId = Integer.parseInt(ID);
 
                 if(getDeficitByMember(deficitId) > 0){
-                    members.add(new Member(Integer.parseInt(ID), firstName, lastName.trim(), Integer.parseInt(age)));
+                    members.add(new Member(Integer.parseInt(ID), firstName, lastName, Integer.parseInt(age), active));
                 }
             }
             
@@ -214,7 +207,7 @@ public class CashierFile {
                 disciplin = x.next();
                 team = x.next();
                 
-                members.add(new Member(Integer.parseInt(ID), firstName, lastName.trim(), Integer.parseInt(age)));
+                members.add(new Member(Integer.parseInt(ID), firstName, lastName.trim(), Integer.parseInt(age), active));
             }
           
         }catch(Exception e){

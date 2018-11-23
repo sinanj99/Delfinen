@@ -5,14 +5,13 @@
  */
 package delfinen.presentation;
 
-import delfinen.filehandler.CoachFile;
 import delfinen.logic.Controller;
 import java.time.LocalDate;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 /**
  *
- * @author sinanjasar
+ * @author Younes
  */
 public class CoachEnterCompetitiveResult extends javax.swing.JFrame {
     Controller ctrl = new Controller();

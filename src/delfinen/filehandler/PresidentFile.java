@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,16 +7,7 @@
 package delfinen.filehandler;
 
 import delfinen.data.CompetitiveMember;
-import delfinen.data.CompetitiveTeam;
-import delfinen.data.Discipline;
-import static delfinen.data.Discipline.BRYST;
-import static delfinen.data.Discipline.BUTTERFLY;
-import static delfinen.data.Discipline.CRAWL;
-import static delfinen.data.Discipline.RYGCRAWL;
 import delfinen.data.Member;
-import delfinen.data.MotionistTeam;
-import delfinen.data.Team;
-import delfinen.logic.Controller;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -24,9 +16,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 /**

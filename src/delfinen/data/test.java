@@ -30,8 +30,9 @@ public class test {
         //Member member = new Member(1,"","","passive",12,LocalDate.of(1999, 10, 1), Discipline.BRYST, team);
         
         Controller ctrl = new Controller();
-        Member member = ctrl.getMember(1);
-        System.out.println(ctrl.calculateContingent(member));
+        Member member = ctrl.getMember(5);
+        int id = member.getId();
+        System.out.println(ctrl.getContingent(id));
 //ctrl.editAllMembers("39", "John", "Johnsen", "passive", 2, 1999, 10, 21, Discipline.BRYST, new Team("Holdet"));
 //        System.out.println(ctrl.getMember(39));
         

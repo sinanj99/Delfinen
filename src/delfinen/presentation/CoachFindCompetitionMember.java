@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 /**
  *
- * @author sinanjasar
+ * @author Younes
  */
 public class CoachFindCompetitionMember extends javax.swing.JFrame {
 

@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author sinanjasar
+ * @author Younes
  */
 public class CoachEnterTrainingResults extends javax.swing.JFrame {
 

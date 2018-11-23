@@ -12,9 +12,7 @@ import delfinen.logic.Controller;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;
 
 /**
  *

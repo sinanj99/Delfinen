@@ -9,6 +9,7 @@ import delfinen.data.Member;
 import delfinen.filehandler.CashierFile;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -59,6 +60,11 @@ public class CashierShowDeficit extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         searchButton.setText("Søg");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         searchLabel.setText("Indtast medlem id:");
 
@@ -120,6 +126,17 @@ public class CashierShowDeficit extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        try{
+            int id = Integer.parseInt(searchField.getText());
+            new CashierShowMember(id).setVisible(true);
+            this.setVisible(false);
+            this.dispose();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Du skal indtaste tal!");
+        }
+    }//GEN-LAST:event_searchButtonActionPerformed
 
     /**
      * @param args the command line arguments

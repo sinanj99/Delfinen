@@ -6,7 +6,6 @@
 package delfinen.filehandler;
 
 import delfinen.data.Member;
-import delfinen.data.Team;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,6 +23,11 @@ import java.util.Scanner;
  */
 public class CoachFile {
 
+    /**
+     * 
+     * @param filePath The file this method goes through 
+     * @return 
+     */
     public static ArrayList<Member> getMembers(String filePath) {
 
         ArrayList<Member> members = new ArrayList<Member>();
@@ -49,7 +53,7 @@ public class CoachFile {
                 birthDay = x.next();
                 disciplin = x.next();
                 team = x.next();
-                members.add(new Member(Integer.parseInt(ID), firstName.trim(), lastName.trim(), Integer.parseInt(age)));
+                members.add(new Member(Integer.parseInt(ID), firstName.trim(), lastName.trim(), Integer.parseInt(age), active));
             }
 
         } catch (Exception e) {
@@ -128,7 +132,7 @@ public class CoachFile {
                 team = x.next();
                 // indsæt alder her!!
                 if (ID.equals(String.valueOf(id))) {
-                    member = new Member(id, firstName, lastName, Integer.parseInt(age));
+                    member = new Member(id, firstName, lastName, Integer.parseInt(age), active);
                     break;
                 }
             }
@@ -211,6 +215,11 @@ public class CoachFile {
 
     }
 
+    /**
+     * 
+     * @param filepath
+     * @return 
+     */
     public static ArrayList<String> printTop5(String filepath) {
         File oldFile = new File(filepath);
         ArrayList<Double> timeList = new ArrayList<Double>();

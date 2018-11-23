@@ -14,17 +14,13 @@ import java.util.ArrayList;
  */
 public class Member {
 
-    private String activity = "";
+    private String activity;
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
     private Discipline discipline;
     private Team team;
     private int id;
-//    private double bestCrawlResult;
-//    private double bestChestResult = 0;
-//    private double bestButterflyResult = 0;
-//    private double bestBackCrawlResult = 0;
     private int age;
 
     public Member(int id, String firstName, String lastName, String activity, int age, LocalDate birthDate, Discipline discipline, Team team) {
@@ -39,11 +35,12 @@ public class Member {
         this.age = age;
     }
     
-    public Member(int id, String firstName, String lastName, int age){
+    public Member(int id, String firstName, String lastName, int age, String activity){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.activity = activity;
     }
 
     

@@ -81,22 +81,18 @@ public class ControllerTest {
 
     @Test
     public void getMembers() {
-        Team team = new Team("holdet");
-        Member actual = new Member(1, "", "", "active", 12, LocalDate.of(1999, 10, 1), Discipline.BRYST, team);
-        Controller ctrl = new Controller();
-
-        assertNotNull(actual);
-        assertEquals(1000, ctrl.calculateContingent(actual), 0);
-
-        actual.setActivity("passive");
-        assertEquals(500, ctrl.calculateContingent(actual), 0);
-
-        actual.setActivity("active");
-        actual.setAge(19);
-        assertEquals(1600, ctrl.calculateContingent(actual), 0);
-
-        actual.setAge(61);
-        assertEquals(1200, ctrl.calculateContingent(actual), 0);
+        
+        assertNotNull(ctrl.getMember(1));
+        assertEquals(1200, ctrl.getContingent(1), 0);
+        
+        assertNotNull(ctrl.getMember(2));
+        assertEquals(500, ctrl.getContingent(2), 0);
+        
+        assertNotNull(ctrl.getMember(5));
+        assertEquals(1600, ctrl.getContingent(5), 0);
+        
+        assertNotNull(ctrl.getMember(4));
+        assertEquals(1000, ctrl.getContingent(4), 0);
 
     }
 

@@ -128,7 +128,7 @@ Controller ctrl = new Controller();
     private void CalculateContingentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalculateContingentActionPerformed
             int id = Integer.parseInt(this.jTextField1.getText());
             Member member = ctrl.getMember(id);
-            Kontingent.setText("Kontingent: " + ctrl.calculateContingent(member) + ",-");
+            Kontingent.setText("Kontingent: " + ctrl.getContingent(id) + ",-");
     }//GEN-LAST:event_CalculateContingentActionPerformed
 
     /**

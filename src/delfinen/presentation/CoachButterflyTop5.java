@@ -11,7 +11,7 @@ import javax.swing.DefaultListModel;
 
 /**
  *
- * @author sinanjasar
+ * @author Shpati Yakupi
  */
 public class CoachButterflyTop5 extends javax.swing.JFrame {
 

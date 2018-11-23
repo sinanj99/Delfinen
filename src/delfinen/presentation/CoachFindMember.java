@@ -13,7 +13,7 @@ import javax.swing.DefaultListModel;
 
 /**
  *
- * @author sinanjasar
+ * @author Younes
  */
 public class CoachFindMember extends javax.swing.JFrame {
 
