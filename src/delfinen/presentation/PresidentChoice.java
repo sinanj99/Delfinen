@@ -7,7 +7,7 @@ package delfinen.presentation;
 
 /**
  *
- * @author sinanjasar
+ * @author Shpati Jakupi
  */
 public class PresidentChoice extends javax.swing.JFrame {
 

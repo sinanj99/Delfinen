@@ -62,6 +62,12 @@ public class CoachFile {
 
         return members;
     }
+    
+    /**
+     * 
+     * @param filePath the file this method goes through
+     * @return an arraylist with all members from the specific file
+     */
 
     public static int getChosenMembersSize(String filePath) {
 
@@ -83,6 +89,12 @@ public class CoachFile {
 
         return ids.size();
     }
+    
+    /**
+     * 
+     * @param filePath the filepath this method goes through
+     * @return ArrayList including all chosen members
+     */
 
     public static ArrayList<String> getChosenMembers(String filePath) {
         String ID = null;
@@ -103,7 +115,11 @@ public class CoachFile {
 
         return ids;
     }
-
+    /**
+  * 
+  * @param id a specific member's id
+  * @return a specific member
+  */
     public static Member getMember(int id) {
         ArrayList<Member> members = new ArrayList<>();
         String filePath = "/Users/sinanjasar/Desktop/delfinentxt/Members.txt";
@@ -142,7 +158,13 @@ public class CoachFile {
         }
         return member;
     }
-
+    /**
+ * 
+ * @param id locates a member so you can add a result
+ * @param time add second and miniseconds
+ * @param date add a date
+ * @param filePath the file this method goes through
+ */
     public static void printResult(int id, double time, LocalDate date, String filePath) {
 
         //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\Person.txt");
@@ -170,7 +192,10 @@ public class CoachFile {
             ex.printStackTrace();
         }
     }
-
+    /**
+ * 
+ * @param term if this equals the id of a member you look for in a specific file then it chooses this member.
+ */
     public static void chooseSeniorCompetitionMember(String term) {
         String filepath = "/Users/sinanjasar/Desktop/delfinentxt/Members.txt";
         String chosen = "/Users/sinanjasar/Desktop/delfinentxt/ChosenSeniorMembers.txt";
@@ -217,8 +242,8 @@ public class CoachFile {
 
     /**
      * 
-     * @param filepath
-     * @return 
+     * @param filepath the file this method goes through
+     * @return the top 5 from a specific filepath including results from a disciplin:)
      */
     public static ArrayList<String> printTop5(String filepath) {
         File oldFile = new File(filepath);
@@ -255,7 +280,12 @@ public class CoachFile {
         }
         return smallList;
     }
-
+    /**
+ * 
+ * @param filepath the file this method goes through
+ * @param bestTime a Double with the seconds and miliseconds of the members:)
+ * @return top 5 from a specific file according to the id of a member:)
+ */
     public static int getTop5Names(String filepath, double bestTime) {
         
         File oldFile = new File(filepath);
@@ -267,9 +297,7 @@ public class CoachFile {
         int id = 0;
 
         try {
-//            FileWriter fw = new FileWriter(newFile, true);
-//            BufferedWriter bw = new BufferedWriter(fw);
-//            PrintWriter pw = new PrintWriter(bw);
+            
             Scanner x = new Scanner(new File(filepath));
             x.useDelimiter("[,\n]");
 
@@ -292,7 +320,10 @@ public class CoachFile {
         }
         return id;
     }
-    
+     /**
+     * 
+     * @param term if this equals the id of a member you look for in a specific file then choose this member.
+     */
     public static void chooseJuniorCompetitionMember(String term) {
         String filepath = "/Users/sinanjasar/Desktop/delfinentxt/Members.txt";
         String chosen = "/Users/sinanjasar/Desktop/delfinentxt/ChosenJuniorMembers.txt";
@@ -336,7 +367,12 @@ public class CoachFile {
         }
 
     }
-
+    /**
+     * 
+     * @param term if this equals the id of a member you look for in a specific file then choose this member.
+     * @param filepath the file this method goes through
+     * @param tempFile the file this method replaces
+     */
     public static void deleteCompetitionMember(String term, String filepath, String tempFile) {
 
         File oldFile = new File(filepath);
@@ -375,7 +411,12 @@ public class CoachFile {
         }
 
     }
-
+    /**
+     * 
+     * @param term if this equals the id of a member you look for in a specific file then choose this member.
+     * @param filePath the file this method goes trough
+     * @param tempFile the file this method replaces
+     */
     public static void deleteResult(String term, String filePath, String tempFile) {
 
         File oldFile = new File(filePath);

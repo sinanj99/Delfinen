@@ -20,12 +20,16 @@ import java.util.Scanner;
 
 /**
  *
- * @author sinanjasar
+ * @author Shpati Jakupi & Obaydah Mohamad
  */
 public class PresidentFile {
 
     private static Scanner x;
-
+    
+    /**
+ * 
+ * @return a id for each member
+ */
     public static int getLatestId() {
 
         //String fileName = "C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\PersonId.txt";
@@ -73,6 +77,11 @@ public class PresidentFile {
 
         return Integer.parseInt(lastLine);
     }
+    
+    /**
+ * 
+ * @param member Prints a member to the specific file
+ */
 
     public static void printMember(Member member) {
     
@@ -101,6 +110,11 @@ public class PresidentFile {
             ex.printStackTrace();
         }
     }
+    
+    /**
+     * 
+     * @param Prints a competitivemember
+     */
     public static void printCompetitiveMember(CompetitiveMember member) {
          //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\Person.txt");
         File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/Members.txt");
@@ -127,6 +141,11 @@ public class PresidentFile {
             ex.printStackTrace();
         }
     }
+    
+    /**
+     * 
+     * @param member prints a motionistmember
+     */
     public static void printMotionistMember(Member member) {
         //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\Person.txt");
         File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/MotionistMembers.txt");
@@ -153,7 +172,10 @@ public class PresidentFile {
             ex.printStackTrace();
         }
     }
-
+    /**
+     * 
+     * @param member prints a CompetitiveSeniorMember
+     */
     public static void printCompetitiveSeniorMember(CompetitiveMember member) {
         //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\Person.txt");
         File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/CompetitiveSeniorTeam.txt");
@@ -180,7 +202,10 @@ public class PresidentFile {
             ex.printStackTrace();
         }
     }
-
+    /**
+ * 
+ * @param member prints a CompetitiveJuniorMember
+ */
     public static void printCompetitiveJuniorMember(CompetitiveMember member) {
         //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\Person.txt");
         File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/CompetitiveJuniorTeam.txt");
@@ -207,7 +232,10 @@ public class PresidentFile {
             ex.printStackTrace();
         }
     }
-
+/**
+ * 
+ * @param member prints all junior team members
+ */
     public static void printJuniorTeamMembers(CompetitiveMember member) {
         //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\JuniorTeam.txt");
         File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/CompetitiveJuniorTeam.txt");
@@ -232,7 +260,10 @@ public class PresidentFile {
             ex.printStackTrace();
         }
     }
-
+/**
+ * 
+ * @param member prints all senior team members
+ */
     public static void printSeniorTeamMembers(CompetitiveMember member) {
         //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\SeniorTeam.txt");
         File orderFile = new File("/Users/sinanjasar/Desktop/delfinentxt/CompetitiveSeniorTeam.txt");
@@ -257,7 +288,17 @@ public class PresidentFile {
             ex.printStackTrace();
         }
     }
-
+    /**
+ * 
+ * @param editTerm if this equals the id of a member you look for in a specific file then it chooses this member.
+ * @param newFirstName give the specific member a new firstname
+ * @param newLastName give the specific member a new lastname
+ * @param newActivity give the specific member a new activity
+ * @param newAge give the specific member a new age
+ * @param newBirthdate give the specific member a new birthdate
+ * @param newDis give the specific member a new discipline
+ * @param newTeam give the specific member a new team
+ */
     public static void editMember(String editTerm, String newFirstName, String newLastName, String newActivity, String newAge, String newBirthdate, String newDis, String newTeam)
     {
         String filepath = "/Users/sinanjasar/Desktop/delfinentxt/Members.txt";
@@ -307,6 +348,17 @@ public class PresidentFile {
         }
 
     }
+       /**
+     * 
+     * @param editTerm if this equals the id of a Motionistmember you look for in a specific file then it chooses this member.
+     * @param newFirstName give the specific member a new firstname
+     * @param newLastName give the specific member a new lastname
+     * @param newActivity give the specific member a new activity
+     * @param newAge give the specific member a new age
+     * @param newBirthdate give the specific member a new birthdate
+     * @param newDis give the specific member a new discipline
+     * @param newTeam give the specific member a new team
+     */
     public static void editMotionistMember(String editTerm, String newFirstName, String newLastName, String newActivity, String newAge, String newBirthdate, String newDis, String newTeam) {
         String filepath = "/Users/sinanjasar/Desktop/delfinentxt/MotionistMembers.txt";
         String tempName = "/Users/sinanjasar/Desktop/delfinentxt/TempMember.txt";
@@ -356,6 +408,17 @@ public class PresidentFile {
 
     }
 
+    /**
+     * 
+   * @param editTerm if this equals the id of a Seniormember you look for in a specific file then it chooses this member.
+   * @param newFirstName give the specific member a new firstname
+   * @param newLastName give the specific member a new lastname
+   * @param newActivity give the specific member a new activity
+   * @param newAge give the specific member a new age
+   * @param newBirthdate give the specific member a new birthdate
+   * @param newDis give the specific member a new discipline
+   * @param newTeam give the specific member a new team
+     */
     public static void editSeniorMember(String editTerm, String newFirstName, String newLastName, String newActivity, String newAge, String newBirthdate, String newDis, String newTeam) {
         String filepath = "/Users/sinanjasar/Desktop/delfinentxt/CompetitiveSeniorTeam.txt";
         String tempName = "/Users/sinanjasar/Desktop/delfinentxt/TempSenior.txt";
@@ -404,7 +467,17 @@ public class PresidentFile {
         }
 
     }
-
+/**
+ * 
+ * @param editTerm if this equals the id of a Juniormember you look for in a specific file then it chooses this member.
+ * @param newFirstName give the specific member a new firstname
+ * @param newLastName give the specific member a new lastname
+ * @param newActivity give the specific member a new activity
+ * @param newAge give the specific member a new age
+ * @param newBirthdate give the specific member a new birthdate
+ * @param newDis give the specific member a new discipline
+ * @param newTeam give the specific member a new team
+ */
     public static void editJuniorMember(String editTerm, String newFirstName, String newLastName, String newActivity, String newAge, String newBirthdate, String newDis, String newTeam) {
         String filepath = "/Users/sinanjasar/Desktop/delfinentxt/CompetitiveJuniorTeam.txt";
         String tempName = "/Users/sinanjasar/Desktop/delfinentxt/TempJunior.txt";
@@ -453,7 +526,10 @@ public class PresidentFile {
         }
 
     }
-
+ /**
+     * 
+     * @param deleteTerm term if this equals the id of a member you look for in a specific file then choose this member and delete this member.
+     */
     public static void DeleteJuniorMember(String deleteTerm) {
         String filepath = "/Users/sinanjasar/Desktop/delfinentxt/CompetitiveJuniorTeam.txt";
         String tempFile = "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteJunior.txt";
@@ -501,7 +577,10 @@ public class PresidentFile {
         }
 
     }
-
+/**
+ * 
+ * @param deleteTerm term if this equals the id of a member you look for in a specific file then choose this member and delete.
+ */
     public static void DeleteSeniorMember(String deleteTerm) {
         String filepath = "/Users/sinanjasar/Desktop/delfinentxt/CompetitiveSeniorTeam.txt";
         String tempFile = "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteSenior.txt";
@@ -549,7 +628,10 @@ public class PresidentFile {
         }
 
     }
-
+/**
+     * 
+     * @param deleteTerm term if this equals the id of a member you look for in a specific file then choose this member and delete.
+     */
     public static void DeleteMotionistMember(String deleteTerm) {
         String filepath = "/Users/sinanjasar/Desktop/delfinentxt/MotionistMembers.txt";
         String tempFile = "/Users/sinanjasar/Desktop/delfinentxt/TempDeleteMotionist.txt";

@@ -20,6 +20,12 @@ import java.util.Scanner;
  */
 public class CashierFile {
     
+    /**
+     * 
+     * @param id finds a specific member so you can add a payment
+     * @Adds a payment to a file.
+     */
+    
     public static void addPayment(String id){
         String filePath = "/Users/sinanjasar/Desktop/delfinentxt/Payments.txt";
         File oldFile = new File(filePath);
@@ -66,6 +72,12 @@ public class CashierFile {
         }
     }
     
+    /**
+     * 
+     * @param id finds a specific member so you can see the persons payment.
+     * @returns payment from a member.
+     */
+    
     public static ArrayList<Payment> getPaymentsByMember(int id){
         String filePath = "/Users/sinanjasar/Desktop/delfinentxt/Payments.txt";
         ArrayList<Payment> payments = new ArrayList<>();
@@ -105,6 +117,12 @@ public class CashierFile {
         return payments;
     }
     
+    /**
+     * 
+     * @param id finds a specific member
+     * @returns a specific members deficit
+     */
+    
     public static int getDeficitByMember(int id){
         String filePath = "/Users/sinanjasar/Desktop/delfinentxt/Payments.txt";
         
@@ -137,6 +155,11 @@ public class CashierFile {
         
         return deficit;
     }
+    
+    /**
+     * 
+     * @return all members Deficit
+     */
     
     public static ArrayList<Member> getDeficitMembers(){
         String filePath = "/Users/sinanjasar/Desktop/delfinentxt/Members.txt";
@@ -180,6 +203,12 @@ public class CashierFile {
         
         return members;
     }
+    
+    /**
+     * 
+     * @param filePath the file this method goes through
+     * @return an arraylist with all members from the specific file
+     */
     
     public static ArrayList<Member> getMembers(String filePath){
         ArrayList<Member> members = new ArrayList<>();

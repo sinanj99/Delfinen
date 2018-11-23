@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author sinanjasar
+ * @author Shpati Jakupi
  */
 public class Member {
 

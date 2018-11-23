@@ -11,7 +11,7 @@ import javax.swing.DefaultListModel;
 
 /**
  *
- * @author Shpati Yakupi
+ * @author Shpati Jakupi
  */
 public class CoachBackCrawlTop5 extends javax.swing.JFrame {
 
