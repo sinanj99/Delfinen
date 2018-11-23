@@ -23,7 +23,7 @@ public class CashierFile {
     /**
      * 
      * @param id finds a specific member so you can add a payment
-     * @Adds a payment to a file.
+     * adds a payment to a file.
      */
     
     public static void addPayment(String id){
@@ -75,7 +75,7 @@ public class CashierFile {
     /**
      * 
      * @param id finds a specific member so you can see the persons payment.
-     * @returns payment from a member.
+     * @return payment from a member.
      */
     
     public static ArrayList<Payment> getPaymentsByMember(int id){
@@ -120,7 +120,7 @@ public class CashierFile {
     /**
      * 
      * @param id finds a specific member
-     * @returns a specific members deficit
+     * @return a specific members deficit
      */
     
     public static int getDeficitByMember(int id){

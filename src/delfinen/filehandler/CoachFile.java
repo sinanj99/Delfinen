@@ -26,7 +26,7 @@ public class CoachFile {
     /**
      * 
      * @param filePath The file this method goes through 
-     * @return 
+     * @return arraylist of all members from the filepath
      */
     public static ArrayList<Member> getMembers(String filePath) {
 

@@ -20,7 +20,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Shpati Jakupi & Obaydah Mohamad
+ * @author Shpati Jakupi, Obaydah Mohamad
  */
 public class PresidentFile {
 
@@ -112,8 +112,8 @@ public class PresidentFile {
     }
     
     /**
-     * 
-     * @param Prints a competitivemember
+     * prints a competitive member to file
+     * @param member a competitivemember
      */
     public static void printCompetitiveMember(CompetitiveMember member) {
          //File orderFile = new File("C:\\Users\\goo-x\\OneDrive\\Skrivebord\\del\\Person.txt");
