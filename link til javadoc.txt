@@ -1,0 +1,5 @@
+Af en eller anden grund blev vores javadoc ikke overført, 
+da Sinan pushede i går aftes(23-11-2018).
+
+Her er et dropbox link til den:
+https://www.dropbox.com/s/lgkaglc5t224ftc/dist.zip?dl=0
